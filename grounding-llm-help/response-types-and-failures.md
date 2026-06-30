@@ -1,13 +1,23 @@
 # When the LLM Helps a Student in a Simulation — Response Types and How They Go Wrong
 
-This is the first of two companion documents. This one is about **what kinds of help an LLM
+This is the first of three companion documents. This one is about **what kinds of help an LLM
 would give a student working in one of our simulations, and the specific ways each kind can be
-wrong.** The second document reviews the research literature on *grounding* LLMs in facts —
-the techniques that would prevent the failures catalogued here.
+wrong.** The [second document](grounding-literature-review.md) reviews the research literature on
+*grounding* LLMs in facts — the techniques that would prevent the failures catalogued here — and
+the [third](grounding-in-practice.md) covers the practical machinery — sources, verification, and
+operations.
 
 The audience and framing are the same as our other presentations: people building and studying
 classroom software. So the examples are concrete and tied to a real simulation, not abstract
 claims about AI.
+
+> **Scope note.** Our content is really a **digital textbook** — text, images, and questions
+> (multiple-choice, open response, drawing) with simulations as one rich part. This document
+> deliberately works the **simulation** case, because it's the hardest and most distinctive (it
+> has a model that can disagree with reality). The four-anchors framing below still applies to
+> non-sim content — but there the *content anchor* is just "the page's content" rather than an
+> executable model, and **scientific consensus does more of the work**. The practical machinery for grounding
+> that content lives in the [third document](grounding-in-practice.md).
 
 ---
 
@@ -25,9 +35,12 @@ And we said up front that we want the help "founded in scientific facts." The ce
 complication is that **there is no single thing called "the facts" here.** There are at least
 four reference points the help could be checked against, and they do not always agree.
 
-### The four truths
+### The four anchors
 
-| Truth | A response is "correct" when it… | The signature failure |
+These are **the four anchors a response is held to — the content, the curriculum, the science, and
+pedagogy.**
+
+| Anchor | A response is "correct" when it… | The signature failure |
 |---|---|---|
 | **The simulation's model** | matches what the sim's code actually computes | the LLM tells a physics story the sim doesn't implement |
 | **The curriculum / activity** | is on-topic, at the right level, and serves the learning goal | true, but out of scope or ahead of where the student is |
@@ -35,7 +48,7 @@ four reference points the help could be checked against, and they do not always 
 | **Pedagogy** | is good *teaching* | gives away the answer, or agrees just to be agreeable |
 
 The reason this matters — and the reason this document exists — is that **our simulations are
-deliberately simplified models, so the first truth and the third truth genuinely conflict.**
+deliberately simplified models, so the content anchor and the science anchor genuinely conflict.**
 
 Take a standard projectile launcher. To make the physics learnable, it almost certainly
 assumes **no air resistance** and **constant gravity**. In that sim, a feather and a cannonball
@@ -50,7 +63,7 @@ understand that the model is a simplification, so the best response is often one
 **deliberately differs from the simulation.** What matters is that the difference is always
 **named and framed**: the response should never present real-world science as if the sim were
 simply broken, nor present the sim's behavior as if it were the whole of reality. So neither the
-model nor real-world science is the single "primary" truth. The invariant is narrower and more
+model nor real-world science is the single "primary" anchor. The invariant is narrower and more
 useful: **every response must be contextualized against the simulation's simplifications.** A
 response that differs from the sim is fine — often ideal — as long as it tells the student *how*
 and *why* it differs.
@@ -84,7 +97,7 @@ pedagogical as it is factual.
 
 Whether the help arrives as an answer, a hint, feedback, or an explanation, underneath it the
 LLM is making one of six kinds of claim. *How* a response can be wrong depends on which kind it
-is and which truth it should have been grounded to.
+is and which anchor it should have been grounded to.
 
 | Claim type | Example in our sim | Should be grounded to | How it goes wrong |
 |---|---|---|---|
@@ -109,7 +122,7 @@ corrective. Scenario 5 develops it.
 
 ## Five scenarios, developed in full
 
-Each scenario gives the student's action, the LLM's response, *which* truth it violates, why
+Each scenario gives the student's action, the LLM's response, *which* anchor it fails, why
 it's hard to catch, and — briefly — what would catch it (the second document develops the
 "catch it" column properly).
 
@@ -130,8 +143,8 @@ The LLM answers, grounded beautifully in real science:
 student now sets a tiny mass and runs it, **the feather follows the identical arc** to the
 cannonball. The LLM was right about the world and wrong about the model on the screen.
 
-**Which truth:** correct on *scientific consensus*, but **uncontextualized** against the
-*simulation's model*. The failure isn't that the LLM sided with reality — siding with reality
+**Which anchor:** anchored to the *science*, but **adrift from the content anchor** (the
+simulation's model). The failure isn't that the LLM sided with reality — siding with reality
 can be the *right* call. The failure is that it gave the real-world answer *without framing it as
 different from the sim*, so the student can't reconcile it with what they'll see on screen.
 
@@ -155,7 +168,7 @@ back-and-forth the project wants:
   in real life? What might this simulation be leaving out?"* That turns the sim-vs-reality gap
   into the lesson itself, and can open a discussion of *what's missing from the model.*
 
-Both are grounded in all four truths and both **name the difference between sim and reality.**
+Both hold all four anchors at once and both **name the difference between sim and reality.**
 They differ only in *interaction depth* — which is a project-level design choice, not a property
 of the LLM (see the synthesis below).
 
@@ -178,8 +191,8 @@ story ("more momentum to push through" then "more drag") that lands on the right
 wrong *mechanism* — and "sinking in" is a real-world-plausible misconception being minted on the
 spot.
 
-**Which truth:** gets the *outcome* right but violates the *simulation's model*, and quietly
-violates *scientific consensus* by inventing "sinking" physics.
+**Which anchor:** gets the *outcome* right but is adrift from the *content anchor* (the
+simulation's model), and quietly breaks loose from the *science anchor* by inventing "sinking" physics.
 
 **Why it's hard to catch.** The final claim matches what the student saw, so it feels confirmed.
 Causal explanations are the most dangerous claim type precisely because the observable outcome
@@ -200,23 +213,23 @@ The student, before running anything, types:
 > *"Heavier things always fall faster, so a bigger mass will land first, right?"*
 
 **Failure 3a — sycophancy.** The LLM, tuned to be agreeable, says: *"Exactly right — great
-intuition!"* It has now confirmed a classic misconception (violates *scientific consensus* and,
-in this no-air sim, the *model* too). Sycophancy — agreeing with the user's stated belief — is a
+intuition!"* It has now confirmed a classic misconception (it is adrift from the *science anchor* and,
+in this no-air sim, the *content anchor* too). Sycophancy — agreeing with the user's stated belief — is a
 well-documented LLM tendency and is especially damaging in a learning setting where the whole
 point is to surface and test wrong intuitions.
 
 **Failure 3b — correct but pedagogically wrong.** A "safer" LLM instead says: *"Actually, no —
 without air resistance all masses fall at the same rate, so they'd land at the same time."* This
-is **factually correct against all four truths** and still a failure for an inquiry activity:
+is **factually correct against all four anchors** and still a failure for an inquiry activity:
 it hands over the answer the simulation was designed to let the student *discover*. The student
 never runs the experiment; the learning objective evaporates.
 
-**Which truth:** 3a violates *science* and *model*; 3b satisfies *science*, *model*, and
-*curriculum* but violates *pedagogy*.
+**Which anchor:** 3a is adrift from the *science* and *content* anchors; 3b is anchored to the
+*science*, *content*, and *curriculum* but fails on *pedagogy*.
 
 **Why it's hard to catch.** 3b is the trap: every factual check passes. You can only see the
 failure if "correct" includes "preserves the student's opportunity to investigate." This is why
-pedagogy has to be one of the truths and not an afterthought.
+pedagogy has to be one of the anchors and not an afterthought.
 
 **What would catch it.** A pedagogical policy in the system prompt ("don't confirm or deny
 predictions about something the student can test in the sim; redirect them to run it"), plus
@@ -239,8 +252,8 @@ stop. The LLM hallucinated an affordance, probably because air-resistance is so 
 associated with projectile-motion content in its training data. The student hunts for a control
 that doesn't exist and concludes they're doing something wrong.
 
-**Which truth:** violates the *simulation's affordances* (procedural), and dangles a concept
-(air resistance) that's *off-curriculum* for this activity.
+**Which anchor:** is adrift from the *content anchor* — the simulation's affordances (procedural) —
+and dangles a concept (air resistance) that's *off-curriculum* for this activity.
 
 **Why it's hard to catch.** The hint is on-topic and pedagogically well-shaped — it's the kind
 of thing a good tutor *would* say if the control existed. The error is in a factual claim about
@@ -278,10 +291,10 @@ the deflection is unmeasurable and the sim doesn't model it anyway. The student 
 curve that isn't there — a cousin of Scenario 1, except here *both worlds agree the effect is
 real*; it's simply negligible.
 
-**Which truth:** correct on *scientific consensus*, but violating *relevance to the sim's scope
+**Which anchor:** anchored to the *science*, but failing on *relevance to the sim's scope
 and scale*, and — depending on which way it fails — *pedagogy*.
 
-**Why it's hard to catch.** There is no factual error anywhere to detect. Every truth-checker
+**Why it's hard to catch.** There is no factual error anywhere to detect. Every anchor-checker
 passes both 5a and 5b. The only thing that distinguishes a good response is judgment about
 *magnitude* and *teaching* — neither of which is a fact about the world.
 
@@ -295,13 +308,13 @@ dominate"). It honors the student without letting the tangent derail the activit
 the LLM knows this student already has the core concept solid — and the curriculum designer or
 teacher has opted into enrichment — then the very same question is an invitation to go *deeper*,
 not something to redirect. The correct move is contingent on a model of the student and on the
-activity's intent. Which leads to the input the four truths don't cover.
+activity's intent. Which leads to the input the four anchors don't cover.
 
 ---
 
-## Beyond the four truths: a fifth input — the student's mental model
+## Beyond the four anchors: a fifth input — the student's mental model
 
-Scenario 5 exposes something the four truths can't decide on their own. Knowing the *facts*
+Scenario 5 exposes something the four anchors can't decide on their own. Knowing the *facts*
 (Coriolis is real; it's negligible at this scale; it's outside the activity) does **not** tell
 you whether to redirect the student or indulge the tangent. That decision depends on **what this
 particular student already understands** and on **what the activity wants to happen** right now.
@@ -324,8 +337,8 @@ harden into rigid rules that will sometimes be wrong. And the raw material for s
 already in front of us: **the student's own interaction history** — the sequence of parameter
 changes, runs, results, and questions — *is* evidence of what they understand.
 
-A fair way to state the full picture: the LLM should combine **four truths** (sim model,
-curriculum, science, pedagogy) with a **fifth input** (a model of the student) when deciding how
+A fair way to state the full picture: the LLM should combine the **four anchors** (the content,
+the curriculum, the science, pedagogy) with a **fifth input** (a model of the student) when deciding how
 to respond. This document is mostly about the first four; the fifth is flagged here so the
 picture is complete.
 
@@ -352,12 +365,12 @@ to deliver:
    2). Descriptive and procedural claims fail more *visibly*.
 
 4. **"Factually correct" and "good for learning" can point in opposite directions** (Scenarios
-   3b and 5). If pedagogy isn't an explicit ground truth, the system will optimize toward being a
+   3b and 5). If pedagogy isn't an explicit anchor, the system will optimize toward being a
    correct answer-key — exactly what an inquiry simulation is designed to avoid.
 
 5. **The right response often depends on the student, not just the facts.** Several scenarios
    (3b, 5) resolve differently depending on what the learner already understands — pointing to a
-   fifth input, a model of the student, layered on top of the four truths.
+   fifth input, a model of the student, layered on top of the four anchors.
 
 6. **How much back-and-forth is a design choice, not a default.** The same grounded facts can be
    delivered as a one-shot answer or as a multi-turn Socratic discovery (Scenario 1). Which is
