@@ -19,9 +19,10 @@ interaction patterns better — but it's an open question whether prompting a fr
 or we'd need to train our own.* The research both **supports and complicates** this (see the AI doc).
 
 1. **[finding-meaning-problem.md](finding-meaning-problem.md)** — *the problem, as a **straw man**.*
-   What "meaning in an interaction" is and why it's hard; centers the real-time-interview use case
-   but leaves labeled **[OTHER USE CASE]** slots to fill in. *Built from discussion + the prior PR —
-   meant to be rewritten once the broader use cases are named.*
+   What "meaning in an interaction" is and why it's hard. Two use cases now specified — real-time
+   detection for researcher interviews, and real-time feedback to students (rule-based today, GenAI
+   tomorrow) — plus a through-line that ties them together: the *compact-and-query* loop over the
+   interaction log. *Still meant to be rewritten around the general problem as more use cases land.*
 
 2. **[techniques.md](techniques.md)** — *the domain-agnostic methods.* The pipeline (sessionize →
    discover → rank by interestingness) and the succession of pattern models — association rules,

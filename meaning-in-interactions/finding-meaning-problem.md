@@ -1,11 +1,13 @@
 # Finding Meaning in User Interactions — The Problem
 
-> **This is a straw man.** It is written to be argued with. It centers the one use case we
-> have already specified in detail — real-time detection of interesting student moments — but the
-> real motivation is broader: we have *several* jobs that all reduce to "find the meaningful
-> pattern in a stream of interaction events." The slots marked **[OTHER USE CASE]** below are
-> deliberately empty for the reader to fill in. Once they are filled, this framing should be
-> rewritten so the general problem, not the detector, is the center of gravity.
+> **This is a straw man.** It is written to be argued with. Two use cases are now specified —
+> real-time detection of interesting moments (for researcher interviews) and real-time feedback to
+> students — and both reduce to "find the meaningful pattern in a stream of interaction events."
+> A **through-line has emerged**: the *compact-and-query* loop (decide what to summarize, what to
+> read in full, which view of the stream makes a pattern legible) is shared between a researcher
+> building a detector and a GenAI agent reading a student. The next rewrite should make **that
+> general problem** — not the detector specifically — the center of gravity. Remaining candidate
+> use cases are still listed, unfleshed, near the end.
 
 This is the first of four companion documents. This one states *what problem we are trying to
 solve* — what we mean by "meaning in an interaction," and why it is hard. The others survey what is
@@ -98,30 +100,65 @@ pattern, and rule-based / ML detectors are *optimizations* for patterns that tur
 cheaply or at scale. Whether that assumption survives contact with the evidence is exactly what
 [ai-architecture-question.md](ai-architecture-question.md) examines.
 
-### Use case 2: **[OTHER USE CASE — to be supplied]**
+### Use case 2 (specified): real-time feedback to students
 
-*Placeholder.* We have other jobs that require identifying patterns in interaction data but are not
-the real-time-interview case. Candidates the research below would also serve — for the reader to
-confirm, cut, or replace:
+Give a student, *while they work*, a piece of text feedback suggesting what to try next — the LLM
+helper of the [grounding-llm-help](../grounding-llm-help/) series, now viewed from the
+*interaction-reading* side. The consumer is the **student**, not a researcher, and it runs
+continuously, so the bar is different from use case 1.
 
-- **Post-hoc research analysis** — not alerting during class, but mining a whole corpus of past
-  sessions to characterize *how* students used something, or to find recurring trajectories worth
-  studying. (Different constraint: no latency pressure, but far more data and a need for
-  interpretable, aggregate patterns.)
+**It is really a conversation — a lopsided one.** The feedback is a suggestion to *act*. The student
+can't reply in writing, but they **respond by re-running the model with different parameters** to
+address what the suggestion said. So each suggestion and the student's next actions form an implicit
+back-and-forth. That framing raises the stakes: a suggestion that is wrong, redundant, or badly
+timed doesn't just miss — it reads as **annoying**, and the quality of the whole "conversation" is
+capped by how well the system covers the situations that actually arise.
+
+**Variant A — rule system + states (what we do now).** A rule engine maps the interaction stream
+onto a list of **states**, and feedback is chosen by the student's current state. This is, at
+bottom, the **detector approach of use case 1** — but with a much heavier detection burden. Instead
+of a researcher hand-specifying a *handful* of interesting patterns, someone must enumerate **many**
+cases per state to get usable coverage, and every gap surfaces immediately as bad feedback. Coverage
+*is* the product.
+
+**Variant B — a GenAI feedback agent (not yet built).** Replace the rule/state machine with a
+generative model that both **detects meaning in the interactions** and **crafts the suggestion.**
+The appeal:
+- *Less annoying, more interesting* to work with than fixed rules.
+- *Easier to extend* to a new simulation or a new goal for an existing one — instead of enumerating
+  all the rules and states, we specify **what information the model needs** to behave the way we
+  want.
+
+The costs are the mirror image:
+- *Non-determinism* — the same situation may not produce the same suggestion.
+- *Not auditable by inspection* — an author/researcher can't read a rulebook to predict or vet the
+  behavior, unlike Variant A. (This is the same auditability/grounding tension the
+  [grounding-llm-help](../grounding-llm-help/) docs work through for the *content* of the help; here
+  it recurs for the *reading of the interactions* that precedes the help.)
+
+**Why this is the same problem, not a neighbor of it.** The GenAI agent can't simply be fed the raw
+interaction log — these logs get large. It needs (a) a **compacted** representation of what the
+student has done, and (b) a **tool to query** the full log, and probably *alternative
+representations* of it, on demand. **That compact-and-query loop is exactly what a researcher does
+when working out how to detect an event** (use case 1) — decide what to summarize, what to look at
+in full, which view of the stream makes the pattern legible. So this use case doesn't just *use* the
+detector research; it shares its core mechanism. (This is the through-line worth pulling on as this
+straw man is rewritten around the general problem.)
+
+### Other candidate use cases (named, not yet fleshed out)
+
+Still placeholders — for the reader to confirm, cut, or replace:
+
+- **Post-hoc research analysis** — mining a whole corpus of past sessions to characterize *how*
+  students used something, or to find recurring trajectories worth studying. (No latency pressure,
+  but far more data and a need for interpretable, aggregate patterns.)
 - **Formative signal for teachers** — surfacing struggle / disengagement to the *teacher* during
-  class as a dashboard, rather than to a researcher for an interview. (Different consumer, different
-  tolerance for false positives.) *DDCI (Baker et al., 2024) explicitly proposes exactly this as a
-  use of the same detector infrastructure — notifying teachers of a disengaged student, a good
-  strategy to praise, or an ineffective one to scaffold — so this candidate has direct research
-  backing.*
-- **Product / UX evaluation** — using interaction patterns to judge whether a feature of our own
-  software is helping or hurting the learning goal, or to discover something students are trying to
-  do that the software doesn't support. (This is the classic UX-analytics job, covered in
-  [techniques.md](techniques.md).)
-
-### Use case 3: **[OTHER USE CASE — to be supplied]**
-
-*Placeholder for a use case the reader has in mind that isn't captured above.*
+  class, rather than to a researcher for an interview. *DDCI (Baker et al., 2024) explicitly proposes
+  exactly this — notifying teachers of a disengaged student, a good strategy to praise, or an
+  ineffective one to scaffold — so this candidate has direct research backing.*
+- **Product / UX evaluation** — using interaction patterns to judge whether a feature of our software
+  helps or hurts the learning goal, or to discover something students are trying to do that the
+  software doesn't support. (The classic UX-analytics job, in [techniques.md](techniques.md).)
 
 ---
 
@@ -137,6 +174,13 @@ for how we should build.** In particular:
 - Whether the modern-AI bet — transformers/LLMs over RNNs, and *pretrained* over *trained-from-
   scratch* — is supported by evidence yet, or is still an open question we would be taking on
   ([ai-architecture-question.md](ai-architecture-question.md)).
+- **How to compact an interaction log and query it on demand** — the through-line shared by the
+  detector and feedback use cases. What to summarize vs. read in full, which alternative
+  representations make a pattern legible, and what a query tool over the raw stream should offer.
+  This touches sessionization and compression ([techniques.md](techniques.md)) and LLM
+  serialization / long-context / memory ([ai-architecture-question.md](ai-architecture-question.md)),
+  and it echoes the source-compression and querying machinery in
+  [../grounding-llm-help/grounding-in-practice.md](../grounding-llm-help/grounding-in-practice.md).
 
 Where the evidence is thin, or applies only *by analogy* to K-12 classroom software, these
 documents say so plainly. That honesty matters more than a tidy story.

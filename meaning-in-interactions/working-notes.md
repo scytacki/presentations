@@ -34,12 +34,21 @@ uncommitted until the user explicitly asks to commit.
   techniques-first *and* edtech-centered were both wanted, so they became two separate docs; the
   RNN→transformer / pretrained-vs-trained analysis earned its own (fourth) doc rather than being a
   section.
-- **The problem doc is deliberately a straw man.** The user said the motivation is broader than the
-  detector use case ("we have other use cases that require identifying patterns") and that they'll
-  review and expand it. So doc 1 centers the detector case but leaves **[OTHER USE CASE]** slots
-  (candidates offered: post-hoc corpus analysis, teacher-facing formative signal, product/UX
-  evaluation). **Expect doc 1 to be rewritten** once the user names the real other cases — and the
-  center of gravity may shift from "detector" to "the general pattern-finding problem."
+- **The problem doc is deliberately a straw man.** The motivation is broader than the detector case;
+  the user is naming use cases incrementally. **Now specified: (1)** real-time detection for
+  researcher interviews, **(2)** real-time feedback to students — Variant A rule-system+states
+  (current; = the detector approach but with a much larger detection/coverage burden), Variant B a
+  GenAI feedback agent (not yet built; less annoying, easier to extend, but non-deterministic and
+  not auditable-by-rules). Still-open candidates: post-hoc corpus analysis, teacher-facing formative
+  signal (DDCI-backed), product/UX evaluation.
+- **The unifying through-line the user surfaced:** the **compact-and-query loop** over interaction
+  logs (summarize vs. read-in-full, alternative representations, a query tool over the raw stream)
+  is the *same* work whether a researcher is building a detector or a GenAI agent is reading a
+  student. This is now the intended center of gravity for the eventual rewrite, and it ties to
+  `techniques.md` (sessionization/compression), `ai-architecture-question.md`
+  (serialization/long-context/memory), and grounding-llm-help's `grounding-in-practice.md`. **The
+  feedback use case also bridges to the [grounding-llm-help](../grounding-llm-help/) series** (its
+  GenAI variant *is* that series' LLM helper, seen from the interaction-reading side).
 - **Folder name `meaning-in-interactions`** chosen by the user over alternatives.
 - **No formal spec file.** The user chose to skip the brainstorming skill's `docs/superpowers/specs`
   step and go straight to research + drafting (the grounding-llm-help set was produced the same
