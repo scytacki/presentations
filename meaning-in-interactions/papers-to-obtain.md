@@ -18,8 +18,10 @@ verified details into the relevant doc (and, for the top ones, a `papers/` deep-
 ## Priority 2 — strengthen the EdTech-landscape claims
 
 - **Beck & Gong (2013), Wheel-Spinning: Students Who Fail to Master a Skill.** AIED 2013. DOI
-  10.1007/978-3-642-39112-5_44. **Paywalled (Springer LNCS).** *Why:* the origin of the
-  wheel-spinning construct; confirm the exact operational definition we quote.
+  10.1007/978-3-642-39112-5_44. **Paywalled (Springer LNCS).** *Nice-to-have, low priority:* the
+  *origin* of the wheel-spinning construct. Its concept and operational definition are already
+  covered by the **in-hand Kai et al. (2018)** full text (which cites and restates Beck & Gong), so
+  obtain this only if we want to cite the origin directly rather than via Kai et al.
 - **D'Mello & Graesser (2012), Dynamics of affective states during complex learning.** *Learning and
   Instruction*, 22(2), 145–157. DOI 10.1016/j.learninstruc.2011.10.001. **Paywalled (Elsevier).**
   *Why:* the confusion→frustration→boredom model we lean on for "meaning is a *transition*."
@@ -67,4 +69,5 @@ For reference, these were **directly verified** by fetching the source and need 
 (arXiv:2002.07033), **SASRec** (arXiv:1808.09781), **LogLLM** (arXiv:2411.08561),
 **Forecasting Live Chat Intent** (arXiv:2408.04668), **Joseph digital-frustration preprint**
 (arXiv:2512.20438), **Owen et al. 2019 wheel-spinning** (ERIC ED599202, open), **Kai et al. 2018
-JEDM** (open).
+JEDM** (open — *full text now in hand*, local copy `~/Downloads/olney,+kai-1.0.1.pdf`; confirms the
+ASSISTments decision-tree method over bottom-out-hint and inter-problem-delay features).

@@ -215,8 +215,9 @@ which is the opening the hypothesis points at.
 - **Ghosh, A., Heffernan, N., & Lan, A. S. (2020).** Context-Aware Attentive Knowledge Tracing
   (**AKT**). *KDD 2020*. Author copy open (umass.edu). Reports up to ~6% AUC gain over prior KT.
 - **Kai, S., Almeda, M. V., Baker, R. S., Heffernan, C., & Heffernan, N. (2018).** Decision Tree
-  Modeling of Wheel-Spinning and Productive Persistence in Skill Builders. *JEDM*, 10(1).
-  **Open access (JEDM).**
+  Modeling of Wheel-Spinning and Productive Persistence in Skill Builders. *JEDM*, 10(1), 36–71.
+  **Open access (JEDM); full text read.** ASSISTments; decision tree over bottom-out-hint and
+  inter-problem-delay features. Restates the Beck & Gong (2013) wheel-spinning definition.
 - **Liu, Z., Liu, Q., Chen, J., Huang, S., Tang, J., & Luo, W. (2022).** pyKT: A Python Library to
   Benchmark Deep Learning based Knowledge Tracing Models. *NeurIPS 2022 Datasets & Benchmarks*.
   arXiv:2206.11460. **Open access (arXiv).**
