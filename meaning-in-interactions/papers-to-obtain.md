@@ -17,6 +17,14 @@ verified details into the relevant doc (and, for the top ones, a `papers/` deep-
 
 ## Priority 2 — strengthen the EdTech-landscape claims
 
+- **Munshi, A., Rajendran, R., Ocumpaugh, J., Biswas, G., Baker, R. S., & Paquette, L. (2018).**
+  Modeling Learners' Cognitive and Affective States to Scaffold SRL in Open-Ended Learning
+  Environments. *UMAP 2018*, 131–138. DOI 10.1145/3209219.3209241. **Paywalled (ACM).** *Why:* the
+  paper behind DDCI's *behavioral*-sequence detectors. Its underlying method is already covered by
+  the **in-hand, open** Kinnebrew, Loretz & Biswas (2013) differential-sequence-mining paper (ERIC
+  EJ1115377), so obtain Munshi 2018 only for its *specific* detector application (which behavioral
+  sequences, how validated).
+
 - **Beck & Gong (2013), Wheel-Spinning: Students Who Fail to Master a Skill.** AIED 2013. DOI
   10.1007/978-3-642-39112-5_44. **Paywalled (Springer LNCS).** *Nice-to-have, low priority:* the
   *origin* of the wheel-spinning construct. Its concept and operational definition are already
@@ -75,4 +83,6 @@ ASSISTments decision-tree method over bottom-out-hint and inter-problem-delay fe
 `learninganalytics.upenn.edu/ryanbaker/jiang-aied2018.pdf`, *full text read*; the construction paper
 behind DDCI's affect detectors — BROMP labels, 249 features, feature-engineering-vs-DNN tradeoff),
 **BROMP 2.0 manual** (`learninganalytics.upenn.edu/ryanbaker/BROMP.pdf`, *read*; momentary
-time-sampling, ~20 s per student, states coded not transitions).
+time-sampling, ~20 s per student, states coded not transitions), **Kinnebrew, Loretz & Biswas 2013**
+"A Contextualized, Differential Sequence Mining Method" (JEDM 5(1); open at ERIC EJ1115377, *read*;
+the differential-sequence-mining method behind DDCI's behavioral detectors).

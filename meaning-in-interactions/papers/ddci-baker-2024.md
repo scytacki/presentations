@@ -81,6 +81,36 @@ different environment, so 2018 is the one to read):
   confidence.** Concrete support for the [ai-architecture-question.md](../ai-architecture-question.md)
   thesis that at education data scale the fancier architecture is not an automatic win.
 
+**How the *behavioral*-sequence detectors work** (Munshi et al., 2018 — **paywalled**, not read in
+full — building on the open **differential sequence mining** method of Kinnebrew, Loretz & Biswas,
+2013, which I did read):
+
+- **The core problem is interestingness, not frequency.** Kinnebrew et al. found that plain frequent
+  sequential-pattern mining on Betty's Brain traces produced **>1,000 patterns** occurring in ≥80% of
+  students — the same "needle in a haystack" DDCI later invokes. Raw frequency doesn't tell you which
+  sequences *mean* something.
+- **Action abstraction + context summarization** (the step most relevant to us): raw log events are
+  first mapped to a small **canonical action alphabet** (dropping noise like cursor position, merging
+  similar actions). Then each action is tagged by *context*: **-REL / -IRR** — is this action about
+  content the student *just engaged with* (e.g. adding a causal link you just read about) vs. not? —
+  and runs of a repeated action are condensed to a single **-MULT** token. This turns a raw stream
+  into a compact, *meaning-bearing* sequence.
+- **Differential sequence mining.** Combine **sequential pattern mining** (frequent patterns *across*
+  students' traces) with **episode mining** (frequent patterns *within* one trace), then rank
+  patterns by how **differentially frequent** they are between groups — high vs. low performers, or
+  **productive vs. counter-productive phases**. The between-group *contrast* is what surfaces the
+  interesting patterns out of the thousand — a concrete way to operationalize "interestingness"
+  (cf. Geng & Hamilton in [../techniques.md](../techniques.md)).
+- **Contextualization by performance.** A **piecewise-linear segmentation** of the student's
+  performance curve (map score over time) splits the timeline into productive vs. counter-productive
+  periods, so behaviors are compared *within meaningful phases* rather than globally.
+
+Munshi et al. (2018) carried this tradition into real-time *detectors* of behavioral sequences (e.g.
+deleting large sections of correct map entries after being told the map is wrong), examined against
+affect (e.g. `Hint → Read` orderings under boredom vs. delight) and classified as
+productive/unproductive. *(Munshi 2018 itself not read — see [../papers-to-obtain.md](../papers-to-obtain.md);
+the mechanism above is from the open Kinnebrew et al. 2013 method paper plus DDCI's description.)*
+
 **The delivery mechanism.** Interviewers carry a handheld field-research app, **Quick Red Fox
 (QRF)** (Hutt et al., 2022), which receives detector notifications; researchers pick the trigger
 patterns per study, and a **prioritization algorithm** chooses which student when several fire at
@@ -123,4 +153,9 @@ four vignettes are all confirmed from the primary text** (pp. 2843–2852). The 
 construction details** (BROMP observation, 20-s clips, the 249-feature breakdown, feature-engineering
 vs. DNN tradeoff) are verified from the primary text of **Jiang et al. (2018)** — open PDF at
 `learninganalytics.upenn.edu/ryanbaker/jiang-aied2018.pdf` — and the **BROMP protocol** from the
-BROMP 2.0 manual (`learninganalytics.upenn.edu/ryanbaker/BROMP.pdf`). High confidence.
+BROMP 2.0 manual (`learninganalytics.upenn.edu/ryanbaker/BROMP.pdf`). The **behavioral-sequence
+method** (differential sequence mining, action abstraction, -REL/-IRR/-MULT, piecewise segmentation)
+is from the open **Kinnebrew, Loretz & Biswas (2013)** JEDM paper (ERIC EJ1115377) — the method
+underlying the detectors; **Munshi et al. (2018) itself is paywalled and was not read**, so its
+specific application is described from that method paper plus DDCI. High confidence on the mechanism,
+medium on Munshi 2018's exact specifics.
