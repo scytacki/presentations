@@ -30,7 +30,12 @@ exact manifestation of specific learning behaviors."
    - **Relevance tagging (-REL / -IRR):** split each action by whether its content/object matches a
      recent action within a small configurable window — e.g. adding a causal link you *just read
      about* (`-REL`) vs. one unrelated to recent activity (`-IRR`). This injects short-range context
-     into otherwise context-free symbols.
+     into otherwise context-free symbols. **This is computed automatically, not hand-labeled:** the
+     algorithm checks whether an action's *content/object* identifier reappears among the previous
+     *N* actions (`N` configurable). It relies on (a) the log carrying an object key per action and
+     (b) the environment's model defining when two *different* action types refer to the same content
+     — their example is that reading a resource about a link and later adding that link count as the
+     "same" content, which draws on Betty's Brain's expert model (Biswas et al. 2010, not read).
    - **Repetition condensation (-MULT):** collapse a run of the same repeated action (past a
      threshold) into one token, so patterns aren't multiplied by how many times an action repeats.
 2. **Differential sequence mining** — combine **sequential pattern mining** (Agrawal & Srikant;

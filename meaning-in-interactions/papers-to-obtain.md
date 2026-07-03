@@ -40,7 +40,14 @@ verified details into the relevant doc (and, for the top ones, a `papers/` deep-
   record 10095357). *Why:* the neural exception in struggle-detection; confirm authors/venue/method
   before citing as "the field is starting to go neural here."
 
-## Priority 3 — techniques doc, foundational but paywalled
+## Priority 3 — nice-to-have, mechanism details
+
+- **Biswas et al. (2010)** — cited by Kinnebrew et al. (2013) for the **relevance (`-REL`/`-IRR`)
+  summarization**. *Why:* to nail down exactly how "same content/object" is defined *across*
+  action types (e.g. reading about a link ≡ adding that link), which relies on Betty's Brain's
+  expert model. Only needed if we want to reproduce or adapt the `-REL/-IRR` tagging precisely.
+
+## Priority 3b — techniques doc, foundational but paywalled
 
 - **Srikant & Agrawal (1996), GSP.** EDBT 1996, LNCS 1057. DOI 10.1007/BFb0014140. **Paywalled.**
 - **Pei, Han et al. (2001/2004), PrefixSpan.** ICDE 2001 / IEEE TKDE 2004. **Paywalled (IEEE).**
