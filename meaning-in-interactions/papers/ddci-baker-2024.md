@@ -33,14 +33,53 @@ agent about climate change, ecosystems, thermoregulation; ~1 week per topic). Th
 Betty's Brain is **open-ended**, not a closed intelligent tutor with a single right answer — a
 closer analog to CLUE than most of the detector literature.
 
-**The detectors (architecture).** Classical ML, consistent with the rest of the field:
+**"EDM/LA" is two research fields, not two detector types.** DDCI credits **educational data
+mining (EDM)** and **learning analytics (LA)** — two overlapping *communities* — as the source of
+its detectors. They are not two kinds of detector. The paper's actual detectors are of two types:
+**affect detectors** and **behavioral-sequence detectors**.
+
+**The detectors (architecture).** Classical ML, consistent with the rest of the field — **not
+neural**:
 - **Affect detectors** for boredom, frustration, confusion, engaged concentration, and delight,
-  built as **logistic regression / step regression** over hand-engineered features (action type,
-  timing, repetition), at a **20-second grain size**; trained against human classroom observations.
-  An **affective transition** is flagged when the highest-probability state shifts (e.g. engaged →
-  frustrated).
+  built as **logistic regression / step regression** over hand-engineered features, at a **20-second
+  grain size**; trained against human classroom observations. An **affective transition** is flagged
+  when the highest-probability state shifts (e.g. engaged → frustrated) — i.e. observers and
+  detectors both record *states*; **transitions are derived post-hoc from consecutive states, never
+  coded directly.**
 - **Behavioral-sequence detectors** built via **sequential pattern mining** (Munshi et al., 2018),
   interpreted through a task model (Biswas et al., 2017) to flag cognitive/metacognitive moments.
+
+**How the affect detectors were actually built** (detailed in **Jiang et al., 2018**, the
+Betty's-Brain feature-engineering paper — DDCI's own "Jiang et al., 2015" citation points at a
+different environment, so 2018 is the one to read):
+
+- **Ground truth = human field observation (BROMP), not surveys.** Two BROMP-certified coders used
+  the **Baker Rodrigo Ocumpaugh Monitoring Protocol** — *momentary time sampling*: observe each
+  student in turn, in a predetermined order, for **up to 20 seconds**, record the **first** affective
+  state and behavior clearly shown, then move on. Coded on an Android app (HART), time-stamped and
+  synced to the log. In the study: **5,212 observations across 93 sixth-graders** (~56 per student),
+  synchronized to **146,141 logged actions**; engaged concentration dominated (78%), with confusion
+  6%, frustration 4.6%, boredom 4.2%, delight 2.9%. **Behavior was coded separately from affect.**
+- **The "20-second grain."** Predictions/features are computed over 20-second windows of interaction
+  — the same window the human observations use, so log clips line up with observed labels. (They
+  tested 60-second clips; 20s worked better.)
+- **The features were a mix of generic templates and hand-crafted, environment-specific ones —
+  249 in total** before selection, in three kinds: **basic** (41 templates × 3 time-scoping variants
+  = 123: time-on-activity, action-type counts, ratios like concept/link, map-score stats — generic
+  templates but instantiated over *Betty's-Brain-specific* actions); **sequence** (90: frequencies
+  of the 30 most common *three-action sequences*, e.g. `read resource → add concept → add causal
+  link`, mined by frequency from the logs); and **threshold** (36: features with a *tuned* timing
+  cutoff, e.g. how long a pause counts as a "long pause after creating causal links"). Feature
+  selection then pruned collinear features and forward-selected per detector. So the answer to "are
+  the aggregates generic or crafted for specific events/thresholds?" is **both** — generic
+  aggregate *templates* applied to specific action types, plus mined sequences, plus threshold-tuned
+  features.
+- **Feature-engineering vs. neural nets — a tradeoff, not a neural win.** Jiang et al. (2018)
+  directly compared this expert feature engineering against deep neural networks on the same data
+  and found **feature engineering was better for a single-optimized-threshold decision (i.e. the
+  real-time *intervention/trigger* case — ours), while deep nets were better when using full model
+  confidence.** Concrete support for the [ai-architecture-question.md](../ai-architecture-question.md)
+  thesis that at education data scale the fancier architecture is not an automatic win.
 
 **The delivery mechanism.** Interviewers carry a handheld field-research app, **Quick Red Fox
 (QRF)** (Hutt et al., 2022), which receives detector notifications; researchers pick the trigger
@@ -80,4 +119,8 @@ claim is *breadth and speed of qualitative research enabled*, not a detector acc
 **Verification.** Full PDF read (23 pp). Authors, journal, volume/issue/pages, DOI, and funder
 verified from the article. The **30-second latency, Betty's Brain context, logistic/step-regression
 affect detectors at 20-s grain, sequential-pattern-mining behavior detectors, the QRF app, and the
-four vignettes are all confirmed from the primary text** (pp. 2843–2852). High confidence.
+four vignettes are all confirmed from the primary text** (pp. 2843–2852). The **affect-detector
+construction details** (BROMP observation, 20-s clips, the 249-feature breakdown, feature-engineering
+vs. DNN tradeoff) are verified from the primary text of **Jiang et al. (2018)** — open PDF at
+`learninganalytics.upenn.edu/ryanbaker/jiang-aied2018.pdf` — and the **BROMP protocol** from the
+BROMP 2.0 manual (`learninganalytics.upenn.edu/ryanbaker/BROMP.pdf`). High confidence.

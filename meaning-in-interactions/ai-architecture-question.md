@@ -67,6 +67,14 @@ head-to-head — and the result is a **cautionary tale**:
   very first DLKT model proposed by Piech et al."* — i.e. much of the reported transformer-over-RNN
   progress was partly an **evaluation artifact.** *(Solid; verified from abstract.)*
 
+And beyond knowledge tracing, on the task closest to ours — **affect detection from raw interaction
+logs** — the one head-to-head we have points the same way. **Jiang et al. (2018)** compared expert
+feature engineering against deep neural networks for detecting affect in the open-ended Betty's Brain
+environment (the very detectors DDCI uses) and found a **tradeoff, not a neural win: feature
+engineering was better for a single-optimized-threshold decision — exactly the real-time
+*trigger/intervention* case we have — while deep nets were better only when using full model
+confidence** (for offline discovery analyses). *(Solid; verified from the primary text.)*
+
 **Implication for us.** Our interaction data is far closer to KT's scale (thousands of students,
 not billions of clicks) than to Taobao's. So the KT lesson transfers: **a from-scratch transformer
 is not a free win on our data volume**, and if we train one, the gains will likely come from
@@ -168,6 +176,10 @@ by training" is well-supported.
   Time Series Forecasters. *NeurIPS 2023*. arXiv:2310.07820. **Open access.** *(Not re-verified.)*
 - **Guan, W., Cao, J., Qian, S., Gao, J., & Ouyang, C. (2024).** LogLLM: Log-based Anomaly Detection
   Using Large Language Models. arXiv:2411.08561. **Open access.** *(Verified.)*
+- **Jiang, Y., Bosch, N., Baker, R. S., Paquette, L., Ocumpaugh, J., Andres, J. M. A. L., Moore, A.
+  L., & Biswas, G. (2018).** Expert Feature-Engineering vs. Deep Neural Networks: Which Is Better for
+  Sensor-Free Affect Detection? *AIED 2018*. Open PDF (upenn.edu). *(Verified from primary text;
+  feature-engineering beat DNNs on the single-threshold intervention decision.)*
 - **Kang, W.-C., & McAuley, J. (2018).** Self-Attentive Sequential Recommendation (**SASRec**).
   *ICDM 2018*. arXiv:1808.09781. **Open access.** *(Verified.)*
 - **Liu, Z., et al. (2022).** pyKT: Benchmarking Deep Learning Knowledge Tracing. *NeurIPS 2022

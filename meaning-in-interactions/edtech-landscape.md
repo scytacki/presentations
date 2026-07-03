@@ -214,6 +214,11 @@ which is the opening the hypothesis points at.
   (Elsevier).
 - **Ghosh, A., Heffernan, N., & Lan, A. S. (2020).** Context-Aware Attentive Knowledge Tracing
   (**AKT**). *KDD 2020*. Author copy open (umass.edu). Reports up to ~6% AUC gain over prior KT.
+- **Jiang, Y., Bosch, N., Baker, R. S., Paquette, L., Ocumpaugh, J., Andres, J. M. A. L., Moore, A.
+  L., & Biswas, G. (2018).** Expert Feature-Engineering vs. Deep Neural Networks: Which Is Better for
+  Sensor-Free Affect Detection? *AIED 2018*. Open PDF (upenn.edu). The construction paper behind
+  DDCI's Betty's-Brain affect detectors (BROMP labels; 249 engineered features; feature-engineering
+  vs. DNN tradeoff). **Full text read.**
 - **Kai, S., Almeda, M. V., Baker, R. S., Heffernan, C., & Heffernan, N. (2018).** Decision Tree
   Modeling of Wheel-Spinning and Productive Persistence in Skill Builders. *JEDM*, 10(1), 36–71.
   **Open access (JEDM); full text read.** ASSISTments; decision tree over bottom-out-hint and

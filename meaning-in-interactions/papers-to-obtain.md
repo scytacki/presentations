@@ -70,4 +70,9 @@ For reference, these were **directly verified** by fetching the source and need 
 **Forecasting Live Chat Intent** (arXiv:2408.04668), **Joseph digital-frustration preprint**
 (arXiv:2512.20438), **Owen et al. 2019 wheel-spinning** (ERIC ED599202, open), **Kai et al. 2018
 JEDM** (open — *full text now in hand*, local copy `~/Downloads/olney,+kai-1.0.1.pdf`; confirms the
-ASSISTments decision-tree method over bottom-out-hint and inter-problem-delay features).
+ASSISTments decision-tree method over bottom-out-hint and inter-problem-delay features),
+**Jiang et al. 2018** "Expert Feature-Engineering vs. Deep Neural Networks" (AIED 2018 — open PDF
+`learninganalytics.upenn.edu/ryanbaker/jiang-aied2018.pdf`, *full text read*; the construction paper
+behind DDCI's affect detectors — BROMP labels, 249 features, feature-engineering-vs-DNN tradeoff),
+**BROMP 2.0 manual** (`learninganalytics.upenn.edu/ryanbaker/BROMP.pdf`, *read*; momentary
+time-sampling, ~20 s per student, states coded not transitions).
