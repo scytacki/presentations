@@ -45,9 +45,10 @@ Start with doc 1 for the problem, doc 2 for the method space, doc 3 for what edu
 
 - **[papers/](papers/)** — per-paper deep-dives of the studies closest to our work
   ([DDCI](papers/ddci-baker-2024.md), [ClickSight](papers/clicksight-radmehr-2025.md),
-  [pyKT](papers/pykt-liu-2022.md), and the [differential-sequence-mining
-  method](papers/differential-sequence-mining-kinnebrew-2013.md) behind DDCI's behavioral
-  detectors), same faithful/caveated format as the grounding folder.
+  [pyKT](papers/pykt-liu-2022.md), the [differential-sequence-mining
+  method](papers/differential-sequence-mining-kinnebrew-2013.md) behind DDCI's behavioral detectors,
+  and [text replays + whether GPT can code from them](papers/text-replays-and-llm-coding.md)), same
+  faithful/caveated format as the grounding folder.
 - **[papers-to-obtain.md](papers-to-obtain.md)** — paywalled or not-fully-verified papers worth
   getting, by priority. (DDCI's full text has since been obtained — it confirms the ~30s target.)
 - **[working-notes.md](working-notes.md)** — meta: decisions, conventions, what's verified vs.

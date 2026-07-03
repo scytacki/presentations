@@ -93,6 +93,33 @@ the field's built systems are overwhelmingly *feature-engineering + classical ML
 **predate and do not use** the transformer architecture. The hypothesis is correct *here*. Where
 it needs care is knowledge tracing, below.
 
+## 2b. Getting labels *without* live observation — text replays (and can GPT do the coding?)
+
+Step 1 above — human labeling — is the expensive bottleneck, and it normally means live BROMP
+observation, which **we cannot do for past CLUE data.** There is a validated alternative directly
+relevant to us: **text replays** (Baker, Corbett & Wagner, 2006). A coder labels a construct from a
+purely textual **replay of the log** — action-by-action, generated automatically from standard log
+files, with no face/voice/video. It sits at the bottom of a *fidelity spectrum* (live > video >
+screen replay > text replay). Replaying **CLUE document changes** is essentially this regime. What
+the validation showed (on *gaming*): text-replay inter-rater reliability is lower than live
+(**κ ≈ 0.58 vs 0.83**) but per-student *aggregate* accuracy matches live (correlation with a
+gold-standard detector **~0.57 vs ~0.54**), at **~5× the speed**, and — crucially — it runs
+**retrospectively on existing logs** with no special study. The extension to multi-tag coding is
+Baker & de Carvalho (2008). See [papers/text-replays-and-llm-coding.md](papers/text-replays-and-llm-coding.md).
+
+**Two honest limits, both ours to reckon with:**
+- **Affect is the hard case.** The 2006 paper explicitly flags that low-fidelity coding may *not*
+  work for affect (bored/frustrated), which "may depend on subtleties... only capturable through
+  higher-fidelity observation" — i.e. face/voice. Behavior/strategy codes from replay; affect
+  probably needs more than a screen recording.
+- **A GenAI coder is plausible but, so far, weak.** Maier & Baker (2025), *Can GPT Detect Gaming the
+  System in Text Replays?*, fed the *same* text replays to GPT-3.5/GPT-4: **above chance but beaten
+  by a classical model** (best GPT κ ≈ 0.17 vs a ported knowledge-engineered model's 0.26). Their
+  diagnosis — "GPT's training data likely contains little that resembles text replays" — is direct
+  evidence for the **serialization problem** in
+  [ai-architecture-question.md](ai-architecture-question.md): human-readable ≠ LLM-legible. *(Solid;
+  both papers read in full.)*
+
 ## 3. Knowledge tracing — the one place sequence models won (a different task)
 
 Knowledge tracing (KT) predicts whether a student will get the *next* problem right, given their
@@ -205,6 +232,12 @@ which is the opening the hypothesis points at.
   Researcher Time by Selecting Cases In Situ. *Educational Technology Research and Development*,
   72(5), 2841–2863. DOI 10.1007/s11423-023-10324-y. **Full text read** (local copy). See
   [papers/ddci-baker-2024.md](papers/ddci-baker-2024.md).
+- **Baker, R. S. J. d., Corbett, A. T., & Wagner, A. Z. (2006).** Human Classification of
+  Low-Fidelity Replays of Student Actions. *EDM Workshop at ITS 2006*, 29–36. **Open access; read.**
+  The text-replay method; see [papers/text-replays-and-llm-coding.md](papers/text-replays-and-llm-coding.md).
+- **Baker, R. S. J. d., & de Carvalho, A. (2008).** Labeling Student Behavior Faster and More
+  Precisely with Text Replays. *EDM 2008*. **Open access.** Text-replay *tagging* (multiple tags per
+  clip).
 - **Beck, J. E., & Gong, Y. (2013).** Wheel-Spinning: Students Who Fail to Master a Skill. *AIED
   2013*. DOI 10.1007/978-3-642-39112-5_44. **Paywalled** (Springer LNCS).
 - **Choi, Y., et al. (2020).** Towards an Appropriate Query, Key, and Value Computation for
@@ -227,6 +260,9 @@ which is the opening the hypothesis points at.
   Mining Method to Derive Students' Learning Behavior Patterns. *JEDM*, 5(1), 190–219. **Open access
   (JEDM / ERIC EJ1115377); method sections read.** The differential-sequence-mining technique behind
   DDCI's behavioral detectors; see [papers/differential-sequence-mining-kinnebrew-2013.md](papers/differential-sequence-mining-kinnebrew-2013.md).
+- **Maier, C., & Baker, R. S. (2025).** Can GPT Detect Gaming the System in Text Replays? *ICCE
+  2025*. **Open access; read.** GPT-3.5/4 on text replays — above chance (κ ≈ 0.17) but beaten by a
+  classical model (κ ≈ 0.26).
 - **Liu, Z., Liu, Q., Chen, J., Huang, S., Tang, J., & Luo, W. (2022).** pyKT: A Python Library to
   Benchmark Deep Learning based Knowledge Tracing Models. *NeurIPS 2022 Datasets & Benchmarks*.
   arXiv:2206.11460. **Open access (arXiv).**

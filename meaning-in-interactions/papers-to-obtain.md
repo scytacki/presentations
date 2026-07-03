@@ -92,4 +92,7 @@ behind DDCI's affect detectors — BROMP labels, 249 features, feature-engineeri
 **BROMP 2.0 manual** (`learninganalytics.upenn.edu/ryanbaker/BROMP.pdf`, *read*; momentary
 time-sampling, ~20 s per student, states coded not transitions), **Kinnebrew, Loretz & Biswas 2013**
 "A Contextualized, Differential Sequence Mining Method" (JEDM 5(1); open at ERIC EJ1115377, *read*;
-the differential-sequence-mining method behind DDCI's behavioral detectors).
+the differential-sequence-mining method behind DDCI's behavioral detectors), **Baker, Corbett &
+Wagner 2006** "Human Classification of Low-Fidelity Replays" (open at educationaldatamining.org,
+*read*; the text-replay coding method) and **Maier & Baker 2025** "Can GPT Detect Gaming the System
+in Text Replays?" (open at learninganalytics.upenn.edu, *read*; GPT vs classical on text replays).

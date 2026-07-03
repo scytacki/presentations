@@ -117,6 +117,14 @@ examples, this is the only approach that even starts.
   becomes impractical for large window sizes** because the whole log sequence must go in the prompt.
   A separate approach (arXiv:2406.07467) needed an **ensemble + RAG** hybrid rather than a standalone
   LLM. *(Sound; LogLLM verified, others flagged.)*
+- **The most on-point education result: GPT lost to a classical model on student log replays.**
+  Maier & Baker (2025) prompted GPT-3.5/GPT-4 to code *gaming the system* from the **text replays**
+  human coders use — and got **above-chance but weak** results (best κ ≈ 0.17), **beaten by a
+  ported knowledge-engineered model (κ ≈ 0.26)**. Their diagnosis is the cleanest statement of the
+  serialization problem we have: *"GPT's training data likely contains little that resembles text
+  replays, making it difficult for GPT to interpret interaction data formatted as text, even though
+  it is equally readable for humans."* *(Solid; read in full — see
+  [papers/text-replays-and-llm-coding.md](papers/text-replays-and-llm-coding.md).)*
 
 ### Why raw logs are hard for a pretrained LLM (the mechanism)
 
