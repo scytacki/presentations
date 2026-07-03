@@ -223,6 +223,10 @@ which is the opening the hypothesis points at.
   Modeling of Wheel-Spinning and Productive Persistence in Skill Builders. *JEDM*, 10(1), 36–71.
   **Open access (JEDM); full text read.** ASSISTments; decision tree over bottom-out-hint and
   inter-problem-delay features. Restates the Beck & Gong (2013) wheel-spinning definition.
+- **Kinnebrew, J. S., Loretz, K. M., & Biswas, G. (2013).** A Contextualized, Differential Sequence
+  Mining Method to Derive Students' Learning Behavior Patterns. *JEDM*, 5(1), 190–219. **Open access
+  (JEDM / ERIC EJ1115377); method sections read.** The differential-sequence-mining technique behind
+  DDCI's behavioral detectors; see [papers/differential-sequence-mining-kinnebrew-2013.md](papers/differential-sequence-mining-kinnebrew-2013.md).
 - **Liu, Z., Liu, Q., Chen, J., Huang, S., Tang, J., & Luo, W. (2022).** pyKT: A Python Library to
   Benchmark Deep Learning based Knowledge Tracing Models. *NeurIPS 2022 Datasets & Benchmarks*.
   arXiv:2206.11460. **Open access (arXiv).**

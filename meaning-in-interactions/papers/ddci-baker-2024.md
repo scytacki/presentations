@@ -83,7 +83,8 @@ different environment, so 2018 is the one to read):
 
 **How the *behavioral*-sequence detectors work** (Munshi et al., 2018 — **paywalled**, not read in
 full — building on the open **differential sequence mining** method of Kinnebrew, Loretz & Biswas,
-2013, which I did read):
+2013, which I did read — see its own deep-dive:
+[differential-sequence-mining-kinnebrew-2013.md](differential-sequence-mining-kinnebrew-2013.md)):
 
 - **The core problem is interestingness, not frequency.** Kinnebrew et al. found that plain frequent
   sequential-pattern mining on Betty's Brain traces produced **>1,000 patterns** occurring in ≥80% of
