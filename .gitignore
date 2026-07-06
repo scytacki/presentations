@@ -6,3 +6,6 @@ Thumbs.db
 *.swp
 *.swo
 *~
+
+# Personal notes (never tracked)
+meaning-in-interactions/scotts-notes.md
