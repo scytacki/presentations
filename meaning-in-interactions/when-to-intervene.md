@@ -15,20 +15,25 @@ story has an important twist — negative affect is often the state you should *
 
 **Domain caveat up front (applies to the whole doc).** Almost every result below comes from **one-to-one
 human tutoring** or **intelligent tutoring systems** with a *clean per-step correctness signal* (physics
-problems, algebra steps). CLUE-style open-ended work is different in two ways worth separating:
+problems, algebra steps). **Our own materials span the whole spectrum** — which is the single most
+important framing point in this doc:
 
-- **Correctness is possible but optional — it's the author's choice.** A CLUE activity *can* carry a
-  correctness signal (a modeling goal, an expected answer); whether it has one is up to the activity
-  author. So "no correctness signal" is not intrinsic to CLUE — it's a design decision.
-- **The *per-step* structure is the deeper gap.** Even when an author sets a goal, the student builds up
-  **one document over time** rather than submitting a sequence of discrete, individually-gradable steps.
-  There aren't natural checkpoints to evaluate the way a problem-solving tutor evaluates each step, so
-  constructs like "impasse" and "error" are hard to *locate in time* even when correctness is defined.
+- **Some CLUE-family activities are well-structured / gated.** E.g. a **wildfire-simulation** activity that
+  gives the student a **specific goal on each page**: clear steps, clear gates, a checkable target per
+  page. These map *directly* onto the problem-solving tutoring below (§§1–4) — impasse, contingency, and
+  the assistance dilemma apply almost off-the-shelf.
+- **Others are open-ended / ill-structured.** Open document-building (drawing, tiles, modeling, open
+  response) where the student builds up **one artifact over time** with many valid paths and no natural
+  per-step checkpoints, so constructs like "impasse" and "error" are hard to *locate in time* even when the
+  author defines correctness. Correctness itself is possible but optional here — the author's choice.
 
-A likely research consequence (picked up in §8): we may need **authors to formalize goals** so an AI
-helper can use them, and to **break the work into evaluation points**. And even then, *detecting when a
-student has achieved a formalized goal* will likely be harder than anything in this problem-solving
-research. This mismatch runs through [edtech-landscape.md](edtech-landscape.md) too.
+**The two need genuinely different intervention machinery, and a solution built for one probably does *not*
+transfer to the other** — a tendency worth resisting. The gated wildfire case can reuse step-based
+detection; the open-ended case needs the design-tutoring / behavioral-affective approach (§8). A likely
+consequence for the open-ended end (picked up in §9): authors may need to **formalize goals** and **break
+the work into evaluation points**, and even then, *detecting goal achievement* in an open artifact is
+harder than anything in this problem-solving research. This spectrum runs through
+[edtech-landscape.md](edtech-landscape.md) too.
 
 ---
 
@@ -57,17 +62,29 @@ possibly harder than detecting disengagement.
 ## 2. The formal timing policy: contingency and fading
 
 The origin of "scaffolding" — **Wood, Bruner & Ross (1976)**, *The Role of Tutoring in Problem Solving* —
-studied expert tutors helping young children with a block-construction task and named six tutoring
-functions (recruitment, reduction of degrees of freedom, direction maintenance, marking critical
-features, **frustration control**, demonstration). The follow-on **contingent shift rule** (Wood and
-colleagues) is a concrete when/how-much policy: **increase control after the child fails a step, decrease
-it after success**, and *fade* support over time so responsibility transfers to the learner. Contingent-
-then-faded support repeatedly comes out as the most effective pattern.
+studied a single trained tutor helping **3-, 4-, and 5-year-olds** with a block-construction task and named
+six tutoring functions (recruitment, reduction of degrees of freedom, direction maintenance, marking
+critical features, **frustration control**, demonstration). The follow-on **contingent shift rule** (Wood
+and colleagues) is a concrete when/how-much policy: **increase control after the child fails a step,
+decrease it after success**, and *fade* support over time so responsibility transfers to the learner.
+Contingent-then-faded support repeatedly comes out as the most effective pattern. (The age effect is
+itself telling: 3-year-olds needed constant goal reminders, 4-year-olds mostly verbal correction,
+5-year-olds were largely independent.)
 
-Why it matters here: this is an explicit, testable **intervention-timing rule** derived from watching
-human tutors, and its trigger is *success/failure on the last step* — again behavioral/cognitive, not
-affective (though "frustration control" shows affect was in scope from the start). *(Solid — foundational;
-**paywalled** (Wiley), metadata + the six functions verified.)*
+**Don't over-read "construction" as open-ended, though.** The task was assembling a *specific* six-layer
+pyramid whose blocks interlock by peg-and-hole in essentially **one correct way** — a single target
+structure with a single correct assembly. So despite being "building," it is a **well-structured** task,
+and it belongs with the physics/math problem-solving studies, *not* with open-ended design. It maps well
+onto our **gated** materials (the wildfire-style, per-page-goal activities). What changes when the task is
+genuinely ill-structured — many valid solutions, no correct path, our open document-building activities —
+is a different tutoring tradition entirely; §8 takes that up.
+
+Why it matters here: the contingent shift rule is an explicit, testable **intervention-timing rule**
+derived from watching human tutors, and its trigger is *success/failure on the last step* —
+behavioral/cognitive, not affective (though "frustration control" shows affect was in scope from the
+start), **and it presumes a step-structured task — which our gated activities have and our open-ended ones
+don't.** *(Solid — foundational;
+**paywalled** (Wiley), metadata + six functions + the 3–5 age range and pyramid task verified.)*
 
 ---
 
@@ -224,8 +241,63 @@ often the *observable surface* of a conceptual struggle. So these signals remain
 
 ---
 
-## 8. What this means for us
+## 8. Well-structured vs. ill-structured: the design / engineering-tutoring tradition
 
+Stepping back from software to *learning* tasks: nearly everything in §§1–6 (and the block study in §2)
+assumes a **well-structured** problem — a convergent answer, a definable solution path, gradable steps.
+That fits our **gated** materials (the wildfire-style, per-page-goal activities) well. But a large share of
+our materials are the opposite — open-ended document-building — and the intuition that an **"engineering
+tutor"** (open-ended building/design, many valid solutions) is a different animal from a **problem-set
+tutor** (physics/math) is correct. It's a named distinction with its own literature, and it's the tradition
+that fits the **open-ended** end of our range.
+
+**This is the doc's central practical claim: the two ends need different machinery, and don't assume one
+transfers.** A helper tuned for the gated wildfire activity (step goals, impasse detection, contingent
+hints) will not simply carry over to an open modeling activity, and vice versa — they differ in what a
+"good moment to intervene" even *is*.
+
+- **The vocabulary: well- vs. ill-structured problems (Jonassen, 1997).** Well-structured = constrained,
+  convergent, a limited rule set within defined parameters. **Ill-structured = multiple solutions and
+  solution paths, ambiguous parameters, and uncertainty about which concepts even apply** — and *design*
+  problems are the most ill-structured of all. Jonassen argues they need a **different solving model and a
+  different instructional model** (constructivist / situated), not the information-processing model behind
+  step-based tutoring. This is the formal version of the engineering-vs-problem-tutor distinction, and it's
+  the lens for sorting our own materials: the gated wildfire-style activities are well-structured (step
+  machinery fits); the open document-building activities are ill-structured (it doesn't).
+  *(Verified: ETR&D 45(1), 65–94.)*
+- **The tutoring tradition: Schön's reflective design studio (1983/1987).** The canonical account of
+  tutoring *open-ended design* is the architecture studio — the **crit**, **reflection-in-action**, a
+  "reflective conversation with the situation." The tutor's move is to help the student **reframe the
+  problem**, not step them toward a known answer (Schön's Quist–Petra design-review vignette is the classic
+  example). That's a fundamentally different *intervention mode* than "detect impasse → give hint": the
+  trigger isn't an error, it's a **framing worth challenging**, and the response is a prompt to reflect.
+  Harder to detect, and much harder to automate — Schön's mode is deeply human. *(Foundational; concepts
+  verified this session, primary books not read.)*
+- **The ITS attempt: tutoring in ill-defined domains.** A recognized hard sub-field. Model-tracing /
+  ACT-R–style tutors assume a solution path to trace against; design domains have *many controversial
+  solutions and no clear way to evaluate one*, so the classic techniques don't transfer. Work exists
+  (e.g. Fournier-Viger, Nkambou et al., *Building ITS for Ill-Defined Domains*; recent engineering-design
+  ITS), but it's explicitly an open problem. *(Scan-only — chapter PDF located, not read.)*
+
+**The tie-back to our own anchor:** **Betty's Brain** — the environment behind DDCI
+([papers/ddci-baker-2024.md](papers/ddci-baker-2024.md)) — is itself an ill-structured *construction* task
+(build a causal model; many valid maps). That is almost certainly *why* its detectors are **behavioral and
+affective, not correctness-based**: when the task goes open-ended, the field's own move is to drop the
+correctness oracle and read behavior/affect instead. That's direct precedent for the §9 conclusion, and it
+reinforces §6.
+
+---
+
+## 9. What this means for us
+
+- **First, sort the material — the approach follows from its structure.** Our materials range from
+  **gated/well-structured** (the wildfire simulation with per-page goals: clear steps and checkable
+  targets) to **open-ended/ill-structured** (open document-building: many valid paths, no natural
+  checkpoints). These need **different intervention machinery**, and a helper built for one likely won't
+  transfer to the other — the gated end can use step-based impasse/contingency detection (§§1–4), the
+  open-ended end needs the design-tutoring + behavioral/affective approach (§8). Resisting the "one
+  solution fits both" reflex is the doc's main practical warning. *(This is a spectrum, and many
+  activities mix both — e.g. an open modeling task nested inside a gated activity.)*
 - **"When to intervene" deserves to be its own question in the problem framing**, not silently collapsed
   into "detect affect." See [finding-meaning-problem.md](finding-meaning-problem.md) (use-case 2).
 - **Affect-change is a legitimate trigger but probably not the primary one.** The strongest single finding
@@ -237,12 +309,21 @@ often the *observable surface* of a conceptual struggle. So these signals remain
 - **DDCI is already a "when-to-intervene" system** — its detectors exist precisely to flag the moment worth
   a teacher's attention ([papers/ddci-baker-2024.md](papers/ddci-baker-2024.md)). The intervention-timing
   literature here is the *why* behind that design.
-- **The domain mismatch cuts a specific way.** The blocker isn't that CLUE *can't* have a correctness
-  signal (that's the author's choice) — it's the missing **per-step structure**: a document built up over
-  time has no natural checkpoints, so the best-evidenced trigger (impasse) is the *hardest* to locate,
-  while the affect-trajectory and behavioral-disengagement triggers — weaker in the tutoring literature —
-  may be the *most* portable. That inversion matters: the strongest result in the literature may be the
-  least usable for us, and vice versa. **Genuine open question**, not a settled recommendation.
+- **For the open-ended materials, the design/ill-structured tradition (§8) fits better than the
+  problem-solving studies most of this doc draws on.** There, Schön-style *reframing/reflection* is closer
+  to what a good helper does than impasse-then-hint — but that mode is the hardest to detect triggers for
+  and to automate. And the precedent (Betty's Brain going behavioral/affective when it went open-ended)
+  says that when the correctness oracle disappears, reading **behavior and affect** is the field's
+  fallback — which loops back to why affect and disengagement, weak as they are, keep mattering. *(For the
+  gated materials, by contrast, the correctness-and-impasse machinery is available and probably the first
+  thing to try.)*
+- **The domain mismatch cuts a specific way — for the open-ended end.** The blocker there isn't a missing
+  correctness signal (that's the author's choice) — it's the missing **per-step structure**: an artifact
+  built up over time has no natural checkpoints, so the best-evidenced trigger (impasse) is the *hardest*
+  to locate, while affect-trajectory and behavioral-disengagement triggers — weaker in the tutoring
+  literature — may be the *most* portable. That inversion matters: the strongest result in the literature
+  may be the least usable for our open-ended materials, and vice versa. **Genuine open question**, not a
+  settled recommendation.
 - **Two concrete build implications.** (a) To use the impasse/goal-achievement triggers at all, we'd
   likely need **authors to formalize goals** and **break the work into evaluation points** — and even then,
   detecting goal achievement in an open document is harder than anything in the problem-solving research.
@@ -263,7 +344,9 @@ abstract/metadata level via web search — full texts not read unless stated.*
   two authors search-verified; remaining author list from memory.)*
 - **Wood, D., Bruner, J. S., & Ross, G. (1976).** The Role of Tutoring in Problem Solving. *Journal of
   Child Psychology and Psychiatry*, 17(2), 89–100. **Paywalled (Wiley); PDFs circulate.** Origin of
-  "scaffolding"; six tutoring functions incl. frustration control. *(Metadata + functions verified.)*
+  "scaffolding"; six tutoring functions incl. frustration control. Task = **3–5-year-olds** assembling a
+  fixed six-layer interlocking-block **pyramid** (a *well-structured* task, single correct assembly).
+  *(Metadata + functions + age range + task verified.)*
 - **Koedinger, K. R., & Aleven, V. (2007).** Exploring the Assistance Dilemma in Experiments with Cognitive
   Tutors. *Educational Psychology Review*, 19, 239–264. **Paywalled (Springer); ERIC EJ785065.** *(Verified.)*
 - **Lepper, M. R., Drake, M. F., & O'Donnell-Johnson, T. (1997).** Scaffolding Techniques of Expert Human
@@ -290,6 +373,18 @@ abstract/metadata level via web search — full texts not read unless stated.*
 - *Industry / gray-literature (not peer-reviewed), cited as a signal catalogue only:* product-analytics
   frustration signals — rage / dead / error clicks, thrashed cursor (FullStory, Glassbox, Datadog,
   Amplitude, Heap); digital adoption platforms (Pendo, WalkMe, Whatfix, Appcues).
+
+*§8's design / ill-structured tutoring tradition:*
+- **Jonassen, D. H. (1997).** Instructional Design Models for Well-Structured and Ill-Structured
+  Problem-Solving Learning Outcomes. *Educational Technology Research & Development*, 45(1), 65–94.
+  **Paywalled (Springer); open PDFs circulate; ERIC EJ541455.** The well- vs. ill-structured distinction;
+  design problems as the most ill-structured. *(Metadata + core distinction verified.)*
+- **Schön, D. A. (1983 / 1987).** *The Reflective Practitioner* / *Educating the Reflective Practitioner.*
+  Basic Books / Jossey-Bass. **Books.** Reflection-in-action; the design studio and "crit" as the model of
+  open-ended design tutoring. *(Foundational; concepts verified this session, primaries not read.)*
+- **Fournier-Viger, P., Nkambou, R., et al.** Building Intelligent Tutoring Systems for Ill-Defined Domains.
+  In *Advances in Intelligent Tutoring Systems* (Nkambou et al., eds.). **Open chapter PDF
+  (philippe-fournier-viger.com).** *(Scan-only — located, not read.)*
 
 *§7's UI-affordance ↔ learning-goal continuum (vocabulary, all verified this session):*
 - **Hutchins, E. L., Hollan, J. D., & Norman, D. A. (1985).** Direct Manipulation Interfaces.
@@ -318,6 +413,8 @@ verified at title/venue/arXiv level (author list from memory); **GUIDE** (arXiv:
 material is **industry gray-literature**, cited as a catalogue of cheap log signals, not as evidence of
 learning benefit. The §7 continuum vocabulary (Hutchins/Hollan/Norman 1985 semantic-vs-articulatory
 distance; Vérillon & Rabardel 1995 / Rabardel instrumental genesis; Sweller cognitive load) was verified
-at concept/metadata level this session; primaries not read. Nothing here has been read in full; before any of these becomes load-bearing in a
+at concept/metadata level this session; primaries not read. For §8: Jonassen 1997 verified (venue/vol/
+pages + the well-vs-ill-structured distinction); Schön verified at concept level (books not read);
+the ITS-for-ill-defined chapter is scan-only. Nothing here has been read in full; before any of these becomes load-bearing in a
 presentation, fetch the primary text. This doc makes **no new empirical claim** — it synthesizes
 established findings to frame the intervention-timing decision.

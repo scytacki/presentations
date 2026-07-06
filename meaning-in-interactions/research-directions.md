@@ -270,19 +270,22 @@ which can actually be **detected from CLUE document-event logs** with usable pre
 latency?
 
 **Why it matters.** [when-to-intervene.md](when-to-intervene.md) argues affect-change is a legitimate
-but probably not primary trigger, and that the domain mismatch *inverts* usefulness: the
-best-evidenced trigger (impasse) is the hardest to locate in an open-ended document built up over
-time, while weaker-in-the-literature triggers (disengagement, affect-trajectory) may be the most
-portable. This item tests that claim on our own data instead of assuming it. It also decides *what to
-build a detector for* — upstream of items 1.1 / 3.2 / 3.3.
+but probably not primary trigger, and — its central claim — that **the best trigger depends on the
+material's structure**, which spans a spectrum: **gated/well-structured** activities (e.g. the
+wildfire simulation with per-page goals) can use step-based impasse detection, while **open-ended**
+document-building inverts usefulness (impasse hardest to locate; disengagement/affect-trajectory more
+portable). So this study should **sample both material types** — the answer, and thus what detector to
+build, likely differs between them. It tests that on our own data instead of assuming it, and is
+upstream of items 1.1 / 3.2 / 3.3.
 
-**What's known / unknown.** *Known:* impasse/error triggers assume per-step correctness that CLUE
-usually lacks (author's choice, and no natural checkpoints in a document-over-time); behavioral
-"struggle" signals are cheap and deployed at scale in open-ended software (application tutors — Lumière,
-product-analytics frustration signals; [when-to-intervene.md](when-to-intervene.md) §7); a fresh GUI
-benchmark (GUIDE) finds even frontier LLMs are near-blind to struggle in open-ended GUIs. *Unknown:*
-which trigger is recoverable from CLUE logs specifically, and whether **authors formalizing goals +
-breaking work into evaluation points** would make the impasse trigger tractable.
+**What's known / unknown.** *Known:* impasse/error triggers assume the per-step correctness that our
+**gated** materials have and our **open-ended** ones lack (no natural checkpoints in a
+document-over-time); behavioral "struggle" signals are cheap and deployed at scale in open-ended
+software (application tutors — Lumière, product-analytics frustration signals;
+[when-to-intervene.md](when-to-intervene.md) §7); a fresh GUI benchmark (GUIDE) finds even frontier
+LLMs are near-blind to struggle in open-ended GUIs. *Unknown:* which trigger is recoverable from CLUE
+logs **per material type**, and whether **authors formalizing goals + breaking work into evaluation
+points** would make the impasse trigger tractable on the open-ended end.
 
 **What it needs.** CLUE document-event logs; a small set of candidate trigger-detectors (one per
 trigger family, incl. cheap click/hesitation/undo "struggle" heuristics); and *some* validation of

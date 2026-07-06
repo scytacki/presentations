@@ -43,9 +43,12 @@ or we'd need to train our own.* The research both **supports and complicates** t
 5. **[when-to-intervene.md](when-to-intervene.md)** — *the decision the detectors serve.* The
    intervention-timing literature that sits upstream of detection: impasse-driven learning (VanLehn),
    contingency/fading (Wood/Bruner/Ross), the assistance dilemma (Koedinger & Aleven), what expert
-   tutors actually do, the affect twist (confusion is often the state *not* to interrupt), and the
-   adjacent *application-tutor* literature (Lumière/Clippy, product-analytics struggle signals). Checks
-   the "intervene when affect changes" instinct and finds it legitimate but not primary.
+   tutors actually do, the affect twist (confusion is often the state *not* to interrupt), the adjacent
+   *application-tutor* literature (Lumière/Clippy, product-analytics struggle signals), and the
+   design/ill-structured tutoring tradition (Jonassen, Schön). Central claim: our materials span
+   gated/well-structured (wildfire sim with per-page goals) to open-ended/ill-structured, and the two
+   need *different* intervention machinery. Also checks the "intervene when affect changes" instinct and
+   finds it legitimate but not primary.
 
 Start with doc 1 for the problem, doc 2 for the method space, doc 3 for what education has tried, doc
 4 for the build decision, doc 5 for *when* acting is warranted.

@@ -23,8 +23,13 @@ research group (same audience as [../grounding-llm-help/](../grounding-llm-help/
 - **[when-to-intervene.md](when-to-intervene.md)** — the intervention-timing literature upstream of
   detection (impasses / contingency / assistance dilemma / expert-tutor cues / productive confusion /
   application-tutor struggle detection — Lumière, rage-clicks, GUIDE / the UI-affordance↔learning-goal
-  continuum vocabulary — semantic-vs-articulatory distance, instrumental genesis, cognitive load).
-  Synthesis only, no new empirical claim; checks the "intervene on affect change" hypothesis.
+  continuum vocabulary — semantic-vs-articulatory distance, instrumental genesis, cognitive load /
+  well-vs-ill-structured & design tutoring — Jonassen, Schön's reflective studio, ITS-for-ill-defined).
+  Synthesis only, no new empirical claim; checks the "intervene on affect change" hypothesis. **Central
+  claim (per the user): our materials span a spectrum — gated/well-structured (wildfire sim with per-page
+  goals) to open-ended/ill-structured (open document-building) — and the two need *different* intervention
+  machinery; a solution for one likely won't transfer.** Note: the Wood/Bruner/Ross block study is
+  *well*-structured (fixed pyramid, 3–5 yr olds), not open-ended.
 - **[research-directions.md](research-directions.md)** — actionable directions (Group 1
   curated/feasible/**high value**; Group 2 curated/feasible/**questionable value**; Group 3
   proposals; Rejected placeholder). The canonical "what next."
