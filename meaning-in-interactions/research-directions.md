@@ -6,12 +6,16 @@ says* ([techniques.md](techniques.md), [edtech-landscape.md](edtech-landscape.md
 ([finding-meaning-problem.md](finding-meaning-problem.md)), this one lists *what we could actually
 build or test.* Each direction links back to the doc/paper that backs it rather than restating it.
 
-Two groups, deliberately separated:
+Three groups, deliberately separated. Groups 1 and 2 are both **curated** (the user's judgment) and
+**feasible**; they differ on **value**. Group 3 is the uncurated staging area.
 
-- **Group 1 — Well-defined and feasible.** Curated (the user's judgment). These are directions we
-  believe are clearly scoped and buildable now. Kept small on purpose.
-- **Group 2 — Proposed directions to explore.** Candidates surfaced during this work, not yet vetted
-  for scope or priority. Raw material for promotion into Group 1 (or eventual rejection).
+- **Group 1 — Curated · feasible · high value.** Clearly scoped, buildable now, and worth the effort.
+  Kept small on purpose.
+- **Group 2 — Curated · feasible · questionable value.** Scoped and buildable, but whose payoff to our
+  overall goal is genuinely uncertain — the cost to run them might not be justified. Kept
+  deliberately, not rejected: they answer a useful question even if we may choose not to pursue them.
+- **Group 3 — Proposed directions to explore.** Candidates surfaced during this work, not yet vetted
+  for scope or priority. Raw material for promotion into Group 1 or 2 (or eventual rejection).
 
 A future **Rejected ideas** section will record what we considered and chose not to pursue, and why.
 
@@ -20,7 +24,7 @@ feasibility · links.*
 
 ---
 
-## Group 1 — Well-defined and feasible
+## Group 1 — Curated · feasible · high value
 
 ### 1.1 Cross-application GenAI affect detector
 
@@ -67,12 +71,12 @@ over the classical one.
   [papers-to-obtain.md](papers-to-obtain.md) → Datasets): affect datasets are often released as
   engineered features + labels; a GenAI-reads-the-log approach needs the raw event stream (or a
   text-replay rendering). Confirm raw-log availability early.
-- A **serialization** per app (depends on 2.1), a **prompt**, and a way to **verify** — human
-  affect labels (obtainable retrospectively via text-replay coding, 2.4, though affect is the hard
+- A **serialization** per app (depends on 3.1), a **prompt**, and a way to **verify** — human
+  affect labels (obtainable retrospectively via text-replay coding, 3.3, though affect is the hard
   case there).
 
 **Feasibility.** Plausible now, given the data relationships. Main risks: (a) obtaining *raw* logs
-rather than feature vectors; (b) IRB timelines on both sides; (c) serialization design (2.1) is a
+rather than feature vectors; (b) IRB timelines on both sides; (c) serialization design (3.1) is a
 real sub-problem; (d) affect labels from replay may be noisy; **(e) the ceiling risk — even a
 successful cross-app GenAI detector may top out at the modest log-only affect A′ (~0.63 in Physics
 Playground) and never be accurate enough for confident real-time intervention.** Because two labeled
@@ -94,17 +98,66 @@ data case) · [papers/text-replays-and-llm-coding.md](papers/text-replays-and-ll
 
 ---
 
-## Group 2 — Proposed directions to explore
+## Group 2 — Curated · feasible · questionable value
+
+*Scoped and buildable, but whose payoff to our overall goal is genuinely uncertain. Kept, not
+rejected — each answers a useful question even if we may choose not to act on it.*
+
+### 2.1 Human upper-bound for "remote" affect labeling (re-code the Physics Playground video)
+
+**The question.** If a human coder is given the **video + the best available representation of what was
+on the student's screen** (a screen recording if the researchers have one; otherwise the interaction
+log), how well can they reproduce the **in-person BROMP** affect labels? I.e. what is the **A′ of the
+best possible *remote* labeler** on this data?
+
+**Why it matters.** Every "don't send a researcher into every classroom" idea — remote/automated
+affect labeling from a webcam + screen — is capped by how much affect signal *survives* into
+remotely-captured data at all. Before investing in an **AI** that labels remote data, we should know
+the **human ceiling** for that same remote data. If a human with video+screen can nearly match BROMP,
+an AI target exists and is worth chasing. If even a human falls well short of BROMP, then remote
+labeling is structurally lossy and we should just keep **in-person BROMP** rather than build toward a
+target that can't be reached. This directly frames the 2015 result: the automated video detector's
+gap to BROMP could be *information loss in the remote channel* vs. *the AI being weaker than a human*,
+and this experiment separates the two.
+
+**What's known / unknown.**
+- *Known:* in Physics Playground the **automated** (FACET) video detector beat the interaction
+  detector on average (A′ 0.695 vs 0.634) but still fell short of the human BROMP ground truth, and
+  ~25% of video instances were dropped for face-registration failure (Kai et al., 2015;
+  [papers/physics-playground-kai-2015.md](papers/physics-playground-kai-2015.md)). BROMP coders
+  integrate face + body + context; the automated pipeline saw only facial AUs + gross body movement.
+- *Unknown:* the **human** remote-labeling ceiling. Nobody has measured how well a person re-coding
+  the video (+ screen) matches the live BROMP observer. That gap between "human-remote" and
+  "human-in-person" is exactly the quantity that decides whether the remote approach is worth pursuing.
+
+**What it needs.** The Physics Playground **video recordings** (and screen recordings if they exist;
+else the interaction logs) plus the original **BROMP labels** — obtainable via the same Kai/Shute
+relationship as the 1.1 dataset ask. One or more BROMP-certified coders to re-code the remote data
+blind to the live labels. Agreement computed as A′ / κ against the in-person BROMP.
+
+**Feasibility.** Buildable and small *if the raw video is obtainable* — but that is the crux and the
+main risk: webcam video of minors is IRB-sensitive and may simply not be shareable, and the
+researchers may not have kept screen recordings. Given that, plus the honest doubt about whether
+affect labeling is even central to our overall goal (in-person BROMP may be perfectly adequate),
+the **value is questionable** — hence Group 2, not Group 1. Related to the video-sensing tangent
+(a richer-channel detector) but distinct: this measures a *human ceiling*, it doesn't build a detector.
+
+**Links.** [papers/physics-playground-kai-2015.md](papers/physics-playground-kai-2015.md) ·
+[papers-to-obtain.md](papers-to-obtain.md) (Datasets) · [edtech-landscape.md](edtech-landscape.md) §2c.
+
+---
+
+## Group 3 — Proposed directions to explore
 
 *Proposed, not yet curated. Order is rough, not a priority ranking.*
 
-### 2.1 Serialization study — how to render an interaction stream for an LLM
+### 3.1 Serialization study — how to render an interaction stream for an LLM
 
 **The question.** What representation of a CLUE (or any) event stream makes an LLM read it best — raw
 log lines, the document-history diff, a rendered natural-language summary, a text-replay format, or a
 hybrid?
 
-**Why it matters.** Every LLM-on-logs direction (1.1, 2.3, 2.5) depends on it, and the evidence says
+**Why it matters.** Every LLM-on-logs direction (1.1, 3.3, 3.5) depends on it, and the evidence says
 serialization is the single biggest lever — *"GPT's training data likely contains little that
 resembles text replays"* (Maier & Baker, 2025). Human-readable ≠ LLM-legible.
 
@@ -116,7 +169,7 @@ work; LogLLM's long-context limits, [ai-architecture-question.md](ai-architectur
 serializations, and an eval loop. **Feasibility:** cheap, high-leverage, low-risk — a natural first
 step that de-risks the others.
 
-### 2.2 LLM "interesting-moment" detector for CLUE (DDCI-style)
+### 3.2 LLM "interesting-moment" detector for CLUE (DDCI-style)
 
 **The question.** Can a **prompted frontier LLM** reach usable *precision and latency* as a real-time
 "interesting-moment" detector on CLUE document streams — not just interpret them after the fact?
@@ -130,10 +183,10 @@ spec's premise is "LLM detector first." We should test whether that premise hold
 does *detection* with classical ML at ~30 s. *Unknown:* false-alarm rate on open-ended CLUE work —
 interpretation ≠ reliable detection.
 
-**What it needs.** CLUE logs, a concrete "interesting" construct, and labels (2.4). Depends on 2.1.
+**What it needs.** CLUE logs, a concrete "interesting" construct, and labels (3.3). Depends on 3.1.
 **Feasibility:** medium; directly extends existing engineering.
 
-### 2.3 Text-replay labeling of CLUE data (human + GenAI-assisted)
+### 3.3 Text-replay labeling of CLUE data (human + GenAI-assisted)
 
 **The question.** Can we get ground-truth labels for **past** CLUE data by replaying document
 changes and coding them — and can a GenAI coder match human coders on that same replay?
@@ -147,9 +200,9 @@ Baker, 2025). Affect is the hard case for replay coding. *Unknown:* how well eit
 CLUE's open-ended document changes.
 
 **What it needs.** A replay renderer for CLUE documents, a construct, and human coders.
-**Feasibility:** medium; **enables 1.1, 2.2, and any trained detector**, so high strategic value.
+**Feasibility:** medium; **enables 1.1, 3.2, and any trained detector**, so high strategic value.
 
-### 2.4 GenAI feedback agent + compact-and-query infrastructure
+### 3.4 GenAI feedback agent + compact-and-query infrastructure
 
 **The question.** Can a **GenAI feedback agent** replace the current rule-system-plus-states feedback
 — detecting meaning in the interactions and crafting suggestions — and what shared
@@ -168,9 +221,9 @@ grounding the *content* of help is worked in [../grounding-llm-help/](../groundi
 non-deterministic agent.
 
 **What it needs.** Log compaction + query tools, a target simulation, and the grounding machinery.
-**Feasibility:** larger build; depends on 2.1 and overlaps grounding-llm-help.
+**Feasibility:** larger build; depends on 3.1 and overlaps grounding-llm-help.
 
-### 2.5 Foundation model on unlabeled interaction logs
+### 3.5 Foundation model on unlabeled interaction logs
 
 **The question.** Could **self-supervised pretraining on unlabeled** CLUE interaction logs yield a
 reusable representation that makes downstream detectors cheap to build, sidestepping the labeling
@@ -187,7 +240,7 @@ unlabeled logs are enough, and whether the representation captures *meaning* vs.
 **What it needs.** A large unlabeled CLUE log corpus and pretraining infrastructure.
 **Feasibility:** research-y, longer horizon; highest uncertainty.
 
-### 2.6 Also latent — the other use cases
+### 3.6 Also latent — the other use cases
 
 Lower-defined directions carried from [finding-meaning-problem.md](finding-meaning-problem.md) that
 each reduce to finding meaning in interactions: **post-hoc corpus analysis** (mine past sessions for

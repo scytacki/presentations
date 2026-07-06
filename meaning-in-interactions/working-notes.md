@@ -21,7 +21,8 @@ research group (same audience as [../grounding-llm-help/](../grounding-llm-help/
 - **[ai-architecture-question.md](ai-architecture-question.md)** — transformers-vs-RNN and
   pretrained-vs-trained.
 - **[research-directions.md](research-directions.md)** — actionable directions (Group 1
-  well-defined/feasible; Group 2 proposals; Rejected placeholder). The canonical "what next."
+  curated/feasible/**high value**; Group 2 curated/feasible/**questionable value**; Group 3
+  proposals; Rejected placeholder). The canonical "what next."
 - **[papers/](papers/)** — deep-dives: DDCI, ClickSight, pyKT, differential sequence mining, text
   replays + LLM coding, Physics Playground affect detectors (Kai 2015).
 - **[papers-to-obtain.md](papers-to-obtain.md)** — retrieval list + a Datasets section.
@@ -35,11 +36,13 @@ uncommitted-until-asked; the user has since been committing incrementally on thi
 
 *Standing instructions from the user. These override default behavior.*
 
-1. **Do NOT add items to Group 1 of [research-directions.md](research-directions.md) without the
-   user's explicit approval.** Group 1 ("well-defined and feasible") is the user's **curated**
-   list — it reflects *their* judgment, not ours. You may freely propose directions in **Group 2**
-   (and argue for promotion), but only the user moves something into Group 1. When in doubt, put it
-   in Group 2 and flag it.
+1. **Do NOT add items to Group 1 *or* Group 2 of [research-directions.md](research-directions.md)
+   without the user's explicit approval.** Both are the user's **curated** lists — Group 1 is
+   curated/feasible/**high value**, Group 2 is curated/feasible/**questionable value** — and reflect
+   *their* judgment, not ours. You may freely propose directions in **Group 3** (and argue for
+   promotion), but only the user moves something into Group 1 or 2. When in doubt, put it in Group 3
+   and flag it. *(The three-group structure — high-value vs. questionable-value curated, plus the
+   uncurated staging area — was set by the user; earlier the doc had only two groups.)*
 2. **`scotts-notes.md` is the user's personal notes — NEVER edit it.** You may **read** it for
    context and **refer to it in conversation**, but: (a) never modify it, and (b) **no other document
    in this folder may link to or reference it** (it is not part of the doc series). This
@@ -172,11 +175,15 @@ verification if you reopen a claim.
   way around the labeling bottleneck; the "insight/aha detection" gap.
 - **Consider a per-paper deep-dive for the wheel-spinning / affect classics** if the edtech doc gets
   presented on its own.
-- **Actionable directions now live in [research-directions.md](research-directions.md)** (two groups:
-  well-defined-and-feasible vs. proposals). Group 1 currently holds one item — the **cross-application
-  GenAI affect detector** — which the user considers well-scoped and now data-feasible (they have
-  relationships with **both ASSISTments and the Betty's Brain researchers**, so datasets are likely
-  obtainable if the IRBs permit). Group 2 holds the serialization study, an LLM CLUE detector,
-  text-replay labeling of CLUE data, the GenAI feedback agent, and a foundation-model-on-logs idea.
-  A future **Rejected ideas** section will record what we drop and why. Don't re-scatter actionable
-  directions back into the analytical docs — add them there.
+- **Actionable directions now live in [research-directions.md](research-directions.md)** (three
+  groups: curated/high-value, curated/questionable-value, and uncurated proposals). **Group 1**
+  (high value) currently holds one item — the **cross-application GenAI affect detector** — which the
+  user considers well-scoped and now data-feasible (they have relationships with **both ASSISTments
+  and the Betty's Brain researchers**, so datasets are likely obtainable if the IRBs permit).
+  **Group 2** (questionable value) holds one item — measuring the **human upper-bound for "remote"
+  affect labeling** by re-coding the Physics Playground video (does a human with video+screen match
+  in-person BROMP? decides whether an AI remote-labeler is worth building at all). **Group 3**
+  (proposals) holds the serialization study, an LLM CLUE detector, text-replay labeling of CLUE data,
+  the GenAI feedback agent, a foundation-model-on-logs idea, and the latent other-use-cases. A future
+  **Rejected ideas** section will record what we drop and why. Don't re-scatter actionable directions
+  back into the analytical docs — add them there.
