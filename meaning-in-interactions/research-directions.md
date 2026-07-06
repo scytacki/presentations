@@ -126,24 +126,45 @@ and this experiment separates the two.
   ~25% of video instances were dropped for face-registration failure (Kai et al., 2015;
   [papers/physics-playground-kai-2015.md](papers/physics-playground-kai-2015.md)). BROMP coders
   integrate face + body + context; the automated pipeline saw only facial AUs + gross body movement.
-- *Unknown:* the **human** remote-labeling ceiling. Nobody has measured how well a person re-coding
-  the video (+ screen) matches the live BROMP observer. That gap between "human-remote" and
-  "human-in-person" is exactly the quantity that decides whether the remote approach is worth pursuing.
+- *Known (the method already exists — don't overclaim novelty):* coding affect from **synced
+  face-video + screen-capture** is a standard technique — the **retrospective affect judgment
+  protocol** (D'Mello & Graesser and many since), where the student and/or trained judges label affect
+  from the replay. So this item *measures* an established method, it doesn't invent one.
+- *Known (the field already frames this as data loss):* BROMP is deliberately a **live** protocol
+  precisely because in-person observers use work context, utterances, body language, and peer
+  interaction and can "gain full context" a camera misses (BROMP manual). And ground-truth *choice* is
+  an active question — *"Says Who?"* (Zambrano, Ocumpaugh, Hutt et al., EDM 2024) shows self-report
+  vs. BROMP-observation labels yield detectors that capture *different* signal.
+- *Unknown / the actual gap (verified by search, July 2026):* I did **not** find a clean head-to-head
+  that fixes the construct and the sessions and reports the **agreement (A′/κ) between a human coding
+  only the remote video+screen and the live BROMP observer of those same moments** — a direct number
+  for the human "data loss" from going remote. The ingredients exist (retrospective-judgment
+  reliability; observer–observer agreement ≈ 78–80%; BROMP inter-rater κ ≥ 0.6) but, as far as I
+  found, not assembled into that specific remote-vs-live *human* comparison. That number is what this
+  item would produce. *(Stated as "not found," not "does not exist" — the search was not exhaustive.)*
 
 **What it needs.** The Physics Playground **video recordings** (and screen recordings if they exist;
 else the interaction logs) plus the original **BROMP labels** — obtainable via the same Kai/Shute
 relationship as the 1.1 dataset ask. One or more BROMP-certified coders to re-code the remote data
 blind to the live labels. Agreement computed as A′ / κ against the in-person BROMP.
 
-**Feasibility.** Buildable and small *if the raw video is obtainable* — but that is the crux and the
+**Feasibility.** Buildable and small *if the raw video is obtainable* (the coding method —
+retrospective affect judgment — is off-the-shelf, so the work is mostly data access + coder time) —
+but that is the crux and the
 main risk: webcam video of minors is IRB-sensitive and may simply not be shareable, and the
 researchers may not have kept screen recordings. Given that, plus the honest doubt about whether
 affect labeling is even central to our overall goal (in-person BROMP may be perfectly adequate),
 the **value is questionable** — hence Group 2, not Group 1. Related to the video-sensing tangent
 (a richer-channel detector) but distinct: this measures a *human ceiling*, it doesn't build a detector.
 
+**Prior art (verified July 2026).** Retrospective affect judgment protocol (video+screen replay
+coding — D'Mello & Graesser); *"Says Who?"* ground-truth-comparison (Zambrano, Ocumpaugh, Hutt et al.,
+EDM 2024); BROMP's live-observation rationale (BROMP manual). None is the exact remote-vs-live *human*
+A′ comparison; see the *Unknown* bullet.
+
 **Links.** [papers/physics-playground-kai-2015.md](papers/physics-playground-kai-2015.md) ·
-[papers-to-obtain.md](papers-to-obtain.md) (Datasets) · [edtech-landscape.md](edtech-landscape.md) §2c.
+[papers-to-obtain.md](papers-to-obtain.md) (Datasets) · [edtech-landscape.md](edtech-landscape.md)
+§2c and its references (Says Who? · Sensor-Free-or-Sensor-Full).
 
 ---
 

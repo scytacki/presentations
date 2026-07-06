@@ -136,6 +136,13 @@ To compensate, I **directly fetched and verified** the load-bearing citations. C
   Intent from Browsing History"** (Yoon et al., CIKM 2024) and uses an **unnamed LLM, not GPT-3.5**
   (the scan overstated it). The frustration preprint is **single-author (Jibin Joseph)**; its Coveo
   dataset attribution was **not** confirmed — docs say "a real e-commerce dataset (~305k sessions)."
+  **Also (July 2026):** research-directions item 2.1 first asserted "nobody has measured how well a
+  human re-coding video+screen matches a live BROMP observer" — that was **unverified and overstated**;
+  a web search found the *method* is standard (D'Mello & Graesser **retrospective affect judgment
+  protocol**), ground-truth-source comparison is active (**"Says Who?"**, Zambrano/Ocumpaugh/Hutt,
+  EDM 2024, added to edtech refs), and BROMP is live *by design* to avoid video's context loss. The
+  claim was softened to "did not find that specific remote-vs-live *human* A′ comparison." Lesson:
+  don't ship "nobody has done X" without a search.
 - **Scan-only, NOT independently re-verified (flagged in-doc and in papers-to-obtain):** AKT (KDD
   2020) quotes, BST (1905.06874), Gruver time-series (2310.07820), the classification comparison
   (2406.08660), the ensemble+RAG log paper (2406.07467). Verify before leaning on these hard.

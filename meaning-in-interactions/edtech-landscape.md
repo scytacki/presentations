@@ -310,6 +310,13 @@ which is the opening the hypothesis points at.
   378–383. ERIC ED599202. **Open access (ERIC).**
 - **Pandey, S., & Karypis, G. (2019).** A Self-Attentive model for Knowledge Tracing (**SAKT**).
   *EDM 2019*. arXiv:1907.06837. Reports +4.43% AUC average over prior KT. **Open access (arXiv).**
+- **Paquette, L., Rowe, J., Baker, R. S., Mott, B., Lester, J., DeFalco, J., Brawner, K., Sottilare,
+  R., & Georgoulas, V. (2015).** Sensor-Free or Sensor-Full: A Comparison of Data Modalities in
+  Multi-Channel Affect Detection. *EDM 2015*, 93–100. **Open access (ERIC ED560545); p.1 read.**
+  Companion to the Physics Playground study on a different serious game (GIFT / tactical-combat
+  casualty care): compares **interaction-log** vs. **Kinect posture** detectors and finds interaction
+  detectors outperform posture (but vary more across contexts). Another *automated*-modality
+  comparison — not a human-remote-vs-live-observation one.
 - **Piech, C., Bassen, J., Huang, J., Ganguli, S., Sahami, M., Guibas, L., & Sohl-Dickstein, J.
   (2015).** Deep Knowledge Tracing (**DKT**). *NeurIPS 2015*. arXiv:1506.05908. **Open access
   (arXiv).**
@@ -319,3 +326,10 @@ which is the opening the hypothesis points at.
 - **Rodrigo, M. M. T., & Baker, R. S. (2011).** Comparing the incidence and persistence of learning
   behaviors... across intelligent tutors and educational games. *Research and Practice in
   Technology Enhanced Learning* (author copy open, upenn.edu).
+- **Zambrano, A. F., Nasiar, N., Ocumpaugh, J., Goslen, A., Zhang, J., Rowe, J., Esiason, J.,
+  Vandenberg, J., & Hutt, S. (2024).** Says Who? How Different Ground Truth Measures of Emotion Impact
+  Student Affective Modeling. *EDM 2024* (Atlanta). **Open access (ERIC ED675677 / EDM proceedings);
+  abstract + proceedings page verified, full text not read.** Builds separate affect detectors from
+  **self-report** vs. **BROMP classroom-observation** labels on a microbiology game (Crystal Island
+  lineage) and finds the two ground-truth sources capture *different* signal — evidence that the
+  *labeling method itself* shapes what a detector learns. Relevant to research-directions item 2.1.
