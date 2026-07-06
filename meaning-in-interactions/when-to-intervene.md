@@ -196,17 +196,24 @@ setting. The signals and (especially) the timing lessons transfer even though th
   catalogue of cheap log signals, not as evidence they improve learning.)* Overlaps the UX material in
   [techniques.md](techniques.md), and the clickstream-frustration preprint (Joseph 2025) and searcher-
   frustration work (Feild et al.) already in [edtech-landscape.md](edtech-landscape.md) / papers-to-obtain.
-- **Cutting edge — and a two-sided lesson for the GenAI path.** *GUIDE* (Yang et al., CVPR 2026;
+- **Cutting edge — useful mostly as a *dataset*, less as a method.** *GUIDE* (Yang et al., CVPR 2026;
   arXiv:2603.25864) benchmarks models on **open-ended GUI tasks** (10 desktop apps; 67.5 h; ~1K labeled
-  instances) across Behavior-State Detection, Intent Prediction, and **Help Prediction**. Two findings
-  matter to us. **(a) Zero-shot struggle detection is weak:** behavior-state accuracy tops out ~45%, and
-  models systematically **misclassify frustration/debugging as productive action** — reading repeated
-  clicks, hesitation, and undo as progress (help-need *recall* under 37% for most models). So expecting a
-  frontier model to spot learning-struggle in CLUE logs zero-shot is optimistic. **(b) But handing the
-  model a structured representation of the user's state (behavior + intent) raised help prediction by up to
-  ~50 pp** (help-content 55% → 83%) — strong evidence that the bottleneck is the **representation you feed
-  it**, not raw model ability. Both point at the serialization/representation problem in
-  [ai-architecture-question.md](ai-architecture-question.md). *(Full text read this session.)*
+  instances) across Behavior-State Detection, Intent Prediction, and **Help Prediction**. The **big caveat
+  that limits its methodology for us:** models were fed **only 32 still frames sampled from the screen
+  video** (vision-only, zero-shot) — **the keyboard/mouse interaction events were used only to label the
+  data, never given to the model.** So its headline "zero-shot struggle detection is weak" result
+  (behavior-state acc ~45%; frustration/debugging misclassified as productive action; help-need recall
+  <37%) is a verdict on **reading pixels**, not on reading an interaction log — which is what we would
+  actually do. If anything it's mild evidence that *screenshots are the wrong representation*, indirectly
+  supporting a log-first approach. Two things still transfer: **(a)** injecting a structured state
+  representation — the *ground-truth* behavior + intent as text — lifted help prediction up to ~50 pp
+  (help-content 55% → 83%); an **oracle upper bound**, but evidence the bottleneck is the representation,
+  not raw model ability ([ai-architecture-question.md](ai-architecture-question.md)). **(b)** The
+  **labeled dataset itself is reusable** — it ships the keyboard/mouse event streams + struggle/help
+  labels we'd want, so we could test *log* representations on it directly (research-directions 3.1) —
+  **contingent on trusting its labels** (Gemini-2.5-Pro-bootstrapped, then human-verified). Models
+  evaluated: Gemini-2.5-Pro/Flash, GPT-4o/-mini, Claude-4.5-Sonnet, + open-weight Qwen3-VL-8B /
+  InternVL3-8B / InternVideo2.5-8B. *(Full text read this session.)*
 
 **A distinction to keep honest — but it's a *continuum*, not a binary.** As a first cut, application
 tutors detect trouble **using the tool** while we care about trouble **with the learning**, and a student
@@ -372,12 +379,15 @@ abstract/metadata level via web search — full texts not read unless stated.*
   Office-Assistant lineage verified; author list from memory.)*
 - **Yang, S., Yu, J., Peng, Y.-H., Lin, K. Q., Cho, J. W., Song, Y., & Kim, J. (2026).** GUIDE: A
   Benchmark for Understanding and Assisting Users in Open-Ended GUI Tasks. *CVPR 2026*. arXiv:2603.25864.
-  **Open (arXiv); dataset CC BY 4.0 at guide-bench.github.io.** 67.5 h screen recordings + keyboard/mouse
-  events + think-aloud, 54 novice users, 10 desktop apps, ~1K labeled instances; tasks = behavior-state /
-  intent / help prediction. Zero-shot struggle detection weak (behavior-state acc ~45%, struggle read as
-  progress); structured behavior+intent context lifts help prediction up to ~50 pp. **Only screenshots
-  evaluated — no interaction-log-representation comparison** (that's our opening; see research-directions
-  3.1). *(Full text read this session.)*
+  **Open (arXiv); dataset CC BY 4.0 at guide-bench.github.io.** Dataset = 67.5 h screen recordings +
+  keyboard/mouse events + think-aloud, 54 novice users, 10 desktop apps, ~1K labeled instances; tasks =
+  behavior-state / intent / help prediction. **Model input = only 32 sampled video frames (vision-only,
+  zero-shot); the interaction events + narration were labeling-only, never fed to the model.** Models:
+  Gemini-2.5-Pro/Flash, GPT-4o/-mini, Claude-4.5-Sonnet, + open-weight Qwen3-VL-8B / InternVL3-8B /
+  InternVideo2.5-8B. Zero-shot struggle detection weak (behavior-state acc ~45%, struggle read as
+  progress); injecting **ground-truth** behavior+intent as text lifts help prediction up to ~50 pp (an
+  oracle upper bound). **No interaction-log-representation was ever tested** (that's our opening; see
+  research-directions 3.1). *(Full text read this session.)*
 - *Industry / gray-literature (not peer-reviewed), cited as a signal catalogue only:* product-analytics
   frustration signals — rage / dead / error clicks, thrashed cursor (FullStory, Glassbox, Datadog,
   Amplitude, Heap); digital adoption platforms (Pendo, WalkMe, Whatfix, Appcues).

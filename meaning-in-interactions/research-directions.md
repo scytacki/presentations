@@ -184,20 +184,24 @@ resembles text replays"* (Maier & Baker, 2025). Human-readable ≠ LLM-legible.
 
 **What's known / unknown.** *Known:* serialization matters a lot (Maier & Baker; LLM-time-series
 work; LogLLM's long-context limits, [ai-architecture-question.md](ai-architecture-question.md)); and
-**GUIDE** (Yang et al., CVPR 2026) shows that handing an LLM a *structured* representation of user state
-(behavior + intent) lifts help prediction by up to ~50 pp over raw input — direct evidence the
-representation is the lever ([when-to-intervene.md](when-to-intervene.md) §7). *Unknown:* the right
-rendering for open-ended document work like CLUE.
+**GUIDE** (Yang et al., CVPR 2026) shows that injecting a *structured* representation of user state
+(the **ground-truth** behavior + intent, as text) lifts help prediction by up to ~50 pp over raw frames —
+an oracle upper bound, but direct evidence the representation is the lever
+([when-to-intervene.md](when-to-intervene.md) §7). *Unknown:* the right rendering for open-ended document
+work like CLUE.
 
 **What it needs.** A labeled task to measure against (could piggyback on 1.1's data), a few candidate
-serializations, and an eval loop. **A ready-made external testbed: the GUIDE dataset** (CC BY 4.0,
-guide-bench.github.io) — it ships **keyboard/mouse event streams + ground-truth struggle/help labels** for
-open-ended GUI tasks but *only ever evaluated screenshots*, never the serialized log. So we could test
-"does log-representation X beat pixels (and each other) at struggle/help detection" on GUIDE off-the-shelf,
-then port the winning method to CLUE. **Caveats:** desktop creative apps (tool-struggle, not learning —
-the §7 end), and its labels were Gemini-bootstrapped then human-verified (mild circularity). **Feasibility:**
-cheap, high-leverage, low-risk — a natural first step that de-risks the others, now with an external
-dataset that removes the "we need our own labels first" blocker for an initial pass.
+serializations, and an eval loop. **A ready-made external testbed: the GUIDE *dataset*** (CC BY 4.0,
+guide-bench.github.io). Note we'd reuse its **data, not its method** — GUIDE only ever fed models sampled
+video frames (vision-only), never the event log, so the log-representation comparison is entirely unrun.
+It ships **keyboard/mouse event streams + struggle/help labels**, so we could test "does log-representation
+X beat sampled frames (and each other) at struggle/help detection" off-the-shelf, then port the winning
+method to CLUE. **Caveats, in priority order:** (1) **we'd have to trust its labels** —
+Gemini-2.5-Pro-bootstrapped then human-verified, so a model is in the ground-truth loop; sanity-check a
+sample before relying on it; (2) desktop creative apps = *tool*-struggle, not learning-struggle (the §7
+end), so it validates a *method*, not a CLUE result. **Feasibility:** cheap, high-leverage, low-risk — a
+natural first step; the external dataset removes the "we need our own labels first" blocker for an initial
+pass, *if* the labels check out.
 
 ### 3.2 LLM "interesting-moment" detector for CLUE (DDCI-style)
 
@@ -291,10 +295,11 @@ upstream of items 1.1 / 3.2 / 3.3.
 **gated** materials have and our **open-ended** ones lack (no natural checkpoints in a
 document-over-time); behavioral "struggle" signals are cheap and deployed at scale in open-ended
 software (application tutors — Lumière, product-analytics frustration signals;
-[when-to-intervene.md](when-to-intervene.md) §7); a fresh GUI benchmark (GUIDE) finds even frontier
-LLMs are near-blind to struggle in open-ended GUIs. *Unknown:* which trigger is recoverable from CLUE
-logs **per material type**, and whether **authors formalizing goals + breaking work into evaluation
-points** would make the impasse trigger tractable on the open-ended end.
+[when-to-intervene.md](when-to-intervene.md) §7); a fresh GUI benchmark (GUIDE) finds frontier LLMs weak
+at struggle detection — but *from screenshots*, not from interaction logs (they never tested logs), so it's
+only a weak signal for our log case. *Unknown:* which trigger is recoverable from CLUE logs **per material
+type**, and whether **authors formalizing goals + breaking work into evaluation points** would make the
+impasse trigger tractable on the open-ended end.
 
 **What it needs.** CLUE document-event logs; a small set of candidate trigger-detectors (one per
 trigger family, incl. cheap click/hesitation/undo "struggle" heuristics); and *some* validation of
