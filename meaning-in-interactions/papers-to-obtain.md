@@ -48,13 +48,16 @@ affect-labeled data from **two** apps. The catch: most released affect datasets 
 feature vectors + labels**, not raw logs / text replays — which a GenAI-reads-the-log approach can't
 use directly.
 
-- **Betty's Brain affect-labeled logs** (Jiang et al. 2018 / DDCI). **Not public** — DDCI's
-  data-availability statement says available *on request* from Ryan Baker, IRB-restricted. To support
-  a GenAI experiment we'd need the **raw logs**, not just the 249 engineered features. Contact:
-  Baker (UPenn) / Biswas OELE lab (Vanderbilt).
+- **Betty's Brain affect-labeled logs** (Jiang et al. 2018 / DDCI). Not a public download — DDCI's
+  data-availability statement says available *on request* from Ryan Baker, IRB-restricted. **The user
+  has a relationship with the Betty's Brain researchers, so likely obtainable if their IRB permits.**
+  Ask specifically for the **raw logs**, not just the 249 engineered features. Contact: Baker
+  (UPenn) / Biswas OELE lab (Vanderbilt).
 - **ASSISTments BROMP affect data** — a second application. Reported as released with **~51
   action-level features + a 20-s affect label per clip** (i.e. feature vectors, likely not raw logs).
-  Check PSLC DataShop and ASSISTments' open data snapshots; may need a raw-log request.
+  **The user has a relationship with ASSISTments, so likely obtainable if their IRB permits.** Ask
+  for a **raw-log** version (feature vectors won't support a GenAI-reads-the-log experiment); also
+  check PSLC DataShop and ASSISTments' open data snapshots.
 - **Public gaming text-replay dataset** — `osf.io/2gh56` (from Maier & Baker 2025). This one *is*
   raw-ish (text replays + labels), but it labels **gaming**, not affect. Useful as a format model.
 - **Automatic Sensor-free Affect Detection: A Systematic Literature Review** — arXiv:2310.13711

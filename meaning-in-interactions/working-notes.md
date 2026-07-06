@@ -20,11 +20,30 @@ research group (same audience as [../grounding-llm-help/](../grounding-llm-help/
 - **[edtech-landscape.md](edtech-landscape.md)** — what education actually built.
 - **[ai-architecture-question.md](ai-architecture-question.md)** — transformers-vs-RNN and
   pretrained-vs-trained.
-- **[papers/](papers/)** — deep-dives: DDCI, ClickSight, pyKT.
-- **[papers-to-obtain.md](papers-to-obtain.md)** — retrieval list.
+- **[research-directions.md](research-directions.md)** — actionable directions (Group 1
+  well-defined/feasible; Group 2 proposals; Rejected placeholder). The canonical "what next."
+- **[papers/](papers/)** — deep-dives: DDCI, ClickSight, pyKT, differential sequence mining, text
+  replays + LLM coding.
+- **[papers-to-obtain.md](papers-to-obtain.md)** — retrieval list + a Datasets section.
 
-**Uncommitted as of this session** — convention (matching grounding-llm-help): work stays
-uncommitted until the user explicitly asks to commit.
+**Committed to branch `meaning-in-interactions`** (not pushed). Earlier convention was
+uncommitted-until-asked; the user has since been committing incrementally on this branch.
+
+---
+
+## Hard rules (do not violate)
+
+*Standing instructions from the user. These override default behavior.*
+
+1. **Do NOT add items to Group 1 of [research-directions.md](research-directions.md) without the
+   user's explicit approval.** Group 1 ("well-defined and feasible") is the user's **curated**
+   list — it reflects *their* judgment, not ours. You may freely propose directions in **Group 2**
+   (and argue for promotion), but only the user moves something into Group 1. When in doubt, put it
+   in Group 2 and flag it.
+2. **`scotts-notes.md` is the user's personal notes — NEVER edit it.** You may **read** it for
+   context and **refer to it in conversation**, but: (a) never modify it, and (b) **no other document
+   in this folder may link to or reference it** (it is not part of the doc series). This
+   working-notes mention exists only to record the rule.
 
 ---
 
@@ -150,14 +169,11 @@ verification if you reopen a claim.
   way around the labeling bottleneck; the "insight/aha detection" gap.
 - **Consider a per-paper deep-dive for the wheel-spinning / affect classics** if the edtech doc gets
   presented on its own.
-- **Candidate flagship experiment the user is circling: a cross-application GenAI affect detector.**
-  Idea: build a GenAI affect detector (prompt + log serialization) validated against human labels on
-  one app, then apply *the same approach* to a different app's labeled data — testing whether GenAI
-  generalizes where feature+regression detectors provably don't (cross-system transfer is unsolved;
-  [edtech-landscape.md](edtech-landscape.md) §2c, arXiv:2310.13711). The two levers are **the prompt
-  and the log representation** (serialization is the crux per Maier & Baker 2025). **Main blocker is
-  data:** needs **raw-log** affect-labeled datasets from two apps; most public affect data is feature
-  vectors, and Betty's Brain affect data is on-request/IRB-restricted (see
-  [papers-to-obtain.md](papers-to-obtain.md) → Datasets). Text replays ([papers/text-replays-and-llm-coding.md](papers/text-replays-and-llm-coding.md))
-  are the validated way to get the human labels retrospectively — but note affect is the *hard* case
-  for replay-based coding.
+- **Actionable directions now live in [research-directions.md](research-directions.md)** (two groups:
+  well-defined-and-feasible vs. proposals). Group 1 currently holds one item — the **cross-application
+  GenAI affect detector** — which the user considers well-scoped and now data-feasible (they have
+  relationships with **both ASSISTments and the Betty's Brain researchers**, so datasets are likely
+  obtainable if the IRBs permit). Group 2 holds the serialization study, an LLM CLUE detector,
+  text-replay labeling of CLUE data, the GenAI feedback agent, and a foundation-model-on-logs idea.
+  A future **Rejected ideas** section will record what we drop and why. Don't re-scatter actionable
+  directions back into the analytical docs — add them there.

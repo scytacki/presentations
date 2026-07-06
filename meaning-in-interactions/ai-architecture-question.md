@@ -156,6 +156,9 @@ by training" is well-supported.
 
 ## 4. Open questions we would be taking on
 
+*These are the evidence gaps; their actionable, prioritized form lives in
+[research-directions.md](research-directions.md).*
+
 - **Does prompted-LLM detection reach usable precision on *our* logs?** ClickSight shows feasibility
   for *interpretation*; it does not establish reliable *detection* (low false-alarm rate) on K-12
   open-ended work like CLUE. This is genuinely unmeasured for our setting. *(Gap.)*

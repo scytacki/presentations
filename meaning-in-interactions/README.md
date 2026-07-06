@@ -43,6 +43,10 @@ or we'd need to train our own.* The research both **supports and complicates** t
 Start with doc 1 for the problem, doc 2 for the method space, doc 3 for what education has tried, doc
 4 for the build decision.
 
+- **[research-directions.md](research-directions.md)** — *the actionable companion.* What we could
+  build or test, in two curated groups (well-defined-and-feasible vs. proposals to explore), each
+  linking back to the analytical docs. The canonical home for "so what do we do next."
+
 - **[papers/](papers/)** — per-paper deep-dives of the studies closest to our work
   ([DDCI](papers/ddci-baker-2024.md), [ClickSight](papers/clicksight-radmehr-2025.md),
   [pyKT](papers/pykt-liu-2022.md), the [differential-sequence-mining
