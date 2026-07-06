@@ -168,6 +168,18 @@ by training" is well-supported.
 - **Is there a foundation-model shortcut?** Self-supervised pretraining on *unlabeled* interaction
   logs (à la log-anomaly transformers) could give a reusable representation without per-construct
   labels. No education-specific version of this is established. *(Gap / opportunity.)*
+- **Could a GenAI detector transfer *across applications* where feature-based ones can't?** This is
+  the most valuable open question for us. Feature+regression affect detectors are system-specific and
+  do **not** port to a new app (systematic review, arXiv:2310.13711; see
+  [edtech-landscape.md](edtech-landscape.md) §2c). The bet is that a GenAI reading a *semantic* log
+  representation could generalize where app-specific features can't — but (a) it's **unstudied** for
+  cross-application affect, and (b) the only near-neighbor result, GPT-on-text-replays (Maier &
+  Baker, 2025), was weak, pinning the difficulty on **serialization**. So the crux is exactly the two
+  levers named above — **the prompt and the log representation** — plus a hard **data** constraint:
+  testing cross-app transfer needs **raw-log** affect-labeled data from *two* applications, but most
+  released affect datasets are **engineered feature vectors + labels**, not raw logs/text replays
+  (see [papers-to-obtain.md](papers-to-obtain.md)). *(Gap / opportunity — likely our highest-value
+  experiment.)*
 
 ---
 

@@ -40,6 +40,26 @@ verified details into the relevant doc (and, for the top ones, a `papers/` deep-
   record 10095357). *Why:* the neural exception in struggle-detection; confirm authors/venue/method
   before citing as "the field is starting to go neural here."
 
+## Datasets — for a cross-application affect-detector experiment
+
+Context: the highest-value experiment (see [ai-architecture-question.md](ai-architecture-question.md))
+is testing whether a GenAI affect detector transfers across applications. That needs **raw-log**
+affect-labeled data from **two** apps. The catch: most released affect datasets are **engineered
+feature vectors + labels**, not raw logs / text replays — which a GenAI-reads-the-log approach can't
+use directly.
+
+- **Betty's Brain affect-labeled logs** (Jiang et al. 2018 / DDCI). **Not public** — DDCI's
+  data-availability statement says available *on request* from Ryan Baker, IRB-restricted. To support
+  a GenAI experiment we'd need the **raw logs**, not just the 249 engineered features. Contact:
+  Baker (UPenn) / Biswas OELE lab (Vanderbilt).
+- **ASSISTments BROMP affect data** — a second application. Reported as released with **~51
+  action-level features + a 20-s affect label per clip** (i.e. feature vectors, likely not raw logs).
+  Check PSLC DataShop and ASSISTments' open data snapshots; may need a raw-log request.
+- **Public gaming text-replay dataset** — `osf.io/2gh56` (from Maier & Baker 2025). This one *is*
+  raw-ish (text replays + labels), but it labels **gaming**, not affect. Useful as a format model.
+- **Automatic Sensor-free Affect Detection: A Systematic Literature Review** — arXiv:2310.13711
+  (*read*); good map of what affect datasets/systems exist and the cross-system generalization gap.
+
 ## Priority 3 — nice-to-have, mechanism details
 
 - **Biswas et al. (2010)** — cited by Kinnebrew et al. (2013) for the **relevance (`-REL`/`-IRR`)

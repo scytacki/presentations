@@ -120,6 +120,29 @@ Baker & de Carvalho (2008). See [papers/text-replays-and-llm-coding.md](papers/t
   [ai-architecture-question.md](ai-architecture-question.md): human-readable ≠ LLM-legible. *(Solid;
   both papers read in full.)*
 
+## 2c. Do affect detectors transfer to a *new* application? (Mostly no.)
+
+A question central to us — we build many activities and simulations, so a detector that only works in
+the one app it was trained on is far less valuable. The evidence says **feature-based affect
+detectors are system-specific and do not transfer across applications.** A 2023 systematic review of
+sensor-free affect detection (arXiv:2310.13711, full text read) finds that features are
+"hand-crafted and system-specific" (programming envs use code changes, math systems use quiz
+performance, physics sims use their own interaction patterns), that some work studied generalizing
+across student *populations* but **"cross-system transfer is barely addressed,"** that it documents
+**no** successful cross-system transfer (calling instead for "a shared database of action logs and
+emotion labels"), and that these detectors are **not yet good enough for real-time production use.**
+So the intuition is right: *custom features + a regression fit to one app's affect labels* buys you a
+detector for **that** app, not a portable one. *(Solid — verified review.)*
+
+Two honest nuances: (a) **behavioral** detectors have transferred better — *gaming* detectors have
+been ported across systems (e.g. Paquette et al., 2015, Cognitive Tutor → ASSISTments) and across
+lessons — but that's behavior, not affect, and still took deliberate knowledge engineering;
+(b) cross-**population** transfer (same app, different students/regions) is its own studied problem
+("population validity," Ocumpaugh, Baker et al.) — distinct from cross-**application** transfer, which
+is the harder, largely-unsolved one. This is exactly the gap a **GenAI** affect detector reading a
+semantic log representation *might* close — an open opportunity examined in
+[ai-architecture-question.md](ai-architecture-question.md), not an established result.
+
 ## 3. Knowledge tracing — the one place sequence models won (a different task)
 
 Knowledge tracing (KT) predicts whether a student will get the *next* problem right, given their
@@ -263,6 +286,10 @@ which is the opening the hypothesis points at.
 - **Maier, C., & Baker, R. S. (2025).** Can GPT Detect Gaming the System in Text Replays? *ICCE
   2025*. **Open access; read.** GPT-3.5/4 on text replays — above chance (κ ≈ 0.17) but beaten by a
   classical model (κ ≈ 0.26).
+- **Automatic Sensor-free Affect Detection: A Systematic Literature Review (2023).** arXiv:2310.13711.
+  **Open access; full text read.** Finds affect-detector features are hand-crafted/system-specific,
+  cross-system transfer "barely addressed," no documented successful cross-system transfer, and
+  models not yet production-ready. *(Authors not separately verified.)*
 - **Liu, Z., Liu, Q., Chen, J., Huang, S., Tang, J., & Luo, W. (2022).** pyKT: A Python Library to
   Benchmark Deep Learning based Knowledge Tracing Models. *NeurIPS 2022 Datasets & Benchmarks*.
   arXiv:2206.11460. **Open access (arXiv).**

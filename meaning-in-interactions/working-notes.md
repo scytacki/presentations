@@ -150,3 +150,14 @@ verification if you reopen a claim.
   way around the labeling bottleneck; the "insight/aha detection" gap.
 - **Consider a per-paper deep-dive for the wheel-spinning / affect classics** if the edtech doc gets
   presented on its own.
+- **Candidate flagship experiment the user is circling: a cross-application GenAI affect detector.**
+  Idea: build a GenAI affect detector (prompt + log serialization) validated against human labels on
+  one app, then apply *the same approach* to a different app's labeled data — testing whether GenAI
+  generalizes where feature+regression detectors provably don't (cross-system transfer is unsolved;
+  [edtech-landscape.md](edtech-landscape.md) §2c, arXiv:2310.13711). The two levers are **the prompt
+  and the log representation** (serialization is the crux per Maier & Baker 2025). **Main blocker is
+  data:** needs **raw-log** affect-labeled datasets from two apps; most public affect data is feature
+  vectors, and Betty's Brain affect data is on-request/IRB-restricted (see
+  [papers-to-obtain.md](papers-to-obtain.md) → Datasets). Text replays ([papers/text-replays-and-llm-coding.md](papers/text-replays-and-llm-coding.md))
+  are the validated way to get the human labels retrospectively — but note affect is the *hard* case
+  for replay-based coding.
