@@ -188,12 +188,39 @@ setting. The signals and (especially) the timing lessons transfer even though th
   [ai-architecture-question.md](ai-architecture-question.md). *(Scan-only — very recent preprint, abstract
   seen in search, not read; verify before leaning on it.)*
 
-**The key distinction to keep honest:** application tutors detect trouble **using the tool**; we care about
-trouble **with the learning**. A student fluent in CLUE's UI can be deeply stuck on the science, and vice
-versa. So these signals are a *lower bound* — necessary-ish plumbing (you don't want to miss a UI
-breakdown) but not sufficient for the pedagogical judgment. Their real gift to us is the **timing
-discipline** (the Clippy effect) and a **menu of cheap log-only struggle signals** we could compute on CLUE
-document events.
+**A distinction to keep honest — but it's a *continuum*, not a binary.** As a first cut, application
+tutors detect trouble **using the tool** while we care about trouble **with the learning**, and a student
+fluent in CLUE's UI can be deeply stuck on the science (and vice versa). But the line is genuinely blurry,
+and in a well-designed environment it's blurry *by design*: in a visual-programming activity, using a
+**threshold** block requires both the abstract concept (what a threshold *is* and *does*) **and** the
+mechanical skill (how to configure that block in the UI) — a single stuck moment can be either, both, or
+one masquerading as the other.
+
+**There is established vocabulary for this UI-affordance ↔ learning-goal continuum** — three complementary
+lenses, at three levels:
+
+- **Semantic vs. articulatory distance** (Hutchins, Hollan & Norman, 1985 — the "gulfs of execution and
+  evaluation"). A difficulty can sit at the **articulatory** end (mapping intent to the physical form of an
+  action — *how do I configure this block?*) or the **semantic** end (does the interface even offer a
+  concept matching my intention — *what should a threshold do here?*). The threshold example spans both.
+  This is the cleanest *decomposition* of the gap.
+- **Instrumental genesis** (Vérillon & Rabardel, 1995; Rabardel) — the ed-tech/math-ed framework built for
+  exactly this blur: an *artifact* becomes a conceptual *instrument* through use, via intertwined
+  **instrumentation** (the tool shaping the learner's concepts) and **instrumentalization** (the learner
+  adapting the tool). Here the fusion of technical and conceptual is not noise to separate out — it *is*
+  the learning. Most on-point for CLUE.
+- **Intrinsic vs. extraneous cognitive load** (Sweller) — the same line from the attention side: concept
+  difficulty (intrinsic) vs. load imposed by the interface (extraneous). Caveat that maps to the point
+  above: when the tool *is* the representation, "UI overhead" isn't automatically extraneous — it can be
+  germane or intrinsic.
+
+**Implication for a CLUE helper:** you can't cleanly route "UI question → app-tutor, concept question →
+learning-tutor," because the same document action can be both. The reading of the interaction has to
+**place a difficulty on the continuum** (nearer articulatory or nearer semantic) rather than bin it — and
+the affordance-end signals are still worth computing because they're cheap and, per instrumental genesis,
+often the *observable surface* of a conceptual struggle. So these signals remain a useful *lower bound*
+(don't miss a UI breakdown), and their real gift is the **timing discipline** (the Clippy effect) plus a
+**menu of cheap log-only struggle signals** on CLUE document events.
 
 ---
 
@@ -263,6 +290,18 @@ abstract/metadata level via web search — full texts not read unless stated.*
 - *Industry / gray-literature (not peer-reviewed), cited as a signal catalogue only:* product-analytics
   frustration signals — rage / dead / error clicks, thrashed cursor (FullStory, Glassbox, Datadog,
   Amplitude, Heap); digital adoption platforms (Pendo, WalkMe, Whatfix, Appcues).
+
+*§7's UI-affordance ↔ learning-goal continuum (vocabulary, all verified this session):*
+- **Hutchins, E. L., Hollan, J. D., & Norman, D. A. (1985).** Direct Manipulation Interfaces.
+  *Human-Computer Interaction*, 1(4), 311–338. **Open PDFs circulate.** Gulfs of execution/evaluation;
+  **semantic** vs. **articulatory** distance. *(Metadata + concepts verified.)*
+- **Vérillon, P., & Rabardel, P. (1995).** Cognition and Artifacts: A Contribution to the Study of Thought
+  in Relation to Instrumented Activity. *European Journal of Psychology of Education*, 10(1), 77–101; and
+  Rabardel's **instrumental genesis** (instrumentation / instrumentalization), widely used in
+  mathematics/science ed-tech. **Paywalled (Springer); secondary summaries open.** *(Framework + terms
+  verified; primary not read.)*
+- **Sweller, J. (and colleagues).** Cognitive Load Theory — **intrinsic vs. extraneous (vs. germane)** load.
+  Foundational, many sources. *(Concept verified; specific paper not pinned here.)*
 - *Mentioned from memory, NOT re-verified this session (verify before leaning on):* Lepper & Woolverton
   (2002), "The wisdom of practice"; Graesser, Person & Magliano (1995), naturalistic tutoring dialogue
   patterns; Kapur (2008), "Productive Failure."
@@ -277,6 +316,8 @@ Magliano, and Kapur are memory-only and flagged in-line. For §7: **Lumière** (
 verified at title/venue/arXiv level (author list from memory); **GUIDE** (arXiv:2603.25864) is scan-only
 (a very recent preprint — verify before citing its numbers); the product-analytics / digital-adoption
 material is **industry gray-literature**, cited as a catalogue of cheap log signals, not as evidence of
-learning benefit. Nothing here has been read in full; before any of these becomes load-bearing in a
+learning benefit. The §7 continuum vocabulary (Hutchins/Hollan/Norman 1985 semantic-vs-articulatory
+distance; Vérillon & Rabardel 1995 / Rabardel instrumental genesis; Sweller cognitive load) was verified
+at concept/metadata level this session; primaries not read. Nothing here has been read in full; before any of these becomes load-bearing in a
 presentation, fetch the primary text. This doc makes **no new empirical claim** — it synthesizes
 established findings to frame the intervention-timing decision.

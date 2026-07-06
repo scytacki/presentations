@@ -22,8 +22,9 @@ research group (same audience as [../grounding-llm-help/](../grounding-llm-help/
   pretrained-vs-trained.
 - **[when-to-intervene.md](when-to-intervene.md)** — the intervention-timing literature upstream of
   detection (impasses / contingency / assistance dilemma / expert-tutor cues / productive confusion /
-  application-tutor struggle detection — Lumière, rage-clicks, GUIDE). Synthesis only, no new empirical
-  claim; checks the "intervene on affect change" hypothesis.
+  application-tutor struggle detection — Lumière, rage-clicks, GUIDE / the UI-affordance↔learning-goal
+  continuum vocabulary — semantic-vs-articulatory distance, instrumental genesis, cognitive load).
+  Synthesis only, no new empirical claim; checks the "intervene on affect change" hypothesis.
 - **[research-directions.md](research-directions.md)** — actionable directions (Group 1
   curated/feasible/**high value**; Group 2 curated/feasible/**questionable value**; Group 3
   proposals; Rejected placeholder). The canonical "what next."
