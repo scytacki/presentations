@@ -183,12 +183,21 @@ serialization is the single biggest lever — *"GPT's training data likely conta
 resembles text replays"* (Maier & Baker, 2025). Human-readable ≠ LLM-legible.
 
 **What's known / unknown.** *Known:* serialization matters a lot (Maier & Baker; LLM-time-series
-work; LogLLM's long-context limits, [ai-architecture-question.md](ai-architecture-question.md)).
-*Unknown:* the right rendering for open-ended document work like CLUE.
+work; LogLLM's long-context limits, [ai-architecture-question.md](ai-architecture-question.md)); and
+**GUIDE** (Yang et al., CVPR 2026) shows that handing an LLM a *structured* representation of user state
+(behavior + intent) lifts help prediction by up to ~50 pp over raw input — direct evidence the
+representation is the lever ([when-to-intervene.md](when-to-intervene.md) §7). *Unknown:* the right
+rendering for open-ended document work like CLUE.
 
 **What it needs.** A labeled task to measure against (could piggyback on 1.1's data), a few candidate
-serializations, and an eval loop. **Feasibility:** cheap, high-leverage, low-risk — a natural first
-step that de-risks the others.
+serializations, and an eval loop. **A ready-made external testbed: the GUIDE dataset** (CC BY 4.0,
+guide-bench.github.io) — it ships **keyboard/mouse event streams + ground-truth struggle/help labels** for
+open-ended GUI tasks but *only ever evaluated screenshots*, never the serialized log. So we could test
+"does log-representation X beat pixels (and each other) at struggle/help detection" on GUIDE off-the-shelf,
+then port the winning method to CLUE. **Caveats:** desktop creative apps (tool-struggle, not learning —
+the §7 end), and its labels were Gemini-bootstrapped then human-verified (mild circularity). **Feasibility:**
+cheap, high-leverage, low-risk — a natural first step that de-risks the others, now with an external
+dataset that removes the "we need our own labels first" blocker for an initial pass.
 
 ### 3.2 LLM "interesting-moment" detector for CLUE (DDCI-style)
 

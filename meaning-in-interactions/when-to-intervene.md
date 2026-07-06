@@ -196,14 +196,17 @@ setting. The signals and (especially) the timing lessons transfer even though th
   catalogue of cheap log signals, not as evidence they improve learning.)* Overlaps the UX material in
   [techniques.md](techniques.md), and the clickstream-frustration preprint (Joseph 2025) and searcher-
   frustration work (Feild et al.) already in [edtech-landscape.md](edtech-landscape.md) / papers-to-obtain.
-- **Cutting edge — and a direct warning for the GenAI path.** *GUIDE* (arXiv:2603.25864, 2026) benchmarks
-  models on **open-ended GUI tasks** across Behavior-State Detection, Intent Prediction, and **Help
-  Prediction**, and reports that current multimodal LLMs are **near-blind to struggle** — they read
-  repeated clicks, hesitation, and undo as *productive progress* (Frustration ≈ 0.07, Debugging ≈ 0.04).
-  If a frontier model can't spot struggle in a general GUI, expecting it to spot learning-struggle in CLUE
-  logs zero-shot is optimistic — more evidence for the serialization/representation problem in
-  [ai-architecture-question.md](ai-architecture-question.md). *(Scan-only — very recent preprint, abstract
-  seen in search, not read; verify before leaning on it.)*
+- **Cutting edge — and a two-sided lesson for the GenAI path.** *GUIDE* (Yang et al., CVPR 2026;
+  arXiv:2603.25864) benchmarks models on **open-ended GUI tasks** (10 desktop apps; 67.5 h; ~1K labeled
+  instances) across Behavior-State Detection, Intent Prediction, and **Help Prediction**. Two findings
+  matter to us. **(a) Zero-shot struggle detection is weak:** behavior-state accuracy tops out ~45%, and
+  models systematically **misclassify frustration/debugging as productive action** — reading repeated
+  clicks, hesitation, and undo as progress (help-need *recall* under 37% for most models). So expecting a
+  frontier model to spot learning-struggle in CLUE logs zero-shot is optimistic. **(b) But handing the
+  model a structured representation of the user's state (behavior + intent) raised help prediction by up to
+  ~50 pp** (help-content 55% → 83%) — strong evidence that the bottleneck is the **representation you feed
+  it**, not raw model ability. Both point at the serialization/representation problem in
+  [ai-architecture-question.md](ai-architecture-question.md). *(Full text read this session.)*
 
 **A distinction to keep honest — but it's a *continuum*, not a binary.** As a first cut, application
 tutors detect trouble **using the tool** while we care about trouble **with the learning**, and a student
@@ -367,9 +370,14 @@ abstract/metadata level via web search — full texts not read unless stated.*
   Bayesian User Modeling for Inferring the Goals and Needs of Software Users. *UAI 1998*, 256–265.
   **Open (arXiv:1301.7385).** Basis for the Office '97 Office Assistant ("Clippy"). *(Title/venue/arXiv +
   Office-Assistant lineage verified; author list from memory.)*
-- **GUIDE: A Benchmark for Understanding and Assisting Users in Open-Ended GUI Tasks (2026).**
-  arXiv:2603.25864. **Open (arXiv).** MLLMs near-blind to struggle in open-ended GUIs (Frustration ≈ 0.07).
-  *(Scan-only — abstract seen in search, not read; authors not captured.)*
+- **Yang, S., Yu, J., Peng, Y.-H., Lin, K. Q., Cho, J. W., Song, Y., & Kim, J. (2026).** GUIDE: A
+  Benchmark for Understanding and Assisting Users in Open-Ended GUI Tasks. *CVPR 2026*. arXiv:2603.25864.
+  **Open (arXiv); dataset CC BY 4.0 at guide-bench.github.io.** 67.5 h screen recordings + keyboard/mouse
+  events + think-aloud, 54 novice users, 10 desktop apps, ~1K labeled instances; tasks = behavior-state /
+  intent / help prediction. Zero-shot struggle detection weak (behavior-state acc ~45%, struggle read as
+  progress); structured behavior+intent context lifts help prediction up to ~50 pp. **Only screenshots
+  evaluated — no interaction-log-representation comparison** (that's our opening; see research-directions
+  3.1). *(Full text read this session.)*
 - *Industry / gray-literature (not peer-reviewed), cited as a signal catalogue only:* product-analytics
   frustration signals — rage / dead / error clicks, thrashed cursor (FullStory, Glassbox, Datadog,
   Amplitude, Heap); digital adoption platforms (Pendo, WalkMe, Whatfix, Appcues).
@@ -408,8 +416,10 @@ Lepper/Drake/O'Donnell-Johnson 1997, Aleven et al. 2003, Aleven/McLaren/Roll/Koe
 et al. 2014 — were searched and confirmed this session (metadata/abstract level; the 2006 help-seeking
 model is open full text). Forbes-Riley & Litman is scan-only. Lepper & Woolverton, Graesser/Person/
 Magliano, and Kapur are memory-only and flagged in-line. For §7: **Lumière** (Horvitz et al. 1998) is
-verified at title/venue/arXiv level (author list from memory); **GUIDE** (arXiv:2603.25864) is scan-only
-(a very recent preprint — verify before citing its numbers); the product-analytics / digital-adoption
+verified at title/venue/arXiv level (author list from memory); **GUIDE** (Yang et al., CVPR 2026,
+arXiv:2603.25864) was **read in full this session** (authors, dataset, tasks, and the two headline results
+confirmed — an earlier "Frustration ≈ 0.07" figure from a search snippet was **not** found in the paper
+and has been removed); the product-analytics / digital-adoption
 material is **industry gray-literature**, cited as a catalogue of cheap log signals, not as evidence of
 learning benefit. The §7 continuum vocabulary (Hutchins/Hollan/Norman 1985 semantic-vs-articulatory
 distance; Vérillon & Rabardel 1995 / Rabardel instrumental genesis; Sweller cognitive load) was verified
