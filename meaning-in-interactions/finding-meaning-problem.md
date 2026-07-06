@@ -114,6 +114,12 @@ back-and-forth. That framing raises the stakes: a suggestion that is wrong, redu
 timed doesn't just miss — it reads as **annoying**, and the quality of the whole "conversation" is
 capped by how well the system covers the situations that actually arise.
 
+**When to speak is its own question.** Deciding the *moment* to offer feedback — not just what to say
+— is a research problem in its own right, and "the student's affect changed" is only one candidate
+trigger. [when-to-intervene.md](when-to-intervene.md) surveys the alternatives (impasses,
+disengagement behaviors, the assistance dilemma, and the "Clippy effect" timing lesson from
+software-help systems) and why over-eager intervention is the central failure mode here.
+
 **Variant A — rule system + states (what we do now).** A rule engine maps the interaction stream
 onto a list of **states**, and feedback is chosen by the student's current state. This is, at
 bottom, the **detector approach of use case 1** — but with a much heavier detection burden. Instead

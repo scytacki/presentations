@@ -15,9 +15,20 @@ story has an important twist — negative affect is often the state you should *
 
 **Domain caveat up front (applies to the whole doc).** Almost every result below comes from **one-to-one
 human tutoring** or **intelligent tutoring systems** with a *clean per-step correctness signal* (physics
-problems, algebra steps). CLUE-style open-ended K-12 work (drawing, tiles, open response) usually has no
-such signal, so constructs like "impasse" and "error" are much harder to define. Flagged again where it
-bites. This mismatch is the same one running through [edtech-landscape.md](edtech-landscape.md).
+problems, algebra steps). CLUE-style open-ended work is different in two ways worth separating:
+
+- **Correctness is possible but optional — it's the author's choice.** A CLUE activity *can* carry a
+  correctness signal (a modeling goal, an expected answer); whether it has one is up to the activity
+  author. So "no correctness signal" is not intrinsic to CLUE — it's a design decision.
+- **The *per-step* structure is the deeper gap.** Even when an author sets a goal, the student builds up
+  **one document over time** rather than submitting a sequence of discrete, individually-gradable steps.
+  There aren't natural checkpoints to evaluate the way a problem-solving tutor evaluates each step, so
+  constructs like "impasse" and "error" are hard to *locate in time* even when correctness is defined.
+
+A likely research consequence (picked up in §8): we may need **authors to formalize goals** so an AI
+helper can use them, and to **break the work into evaluation points**. And even then, *detecting when a
+student has achieved a formalized goal* will likely be harder than anything in this problem-solving
+research. This mismatch runs through [edtech-landscape.md](edtech-landscape.md) too.
 
 ---
 
@@ -140,7 +151,53 @@ If affect is not the exclusive trigger, what else is? The well-studied alternati
 
 ---
 
-## 7. What this means for us
+## 7. Adjacent field: struggle detection in *open-ended software* (application tutors)
+
+All of §§1–6 is about learning content. But CLUE is also just **an application**, and there's a separate
+literature on detecting when a user is struggling *with the software itself* and offering help — which is
+directly relevant because it's built for **open-ended tools, not problem-solving tutors**, exactly our
+setting. The signals and (especially) the timing lessons transfer even though the target differs.
+
+- **The classic: Lumière / the Office Assistant.** Horvitz et al. (1998), *The Lumière Project: Bayesian
+  User Modeling for Inferring the Goals and Needs of Software Users* (UAI 1998; arXiv:1301.7385, open),
+  built Bayesian models that infer a user's **time-varying goals and needs** from action sequences +
+  program state, to decide when to offer help. It shipped as the Office '97 **Office Assistant** — i.e.
+  **Clippy**. That's a double lesson: the *inference* problem (goals/needs from an action stream) is our
+  problem, and its *failure* is the sharpest warning about the assistance dilemma (§3). *(Verified: title,
+  venue, arXiv, Office-Assistant lineage; author list from memory.)*
+- **The "Clippy effect" is the assistance dilemma in a UI.** The recurring finding is that **the hard part
+  is *when*, not *what*** — intervening too early, when a user is merely pausing to think, alienates them.
+  This is precisely §3's dilemma, and it's the single most-cited reason proactive help fails. For a CLUE
+  helper it's the central risk.
+- **Deployed practice: product-analytics "frustration signals."** The web-analytics/UX industry detects
+  struggle-with-the-app at scale via cheap heuristics — **rage clicks** (≥3 rapid clicks on one target),
+  **dead clicks**, **error clicks**, **thrashed cursor** (FullStory coined these; Glassbox auto-detects
+  ~30 such behaviors; Datadog/Amplitude/Heap ship them). **Digital adoption platforms** (Pendo, WalkMe,
+  Whatfix, Appcues) then *intervene* with in-app guidance, and newer ones claim to **predict** where users
+  will struggle and act before friction. This is the open-ended-application analog of affect/struggle
+  detection — heuristic, real-time, log-only. *(Industry/gray-literature, not peer-reviewed; useful as a
+  catalogue of cheap log signals, not as evidence they improve learning.)* Overlaps the UX material in
+  [techniques.md](techniques.md), and the clickstream-frustration preprint (Joseph 2025) and searcher-
+  frustration work (Feild et al.) already in [edtech-landscape.md](edtech-landscape.md) / papers-to-obtain.
+- **Cutting edge — and a direct warning for the GenAI path.** *GUIDE* (arXiv:2603.25864, 2026) benchmarks
+  models on **open-ended GUI tasks** across Behavior-State Detection, Intent Prediction, and **Help
+  Prediction**, and reports that current multimodal LLMs are **near-blind to struggle** — they read
+  repeated clicks, hesitation, and undo as *productive progress* (Frustration ≈ 0.07, Debugging ≈ 0.04).
+  If a frontier model can't spot struggle in a general GUI, expecting it to spot learning-struggle in CLUE
+  logs zero-shot is optimistic — more evidence for the serialization/representation problem in
+  [ai-architecture-question.md](ai-architecture-question.md). *(Scan-only — very recent preprint, abstract
+  seen in search, not read; verify before leaning on it.)*
+
+**The key distinction to keep honest:** application tutors detect trouble **using the tool**; we care about
+trouble **with the learning**. A student fluent in CLUE's UI can be deeply stuck on the science, and vice
+versa. So these signals are a *lower bound* — necessary-ish plumbing (you don't want to miss a UI
+breakdown) but not sufficient for the pedagogical judgment. Their real gift to us is the **timing
+discipline** (the Clippy effect) and a **menu of cheap log-only struggle signals** we could compute on CLUE
+document events.
+
+---
+
+## 8. What this means for us
 
 - **"When to intervene" deserves to be its own question in the problem framing**, not silently collapsed
   into "detect affect." See [finding-meaning-problem.md](finding-meaning-problem.md) (use-case 2).
@@ -153,11 +210,18 @@ If affect is not the exclusive trigger, what else is? The well-studied alternati
 - **DDCI is already a "when-to-intervene" system** — its detectors exist precisely to flag the moment worth
   a teacher's attention ([papers/ddci-baker-2024.md](papers/ddci-baker-2024.md)). The intervention-timing
   literature here is the *why* behind that design.
-- **The domain mismatch cuts a specific way.** Because CLUE lacks a clean correctness signal, the
-  best-evidenced trigger (impasse) is the *hardest* to port, while the affect-trajectory and
-  behavioral-disengagement triggers — weaker in the tutoring literature — may be the *most* portable to our
-  setting. That inversion is worth keeping in mind: the strongest result in the literature may be the least
-  usable for us, and vice versa. **Genuine open question**, not a settled recommendation.
+- **The domain mismatch cuts a specific way.** The blocker isn't that CLUE *can't* have a correctness
+  signal (that's the author's choice) — it's the missing **per-step structure**: a document built up over
+  time has no natural checkpoints, so the best-evidenced trigger (impasse) is the *hardest* to locate,
+  while the affect-trajectory and behavioral-disengagement triggers — weaker in the tutoring literature —
+  may be the *most* portable. That inversion matters: the strongest result in the literature may be the
+  least usable for us, and vice versa. **Genuine open question**, not a settled recommendation.
+- **Two concrete build implications.** (a) To use the impasse/goal-achievement triggers at all, we'd
+  likely need **authors to formalize goals** and **break the work into evaluation points** — and even then,
+  detecting goal achievement in an open document is harder than anything in the problem-solving research.
+  (b) The **application-tutor** signals (§7) give us a cheap, deployable-today menu (rage/dead/error
+  clicks, hesitation, undo-thrash on CLUE document events) plus the **Clippy-effect timing discipline** —
+  worth computing as a baseline even if they only catch tool-struggle, not learning-struggle.
 
 ---
 
@@ -189,6 +253,16 @@ abstract/metadata level via web search — full texts not read unless stated.*
   16(2), 101–128. **Open PDF (cs.cmu.edu).** Help-avoidance / hint-abuse as intervention signals. *(Verified.)*
 - **Forbes-Riley, K., & Litman, D. (2008).** Responding to Student Uncertainty During Computer Tutoring.
   *ITS 2008* (Springer LNCS). **Paywalled.** *(Scan-only — title/venue from search, not read.)*
+- **Horvitz, E., Breese, J., Heckerman, D., Hovel, D., & Rommelse, K. (1998).** The Lumière Project:
+  Bayesian User Modeling for Inferring the Goals and Needs of Software Users. *UAI 1998*, 256–265.
+  **Open (arXiv:1301.7385).** Basis for the Office '97 Office Assistant ("Clippy"). *(Title/venue/arXiv +
+  Office-Assistant lineage verified; author list from memory.)*
+- **GUIDE: A Benchmark for Understanding and Assisting Users in Open-Ended GUI Tasks (2026).**
+  arXiv:2603.25864. **Open (arXiv).** MLLMs near-blind to struggle in open-ended GUIs (Frustration ≈ 0.07).
+  *(Scan-only — abstract seen in search, not read; authors not captured.)*
+- *Industry / gray-literature (not peer-reviewed), cited as a signal catalogue only:* product-analytics
+  frustration signals — rage / dead / error clicks, thrashed cursor (FullStory, Glassbox, Datadog,
+  Amplitude, Heap); digital adoption platforms (Pendo, WalkMe, Whatfix, Appcues).
 - *Mentioned from memory, NOT re-verified this session (verify before leaning on):* Lepper & Woolverton
   (2002), "The wisdom of practice"; Graesser, Person & Magliano (1995), naturalistic tutoring dialogue
   patterns; Kapur (2008), "Productive Failure."
@@ -199,6 +273,10 @@ The backbone citations (§§1–4, 6) — VanLehn et al. 2003, Wood/Bruner/Ross 
 Lepper/Drake/O'Donnell-Johnson 1997, Aleven et al. 2003, Aleven/McLaren/Roll/Koedinger 2006, and D'Mello
 et al. 2014 — were searched and confirmed this session (metadata/abstract level; the 2006 help-seeking
 model is open full text). Forbes-Riley & Litman is scan-only. Lepper & Woolverton, Graesser/Person/
-Magliano, and Kapur are memory-only and flagged in-line. Nothing here has been read in full;
-before any of these becomes load-bearing in a presentation, fetch the primary text. This doc makes **no
-new empirical claim** — it synthesizes established findings to frame the intervention-timing decision.
+Magliano, and Kapur are memory-only and flagged in-line. For §7: **Lumière** (Horvitz et al. 1998) is
+verified at title/venue/arXiv level (author list from memory); **GUIDE** (arXiv:2603.25864) is scan-only
+(a very recent preprint — verify before citing its numbers); the product-analytics / digital-adoption
+material is **industry gray-literature**, cited as a catalogue of cheap log signals, not as evidence of
+learning benefit. Nothing here has been read in full; before any of these becomes load-bearing in a
+presentation, fetch the primary text. This doc makes **no new empirical claim** — it synthesizes
+established findings to frame the intervention-timing decision.

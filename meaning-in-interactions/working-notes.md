@@ -21,8 +21,9 @@ research group (same audience as [../grounding-llm-help/](../grounding-llm-help/
 - **[ai-architecture-question.md](ai-architecture-question.md)** — transformers-vs-RNN and
   pretrained-vs-trained.
 - **[when-to-intervene.md](when-to-intervene.md)** — the intervention-timing literature upstream of
-  detection (impasses / contingency / assistance dilemma / expert-tutor cues / productive confusion).
-  Synthesis only, no new empirical claim; checks the "intervene on affect change" hypothesis.
+  detection (impasses / contingency / assistance dilemma / expert-tutor cues / productive confusion /
+  application-tutor struggle detection — Lumière, rage-clicks, GUIDE). Synthesis only, no new empirical
+  claim; checks the "intervene on affect change" hypothesis.
 - **[research-directions.md](research-directions.md)** — actionable directions (Group 1
   curated/feasible/**high value**; Group 2 curated/feasible/**questionable value**; Group 3
   proposals; Rejected placeholder). The canonical "what next."
@@ -196,6 +197,7 @@ verification if you reopen a claim.
   affect labeling** by re-coding the Physics Playground video (does a human with video+screen match
   in-person BROMP? decides whether an AI remote-labeler is worth building at all). **Group 3**
   (proposals) holds the serialization study, an LLM CLUE detector, text-replay labeling of CLUE data,
-  the GenAI feedback agent, a foundation-model-on-logs idea, and the latent other-use-cases. A future
+  the GenAI feedback agent, a foundation-model-on-logs idea, a **which-intervention-trigger-is-detectable**
+  scoping study (3.6), and the latent other-use-cases. A future
   **Rejected ideas** section will record what we drop and why. Don't re-scatter actionable directions
   back into the analytical docs — add them there.

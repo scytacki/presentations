@@ -261,7 +261,43 @@ unlabeled logs are enough, and whether the representation captures *meaning* vs.
 **What it needs.** A large unlabeled CLUE log corpus and pretraining infrastructure.
 **Feasibility:** research-y, longer horizon; highest uncertainty.
 
-### 3.6 Also latent — the other use cases
+### 3.6 Which intervention trigger is most detectable in CLUE logs?
+
+**The question.** Of the candidate "when to intervene" triggers — **impasse / stuck-on-a-goal**,
+**behavioral disengagement** (gaming, wheel-spinning, off-task, rage/dead/error-click-style struggle
+signals), and **affect trajectory** (the slide from productive struggle into frustration/boredom) —
+which can actually be **detected from CLUE document-event logs** with usable precision, and at what
+latency?
+
+**Why it matters.** [when-to-intervene.md](when-to-intervene.md) argues affect-change is a legitimate
+but probably not primary trigger, and that the domain mismatch *inverts* usefulness: the
+best-evidenced trigger (impasse) is the hardest to locate in an open-ended document built up over
+time, while weaker-in-the-literature triggers (disengagement, affect-trajectory) may be the most
+portable. This item tests that claim on our own data instead of assuming it. It also decides *what to
+build a detector for* — upstream of items 1.1 / 3.2 / 3.3.
+
+**What's known / unknown.** *Known:* impasse/error triggers assume per-step correctness that CLUE
+usually lacks (author's choice, and no natural checkpoints in a document-over-time); behavioral
+"struggle" signals are cheap and deployed at scale in open-ended software (application tutors — Lumière,
+product-analytics frustration signals; [when-to-intervene.md](when-to-intervene.md) §7); a fresh GUI
+benchmark (GUIDE) finds even frontier LLMs are near-blind to struggle in open-ended GUIs. *Unknown:*
+which trigger is recoverable from CLUE logs specifically, and whether **authors formalizing goals +
+breaking work into evaluation points** would make the impasse trigger tractable.
+
+**What it needs.** CLUE document-event logs; a small set of candidate trigger-detectors (one per
+trigger family, incl. cheap click/hesitation/undo "struggle" heuristics); and *some* validation of
+"was this actually an intervention-worthy moment" (human judgement on replays, 3.3). Could piggyback
+on 3.2's labeling.
+
+**Feasibility.** Medium; the behavioral/struggle-signal detectors are cheap to prototype (they're
+heuristics over existing events), the impasse one is the hard/uncertain part. Good scoping study to run
+*before* committing to a specific detector in 1.1 / 3.2. **Value:** high as a decision-informer, which
+is why it's a serious Group 3 candidate rather than a latent pointer.
+
+**Links.** [when-to-intervene.md](when-to-intervene.md) · [finding-meaning-problem.md](finding-meaning-problem.md)
+(use-case 2) · [edtech-landscape.md](edtech-landscape.md) (behavioral detectors) · items 1.1 / 3.2 / 3.3.
+
+### 3.7 Also latent — the other use cases
 
 Lower-defined directions carried from [finding-meaning-problem.md](finding-meaning-problem.md) that
 each reduce to finding meaning in interactions: **post-hoc corpus analysis** (mine past sessions for
