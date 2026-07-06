@@ -40,8 +40,14 @@ or we'd need to train our own.* The research both **supports and complicates** t
    prompting vs training your own (prototype by prompting, harden by training) — with the evidence
    that supports the spec's "LLM first, ML/rules as optimization" instinct.
 
+5. **[when-to-intervene.md](when-to-intervene.md)** — *the decision the detectors serve.* The
+   intervention-timing literature that sits upstream of detection: impasse-driven learning (VanLehn),
+   contingency/fading (Wood/Bruner/Ross), the assistance dilemma (Koedinger & Aleven), what expert
+   tutors actually do, and the affect twist (confusion is often the state *not* to interrupt). Checks
+   the "intervene when affect changes" instinct and finds it legitimate but not primary.
+
 Start with doc 1 for the problem, doc 2 for the method space, doc 3 for what education has tried, doc
-4 for the build decision.
+4 for the build decision, doc 5 for *when* acting is warranted.
 
 - **[research-directions.md](research-directions.md)** — *the actionable companion.* What we could
   build or test, in two curated groups (well-defined-and-feasible vs. proposals to explore), each

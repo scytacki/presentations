@@ -20,6 +20,9 @@ research group (same audience as [../grounding-llm-help/](../grounding-llm-help/
 - **[edtech-landscape.md](edtech-landscape.md)** — what education actually built.
 - **[ai-architecture-question.md](ai-architecture-question.md)** — transformers-vs-RNN and
   pretrained-vs-trained.
+- **[when-to-intervene.md](when-to-intervene.md)** — the intervention-timing literature upstream of
+  detection (impasses / contingency / assistance dilemma / expert-tutor cues / productive confusion).
+  Synthesis only, no new empirical claim; checks the "intervene on affect change" hypothesis.
 - **[research-directions.md](research-directions.md)** — actionable directions (Group 1
   curated/feasible/**high value**; Group 2 curated/feasible/**questionable value**; Group 3
   proposals; Rejected placeholder). The canonical "what next."
@@ -52,10 +55,12 @@ uncommitted-until-asked; the user has since been committing incrementally on thi
 
 ## Key decisions (don't relitigate without reason)
 
-- **Four docs: problem (straw man) / techniques / edtech / AI-question.** Chosen with the user:
+- **Four core docs: problem (straw man) / techniques / edtech / AI-question.** Chosen with the user:
   techniques-first *and* edtech-centered were both wanted, so they became two separate docs; the
   RNN→transformer / pretrained-vs-trained analysis earned its own (fourth) doc rather than being a
-  section.
+  section. **A fifth analytical doc, [when-to-intervene.md](when-to-intervene.md), was later added at
+  the user's request** — the intervention-timing literature (impasses, contingency, assistance
+  dilemma, expert-tutor cues, productive confusion) that is *upstream* of the detection question.
 - **The problem doc is deliberately a straw man.** The motivation is broader than the detector case;
   the user is naming use cases incrementally. **Now specified: (1)** real-time detection for
   researcher interviews, **(2)** real-time feedback to students — Variant A rule-system+states
