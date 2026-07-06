@@ -42,13 +42,27 @@ over the classical one.
   log-only coding (Baker et al., 2006). The one near-neighbor GenAI result — GPT coding gaming from
   text replays — was **weak** and blamed **serialization** (Maier & Baker, 2025;
   [papers/text-replays-and-llm-coding.md](papers/text-replays-and-llm-coding.md)).
+- *Known (a ceiling worth respecting):* even *within* a single app, feature+regression affect
+  detectors match BROMP only modestly. In **Physics Playground** — the open-ended environment closest
+  to CLUE — interaction-based affect detectors reached only **A′ ≈ 0.55–0.68** (avg 0.63), and the
+  authors attribute the weakness to open-endedness giving coarse success signals (Kai et al., 2015;
+  [papers/physics-playground-kai-2015.md](papers/physics-playground-kai-2015.md)). This suggests a
+  **real ceiling on how well affect is recoverable from interaction logs at all** — separate from the
+  transfer question. Beating feature+regression may still leave us short of a usable detector.
 - *Unknown:* whether a GenAI reading a *semantic* representation generalizes across applications for
-  affect. **No such study exists** — this would be novel.
+  affect — **and** whether *any* log-only method (classical or GenAI) can push meaningfully past that
+  within-app ceiling. **No such study exists** — this would be novel.
 
 **What it needs.**
 - **Raw-log affect-labeled data from two applications.** The user reports existing relationships with
   both **ASSISTments** and the **Betty's Brain** researchers, so the datasets are likely obtainable
   *if each IRB permits* — this is the enabler that moves the direction into Group 1.
+- **Also worth obtaining: the Physics Playground raw logs (Kai et al., 2015).** Same Baker-group
+  provenance as Betty's Brain, so likely reachable, and it is the **open-ended environment closest to
+  CLUE** with published BROMP labels. Its reported interaction-based affect A′ (avg 0.63) gives us a
+  **concrete number to match or beat** — a GenAI-on-semantic-log detector that can't clear ~0.63 on
+  this data would be a strong negative signal. Confirm the *raw event stream* (not just feature
+  vectors) is available; see [papers/physics-playground-kai-2015.md](papers/physics-playground-kai-2015.md).
 - **Raw logs, not just feature vectors.** The catch (see
   [papers-to-obtain.md](papers-to-obtain.md) → Datasets): affect datasets are often released as
   engineered features + labels; a GenAI-reads-the-log approach needs the raw event stream (or a
@@ -59,12 +73,23 @@ over the classical one.
 
 **Feasibility.** Plausible now, given the data relationships. Main risks: (a) obtaining *raw* logs
 rather than feature vectors; (b) IRB timelines on both sides; (c) serialization design (2.1) is a
-real sub-problem; (d) affect labels from replay may be noisy. Because two labeled apps are in reach,
-transfer can be tested **both directions**.
+real sub-problem; (d) affect labels from replay may be noisy; **(e) the ceiling risk — even a
+successful cross-app GenAI detector may top out at the modest log-only affect A′ (~0.63 in Physics
+Playground) and never be accurate enough for confident real-time intervention.** Because two labeled
+apps are in reach, transfer can be tested **both directions**.
+
+**Why we keep it despite the ceiling.** The ceiling is an argument against expecting a *great* affect
+detector, not against *running the experiment*. The value here is largely diagnostic: (1) it directly
+tests the GenAI-vs-classical and cross-app-transfer questions that nothing in the literature has;
+(2) even a negative result — "GenAI also can't beat ~0.63, log-only affect has a hard ceiling" —
+is a genuinely useful finding that would redirect us toward richer signals or the check-in/ask-the-
+student fallback rather than more detector engineering; and (3) Physics Playground gives us a
+published number to measure against cheaply.
 
 **Links.** [edtech-landscape.md](edtech-landscape.md) §2c ·
 [ai-architecture-question.md](ai-architecture-question.md) (open questions) ·
-[papers/text-replays-and-llm-coding.md](papers/text-replays-and-llm-coding.md) ·
+[papers/physics-playground-kai-2015.md](papers/physics-playground-kai-2015.md) (the A′ ceiling + a
+data case) · [papers/text-replays-and-llm-coding.md](papers/text-replays-and-llm-coding.md) ·
 [papers-to-obtain.md](papers-to-obtain.md) (Datasets).
 
 ---

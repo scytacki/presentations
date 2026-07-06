@@ -126,8 +126,11 @@ A question central to us — we build many activities and simulations, so a dete
 the one app it was trained on is far less valuable. The evidence says **feature-based affect
 detectors are system-specific and do not transfer across applications.** A 2023 systematic review of
 sensor-free affect detection (arXiv:2310.13711, full text read) finds that features are
-"hand-crafted and system-specific" (programming envs use code changes, math systems use quiz
-performance, physics sims use their own interaction patterns), that some work studied generalizing
+"hand-crafted and system-specific" — the reviewed studies each engineer features to their own
+environment (programming envs use code changes, math systems use quiz performance; **Physics
+Playground**, one of that review's primary studies, uses springboards-drawn / trophies / ball-nudges
+— see [papers/physics-playground-kai-2015.md](papers/physics-playground-kai-2015.md)) — that some
+work studied generalizing
 across student *populations* but **"cross-system transfer is barely addressed,"** that it documents
 **no** successful cross-system transfer (calling instead for "a shared database of action logs and
 emotion labels"), and that these detectors are **not yet good enough for real-time production use.**
@@ -279,6 +282,13 @@ which is the opening the hypothesis points at.
   Modeling of Wheel-Spinning and Productive Persistence in Skill Builders. *JEDM*, 10(1), 36–71.
   **Open access (JEDM); full text read.** ASSISTments; decision tree over bottom-out-hint and
   inter-problem-delay features. Restates the Beck & Gong (2013) wheel-spinning definition.
+- **Kai, S., Paquette, L., Baker, R. S., Bosch, N., D'Mello, S., Ocumpaugh, J., Shute, V., &
+  Ventura, M. (2015).** A Comparison of Video-based and Interaction-based Affect Detectors in
+  Physics Playground. *EDM 2015*, 306–313. **Open access (UPenn / ERIC ED560544); full text read.**
+  Video vs. interaction affect detectors on the same BROMP ground truth in an open-ended physics
+  game; interaction A′ ≈ 0.63 avg (vs. video 0.70). The closest environment in this literature to
+  CLUE, and primary study **P4** of the de Morais et al. (2023) sensor-free review. See
+  [papers/physics-playground-kai-2015.md](papers/physics-playground-kai-2015.md).
 - **Kinnebrew, J. S., Loretz, K. M., & Biswas, G. (2013).** A Contextualized, Differential Sequence
   Mining Method to Derive Students' Learning Behavior Patterns. *JEDM*, 5(1), 190–219. **Open access
   (JEDM / ERIC EJ1115377); method sections read.** The differential-sequence-mining technique behind
@@ -286,10 +296,12 @@ which is the opening the hypothesis points at.
 - **Maier, C., & Baker, R. S. (2025).** Can GPT Detect Gaming the System in Text Replays? *ICCE
   2025*. **Open access; read.** GPT-3.5/4 on text replays — above chance (κ ≈ 0.17) but beaten by a
   classical model (κ ≈ 0.26).
-- **Automatic Sensor-free Affect Detection: A Systematic Literature Review (2023).** arXiv:2310.13711.
+- **de Morais, F., Goldoni, D., Kautzmann, T., da Silva, R., & Jaques, P. A. (2023). Automatic
+  Sensor-free Affect Detection: A Systematic Literature Review.** arXiv:2310.13711.
   **Open access; full text read.** Finds affect-detector features are hand-crafted/system-specific,
   cross-system transfer "barely addressed," no documented successful cross-system transfer, and
-  models not yet production-ready. *(Authors not separately verified.)*
+  models not yet production-ready. Physics Playground (Kai et al. 2015) is its primary study **P4**.
+  *(Author names verified from the arXiv listing.)*
 - **Liu, Z., Liu, Q., Chen, J., Huang, S., Tang, J., & Luo, W. (2022).** pyKT: A Python Library to
   Benchmark Deep Learning based Knowledge Tracing Models. *NeurIPS 2022 Datasets & Benchmarks*.
   arXiv:2206.11460. **Open access (arXiv).**

@@ -23,7 +23,7 @@ research group (same audience as [../grounding-llm-help/](../grounding-llm-help/
 - **[research-directions.md](research-directions.md)** — actionable directions (Group 1
   well-defined/feasible; Group 2 proposals; Rejected placeholder). The canonical "what next."
 - **[papers/](papers/)** — deep-dives: DDCI, ClickSight, pyKT, differential sequence mining, text
-  replays + LLM coding.
+  replays + LLM coding, Physics Playground affect detectors (Kai 2015).
 - **[papers-to-obtain.md](papers-to-obtain.md)** — retrieval list + a Datasets section.
 
 **Committed to branch `meaning-in-interactions`** (not pushed). Earlier convention was
@@ -125,7 +125,10 @@ To compensate, I **directly fetched and verified** the load-bearing citations. C
   30s target, Betty's Brain, detectors, QRF, vignettes all confirmed)*, ClickSight (2505.15410),
   pyKT (2206.11460, key quotes from abstract), DKT
   (1506.05908), SAKT (1907.06837), SAINT (2002.07033), SASRec (1808.09781), LogLLM (2411.08561),
-  Forecasting Live Chat Intent (2408.04668), Joseph digital-frustration preprint (2512.20438).
+  Forecasting Live Chat Intent (2408.04668), Joseph digital-frustration preprint (2512.20438),
+  Physics Playground affect detectors *(Kai et al. 2015, EDM — full 8-page text read; 137 students,
+  BROMP labels, interaction A′≈0.63 vs video 0.70; confirmed as primary study **P4** in the de Morais
+  et al. 2023 review's Table 1)*.
 - **Corrected during verification:** the "intent from browsing" paper is **"Forecasting Live Chat
   Intent from Browsing History"** (Yoon et al., CIKM 2024) and uses an **unnamed LLM, not GPT-3.5**
   (the scan overstated it). The frustration preprint is **single-author (Jibin Joseph)**; its Coveo

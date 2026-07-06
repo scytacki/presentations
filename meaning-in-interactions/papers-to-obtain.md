@@ -58,6 +58,14 @@ use directly.
   **The user has a relationship with ASSISTments, so likely obtainable if their IRB permits.** Ask
   for a **raw-log** version (feature vectors won't support a GenAI-reads-the-log experiment); also
   check PSLC DataShop and ASSISTments' open data snapshots.
+- **Physics Playground affect-labeled logs** (Kai et al. 2015; deep-dive
+  [papers/physics-playground-kai-2015.md](papers/physics-playground-kai-2015.md)). **Same Baker-group
+  provenance as Betty's Brain, so likely reachable via the same relationship**, and it is the
+  **open-ended environment closest to CLUE** with published BROMP labels — making it a strong *third*
+  data case whose reported interaction-based affect **A′ ≈ 0.63** is a concrete number to match or
+  beat. Ask specifically for the **raw event stream / gameplay logs**, not the engineered feature
+  vectors used in the paper. Contact: Baker (UPenn) / Shute & Ventura (Florida State). Also check PSLC
+  DataShop for a Physics/Newton's Playground dataset.
 - **Public gaming text-replay dataset** — `osf.io/2gh56` (from Maier & Baker 2025). This one *is*
   raw-ish (text replays + labels), but it labels **gaming**, not affect. Useful as a format model.
 - **Automatic Sensor-free Affect Detection: A Systematic Literature Review** — arXiv:2310.13711
@@ -118,4 +126,10 @@ time-sampling, ~20 s per student, states coded not transitions), **Kinnebrew, Lo
 the differential-sequence-mining method behind DDCI's behavioral detectors), **Baker, Corbett &
 Wagner 2006** "Human Classification of Low-Fidelity Replays" (open at educationaldatamining.org,
 *read*; the text-replay coding method) and **Maier & Baker 2025** "Can GPT Detect Gaming the System
-in Text Replays?" (open at learninganalytics.upenn.edu, *read*; GPT vs classical on text replays).
+in Text Replays?" (open at learninganalytics.upenn.edu, *read*; GPT vs classical on text replays),
+and **Kai et al. 2015** "A Comparison of Video-based and Interaction-based Affect Detectors in Physics
+Playground" (EDM 2015; open at `learninganalytics.upenn.edu/ryanbaker/2015paper176.pdf` / ERIC
+ED560544, *full text read*; interaction vs video affect detectors on BROMP ground truth, interaction
+A′≈0.63; deep-dive [papers/physics-playground-kai-2015.md](papers/physics-playground-kai-2015.md)).
+**Note the *paper* is verified/read, but its *raw dataset* is still to-obtain — see the Datasets
+section above.**
