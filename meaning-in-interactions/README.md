@@ -52,8 +52,20 @@ or we'd need to train our own.* The research both **supports and complicates** t
    "when to intervene" to "advise well when asked." Also checks the "intervene when affect changes"
    instinct and finds it legitimate but not primary.
 
+6. **[clustering-representation-eval.md](clustering-representation-eval.md)** — *a method deep-dive.*
+   Whether we can rank serializations by embedding each, clustering the embeddings, and scoring the
+   clusters against known groups (human labels or detector/DDCI groups) — a label-light way to test if
+   an embedding can *match* a classification ML model (and, as an extension, *discover* what it
+   missed). Verdict: every component is canonical (external cluster validation; the MTEB Clustering
+   task; serialization-sensitivity; Generalized/Novel Category Discovery), but applying it to *rank
+   serializations* and to *interaction logs vs. human codes* is a genuine gap. Also asks whether the
+   method's core assumption — embedding separability as a proxy for LLM-readability — actually holds
+   (partly: intrinsic≠extrinsic is canonical; geometry-predicts-performance has fresh positive
+   evidence; the generative-LLM bridge is untested). Backs research-direction 3.8.
+
 Start with doc 1 for the problem, doc 2 for the method space, doc 3 for what education has tried, doc
-4 for the build decision, doc 5 for *when* acting is warranted.
+4 for the build decision, doc 5 for *when* acting is warranted, doc 6 for the clustering-based
+serialization eval.
 
 - **[research-directions.md](research-directions.md)** — *the actionable companion.* What we could
   build or test, in two curated groups (well-defined-and-feasible vs. proposals to explore), each

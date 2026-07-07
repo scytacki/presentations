@@ -33,6 +33,17 @@ research group (same audience as [../grounding-llm-help/](../grounding-llm-help/
   (the wildfire default) shifts the meaning-detection target from "detect when to intervene" to "advise
   well when asked"; only detecting *help-avoidance* (stuck-and-not-asking) loops back to impasse detection.**
   Note: the Wood/Bruner/Ross block study is *well*-structured (fixed pyramid, 3–5 yr olds), not open-ended.
+- **[clustering-representation-eval.md](clustering-representation-eval.md)** — **sixth core
+  (analytical) doc**, and the method deep-dive behind research-direction **3.8**: rank serializations
+  by embedding→cluster→score-vs-known-groups (external cluster validation / MTEB Clustering task /
+  TabLLM serialization-sensitivity / GCD-NCD discovery). Also §7 checks whether the core proxy
+  (embedding separability ≈ LLM-readability) holds — intrinsic≠extrinsic (Schnabel 2015) and
+  decodable≠used (Hewitt & Liang 2019) are canonical; geometry-predicts-embedding-task-performance has
+  fresh positive evidence (Myntti et al. 2026, arXiv:2605.22202); the *generative*-LLM bridge is
+  untested. Verdict: components all canonical, the serialization-ranking + interaction-log application
+  is a gap. All load-bearing citations verified (GCD, NCD, Hewitt & Liang fetched directly this
+  session; metrics/MTEB/TabLLM/Sclar/ClusterLLM verified 3–0 by the workflow; Schnabel &
+  Myntti/2602.04212 abstract-level, flagged). Added at the user's request July 7 2026.
 - **[research-directions.md](research-directions.md)** — actionable directions (Group 1
   curated/feasible/**high value**; Group 2 curated/feasible/**questionable value**; Group 3
   proposals; Rejected placeholder). The canonical "what next."
@@ -70,7 +81,11 @@ uncommitted-until-asked; the user has since been committing incrementally on thi
   RNN→transformer / pretrained-vs-trained analysis earned its own (fourth) doc rather than being a
   section. **A fifth analytical doc, [when-to-intervene.md](when-to-intervene.md), was later added at
   the user's request** — the intervention-timing literature (impasses, contingency, assistance
-  dilemma, expert-tutor cues, productive confusion) that is *upstream* of the detection question.
+  dilemma, expert-tutor cues, productive confusion) that is *upstream* of the detection question. **A
+  sixth core doc, [clustering-representation-eval.md](clustering-representation-eval.md), was added
+  July 2026 at the user's request** — the method deep-dive behind research-direction 3.8 (evaluate
+  serializations by clustering their embeddings against known groups). Promoted from a
+  method-bullet to a numbered core doc by the user.
 - **The problem doc is deliberately a straw man.** The motivation is broader than the detector case;
   the user is naming use cases incrementally. **Now specified: (1)** real-time detection for
   researcher interviews, **(2)** real-time feedback to students — Variant A rule-system+states

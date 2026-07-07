@@ -321,6 +321,63 @@ is why it's a serious Group 3 candidate rather than a latent pointer.
 **Links.** [when-to-intervene.md](when-to-intervene.md) · [finding-meaning-problem.md](finding-meaning-problem.md)
 (use-case 2) · [edtech-landscape.md](edtech-landscape.md) (behavioral detectors) · items 1.1 / 3.2 / 3.3.
 
+### 3.8 Rank serializations by clustering their embeddings against known groups
+
+**The question.** For a set of candidate serializations of a session stream, which one's *embedding
+geometry* best **recovers a known grouping** — human labels, or the groups an existing detector/DDCI
+pipeline already produces — when you embed every session, cluster the embeddings unsupervised, and
+score the clusters against those groups? A **label-light** way to rank serializations, and a test of
+whether an embedding can **match** a classification ML model (reproduce its groups) — with, as a
+gated extension, whether it **discovers** structure the classifier missed.
+
+**Why it matters.** It's the cheap sibling of [3.1](research-directions.md): 3.1 needs a prompt + a
+labeled task per serialization; this needs only the labels (no prompt, no task-tuning), so it can
+**shortlist** serializations before paying for full task evals. Serialization is the single biggest
+lever for every LLM-on-logs direction (1.1, 3.2, 3.5), so a cheap pre-filter over it is high-leverage.
+The primary success criterion is **reproducing the known groups** — showing the embedding clustering
+can recover the human labels (and the detector's groups) it's scored against. Whether it *also*
+surfaces new structure the classifier missed is a secondary, welcome result, not what the study has to
+prove.
+
+**What's known / unknown.** *Known (all verified — see
+[clustering-representation-eval.md](clustering-representation-eval.md)):* every component is canonical.
+External cluster validation has primary sources (V-measure — Rosenberg & Hirschberg 2007; ARI —
+Hubert & Arabie 1985; NMI — Strehl & Ghosh 2002; AMI — Vinh et al. 2010). "Embed → k-means → score vs
+gold labels with V-measure" **is** the MTEB Clustering task (Muennighoff et al., EACL 2023; MMTEB
+2025) — representation-quality-via-clustering is a first-class benchmarked setting. Serialization
+changes the geometry (TabLLM, AISTATS 2023; prompt-format swings up to 76 pts, Sclar et al. ICLR
+2024; clustering quality depends heavily on the embedder, Petukhova et al. 2025). LLM-in-the-loop
+clustering exists (ClusterLLM, EMNLP 2023). The discovery angle is a named field (Generalized/Novel
+Category Discovery — Vaze et al. CVPR 2022; Han et al. ICLR 2020). *Unknown / the gap:* **no verified
+prior work** uses this pipeline to *rank serializations*, or applies it to *learner-interaction logs
+validated against human codes / detector groups* — ClickSight *interprets* clickstreams, it doesn't
+cluster-vs-label. That gap is the novelty (search EDM/LAK before claiming it in print).
+
+**What it needs.** A fixed embedder (ideally close to the deploy LLM family); a labeled session slice
+with **two** ground-truths — human labels (from [3.3](research-directions.md)) and detector/DDCI
+groups; the candidate serializations from [3.1](research-directions.md); mini-batch k-means at
+k = #groups; **AMI/ARI** (chance-corrected — session counts are small) plus V-measure.
+
+**Feasibility.** Cheap and low-risk — it's the MTEB recipe on our data; the main cost is the labels
+(shared with 3.3) and honest care about confounds (**hold the embedder fixed**; geometric
+separability is a *proxy* for LLM-readability, not identical to it; reproducing a *detector's* groups
+≠ matching truth, so validate against human labels primarily). Natural companion to 3.1 — run this
+first to shortlist, then 3.1 to confirm.
+
+**Dual use — the embeddings also seed a vector database.** The same per-session embeddings double as
+the **index for a vector DB** over the whole log corpus ("find sessions with a pattern like this one"),
+so the work overlaps the retrieval/compact-and-query goal, not just serialization choice. Two notes:
+(a) for the vector-DB use the proxy worry is *weaker* — retrieval uses the geometry directly — so a
+serialization that clusters well is a strong candidate; **but** (b) the vector-DB case has **more
+freedom on embedder choice** (nothing reads the raw embedding as a prompt, so we needn't match the
+deploy LLM family and should sweep several retrieval embedders), and clustering ≠ retrieval as tasks —
+so treat the clustering winner as a prior, not a verdict, and re-run the embedder sweep for retrieval.
+See [clustering-representation-eval.md](clustering-representation-eval.md) §10.
+
+**Links.** [clustering-representation-eval.md](clustering-representation-eval.md) (full evidence) ·
+[3.1](research-directions.md) (supervised sibling) · [3.3](research-directions.md) (the labels) ·
+[papers/clicksight-radmehr-2025.md](papers/clicksight-radmehr-2025.md) (nearest ed-tech neighbor).
+
 ### 3.7 Also latent — the other use cases
 
 Lower-defined directions carried from [finding-meaning-problem.md](finding-meaning-problem.md) that
