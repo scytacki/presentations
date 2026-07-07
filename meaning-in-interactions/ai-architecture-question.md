@@ -134,7 +134,10 @@ The reasons the "just prompt it" path has limits, and what to design around:
   materially changes performance (the time-series result hinges on the encoding).
 - **Long context.** A class session is thousands of events. Feeding the whole stream per inference is
   expensive and hits context limits — the LogLLM caveat. This pushes toward **summarizing /
-  windowing / incremental memory** (which the spec's "detector memory" already anticipates).
+  windowing / incremental memory** (which the spec's "detector memory" already anticipates) — the
+  *compact* response. There is also a *query* response — **index the stream and let the model pull
+  spans on demand** (agentic tool-use + a multi-scale index), developed in
+  [querying-the-log.md](querying-the-log.md).
 - **Numeric reasoning & hallucination.** LLMs are shaky on precise counts/timings and can fabricate a
   plausible interpretation — dangerous for a detector meant to *trigger a human interview.*
 

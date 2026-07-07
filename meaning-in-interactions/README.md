@@ -63,9 +63,20 @@ or we'd need to train our own.* The research both **supports and complicates** t
    (partly: intrinsic≠extrinsic is canonical; geometry-predicts-performance has fresh positive
    evidence; the generative-LLM bridge is untested). Backs research-direction 3.8.
 
+7. **[querying-the-log.md](querying-the-log.md)** — *the "query" half of compact-and-query.* When the
+   stream is too big to read, don't shrink it to fit — **index it and query it.** Two families:
+   agentic **tool-use over the log** (search/aggregate/state-at/diff — which also offloads the
+   numeric-reasoning weakness to exact tools), and **pre-organizing the stream** into a multi-scale
+   index that finds patterns spanning more than one window or living at a different time scale than
+   the window you chose. Provisional verdict: the building blocks are canonical (agentic RAG; GSP/
+   PrefixSpan gap-tolerant mining; motif discovery; hierarchical-summary indexes) but the composition
+   over K-12 open-ended interaction logs is a gap. **Currently a research-plan scaffold** — design
+   reasoning is written; the literature is left as turnkey `⏳ RESEARCH TO RUN` blocks to fold in
+   later.
+
 Start with doc 1 for the problem, doc 2 for the method space, doc 3 for what education has tried, doc
 4 for the build decision, doc 5 for *when* acting is warranted, doc 6 for the clustering-based
-serialization eval.
+serialization eval, doc 7 for querying the log instead of stuffing it into context.
 
 - **[research-directions.md](research-directions.md)** — *the actionable companion.* What we could
   build or test, in two curated groups (well-defined-and-feasible vs. proposals to explore), each

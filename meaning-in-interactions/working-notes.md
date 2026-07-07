@@ -44,6 +44,17 @@ research group (same audience as [../grounding-llm-help/](../grounding-llm-help/
   is a gap. All load-bearing citations verified (GCD, NCD, Hewitt & Liang fetched directly this
   session; metrics/MTEB/TabLLM/Sclar/ClusterLLM verified 3–0 by the workflow; Schnabel &
   Myntti/2602.04212 abstract-level, flagged). Added at the user's request July 7 2026.
+- **[querying-the-log.md](querying-the-log.md)** — **seventh core doc**, the **"query" half** of
+  compact-and-query (companion to the "compact/represent" clustering doc). Two families: agentic
+  **tool-use over the log** (search/aggregate/state-at/diff; the `aggregate` tool is the
+  numeric-reasoning offload) and **pre-organizing the stream** into a **multi-scale index** (the
+  user's cross-window / different-time-scale problem). Synthesis: A's tools query B's index — a
+  coarse-to-fine agentic loop = the concrete compact-and-query machinery §3.4 needs. **STATUS:
+  research-plan scaffold** — design reasoning written now; literature left as `⏳ RESEARCH TO RUN`
+  blocks (exact searches + candidate papers + verification checklist) to run in a later token window.
+  Anchors reused (not re-verified here): LogLLM, ensemble+RAG 2406.07467 (scan-only), GSP/PrefixSpan
+  (paywalled), differential sequence mining (fetched). Added July 7 2026 at the user's request; user
+  chose to defer the actual research to conserve tokens.
 - **[research-directions.md](research-directions.md)** — actionable directions (Group 1
   curated/feasible/**high value**; Group 2 curated/feasible/**questionable value**; Group 3
   proposals; Rejected placeholder). The canonical "what next."
