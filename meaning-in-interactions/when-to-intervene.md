@@ -30,7 +30,7 @@ important framing point in this doc:
 **The two need genuinely different intervention machinery, and a solution built for one probably does *not*
 transfer to the other** — a tendency worth resisting. The gated wildfire case can reuse step-based
 detection; the open-ended case needs the design-tutoring / behavioral-affective approach (§8). A likely
-consequence for the open-ended end (picked up in §9): authors may need to **formalize goals** and **break
+consequence for the open-ended end (picked up in §10): authors may need to **formalize goals** and **break
 the work into evaluation points**, and even then, *detecting goal achievement* in an open artifact is
 harder than anything in this problem-solving research. This spectrum runs through
 [edtech-landscape.md](edtech-landscape.md) too.
@@ -293,12 +293,60 @@ hints) will not simply carry over to an open modeling activity, and vice versa �
 ([papers/ddci-baker-2024.md](papers/ddci-baker-2024.md)) — is itself an ill-structured *construction* task
 (build a causal model; many valid maps). That is almost certainly *why* its detectors are **behavioral and
 affective, not correctness-based**: when the task goes open-ended, the field's own move is to drop the
-correctness oracle and read behavior/affect instead. That's direct precedent for the §9 conclusion, and it
+correctness oracle and read behavior/affect instead. That's direct precedent for the §10 conclusion, and it
 reinforces §6.
 
 ---
 
-## 9. What this means for us
+## 9. Give, ask, or invite — the *initiative* dimension
+
+A dimension the sections above leave implicit: **who initiates** the help — the system pushes it, or the
+student requests it. It is directly studied, it's not a clean win for either side, and it matters to us
+specifically because our **wildfire simulation requires the student to ask**.
+
+- **On-demand tends to win on learning.** Razzaq & Heffernan (2010), *Hints: Is It Better to Give or Wait
+  to Be Asked?*, ran a randomized comparison in ASSISTments — proactive hints (shown on error) vs.
+  hints-on-demand (click a button). **Students learned reliably more on-demand**, concentrated among those
+  who ask a lot; no significant difference for those who rarely ask. *(Verified — ITS 2010, open PDF.)*
+- **Unsolicited help also carries a motivational cost.** Self-Determination Theory and attribution research
+  find help that "just shows up" can **undermine perceived competence and autonomy, signal that the helper
+  thinks you can't do it, cut intrinsic motivation, and push learners to avoid challenge** (Sierksma et al.
+  2025; "Proactive AI Adoption … When Help Backfires" 2025). A deeper reason for the Clippy effect (§7)
+  than interruption alone. Both results *support* the wildfire design.
+- **But pure on-demand has a systematic blind spot: help avoidance.** The best-documented finding in
+  help-seeking research is that **the students who most need help are the least likely to ask**
+  (Karabenick; Aleven et al., §6) — help-seeking is a metacognitive skill many lack, and it predicts
+  learning about as strongly as cognitive performance does. So requiring the ask **under-serves exactly the
+  struggling students an intervention should catch** — the quietly-stuck student who never clicks "help" is
+  invisible.
+- **The field's resolution isn't binary — it's *invite*.** Between push and pull sits **mixed-initiative**
+  (Bunt, Conati & McGrenere): keep the student in control but let the system *offer*. The practical version
+  is **detect help-avoidance and surface a gentle, dismissable "want a hint?"** ("Avoiding Help Avoidance";
+  Aleven's help-seeking tutor) — **proactive invitation, user-controlled acceptance** — reaching the
+  non-askers without forcing help.
+
+**Two consequences that reshape our problem:**
+
+- **On-request help changes *what we mine the log for.*** If the default is on-demand, then for most
+  interactions the target is **not** "detect the moment to intervene" — it's **"characterize the student's
+  current goal, difficulty, and state well enough to give the best advice *at the moment they ask*."** A
+  different, arguably more tractable meaning-extraction problem: situation-understanding on demand, not
+  continuous trigger-monitoring. Much of the "when to intervene" machinery in this doc applies only to the
+  *proactive* slice.
+- **…except the invite layer drags impasse detection back in.** To catch help-avoiders you must detect
+  **"stuck and not asking,"** which *is* the impasse/struggle-detection problem (§1), just aimed at a
+  narrower question. So the middle path doesn't escape the hard detection problem — it **relocates** it, and
+  only works where "stuck" is detectable: the **gated** materials (the wildfire sim, with per-page goals),
+  not the open-ended ones.
+
+**Net for the wildfire activity:** require-the-ask is well-supported (learning, motivation, non-annoyance) —
+keep it as the default. The evidence-based upgrade is *not* switching to proactive help, but adding a
+**detect-stuck-then-invite** layer on top, and only on gated materials where the page goal makes "stuck"
+detectable.
+
+---
+
+## 10. What this means for us
 
 - **First, sort the material — the approach follows from its structure.** Our materials range from
   **gated/well-structured** (the wildfire simulation with per-page goals: clear steps and checkable
@@ -310,6 +358,12 @@ reinforces §6.
   activities mix both — e.g. an open modeling task nested inside a gated activity.)*
 - **"When to intervene" deserves to be its own question in the problem framing**, not silently collapsed
   into "detect affect." See [finding-meaning-problem.md](finding-meaning-problem.md) (use-case 2).
+- **The help-initiative choice (§9) reframes the whole meaning-detection target.** If help is
+  **on-request** (as in the wildfire sim), then most of the time we are *not* looking in the log for a
+  moment to intervene — we're **reading the situation to give the best advice when asked**. "When to
+  intervene" only governs the *proactive* slice. The one place the two converge: detecting a **stuck
+  help-avoider** to *invite* help is impasse detection again (§1), so it doesn't dodge the hard problem —
+  and it's only feasible on the gated materials.
 - **Affect-change is a legitimate trigger but probably not the primary one.** The strongest single finding
   points at **impasse / struggle-quality** (cognitive readiness); the most **log-tractable** triggers are
   **behavioral disengagement** signals (gaming, wheel-spinning, off-task). Affect is real but, per §5,
@@ -415,6 +469,25 @@ abstract/metadata level via web search — full texts not read unless stated.*
   verified; primary not read.)*
 - **Sweller, J. (and colleagues).** Cognitive Load Theory — **intrinsic vs. extraneous (vs. germane)** load.
   Foundational, many sources. *(Concept verified; specific paper not pinned here.)*
+*§9's help-initiative (give / ask / invite) studies:*
+- **Razzaq, L., & Heffernan, N. T. (2010).** Hints: Is It Better to Give or Wait to Be Asked? *ITS 2010*,
+  LNCS 6094, 349–358. **Open PDF (wpi.edu).** Randomized ASSISTments study: students learned reliably more
+  with hints-on-demand than proactive hints. *(Title/venue/finding verified.)*
+- **Aleven, V., et al. (2016).** Help Helps, But Only So Much: Research on Help Seeking with Intelligent
+  Tutoring Systems. *IJAIED*, 26(1). **Springer.** Review of help avoidance/abuse. *(Metadata verified;
+  full text not read.)* Anchors the **Karabenick** "those who need help most ask least" phenomenon (origin
+  paper not pinned here — concept verified, cite Karabenick with care).
+- **Bunt, A., Conati, C., & McGrenere, J. (2007).** Supporting Interface Customization Using a
+  Mixed-Initiative Approach. *IUI 2007.* **ACM.** Mixed-initiative as the middle ground between adaptable
+  (user-controlled) and adaptive (system-controlled). *(Metadata verified; not read.)*
+- **Sierksma, J., et al. (2025).** "Here, Let Me Do It for You": Psychological Consequences of Receiving
+  Direct and Indirect Help in Childhood. *Child Development.* **Wiley.** Unsolicited help can undermine
+  perceived competence/autonomy and motivation. *(Metadata + finding verified via abstract; not read.)*
+  Grounded in **Self-Determination Theory** (Ryan & Deci) and attribution theory.
+- *Scan-only (arXiv, abstract seen — verify before leaning on):* "Avoiding Help Avoidance" (2009.13371,
+  interface changes to promote unsolicited hint usage); "Proactive AI Adoption can be Threatening: When
+  Help Backfires" (2509.09309).
+
 - *Mentioned from memory, NOT re-verified this session (verify before leaning on):* Lepper & Woolverton
   (2002), "The wisdom of practice"; Graesser, Person & Magliano (1995), naturalistic tutoring dialogue
   patterns; Kapur (2008), "Productive Failure."
@@ -435,6 +508,10 @@ learning benefit. The §7 continuum vocabulary (Hutchins/Hollan/Norman 1985 sema
 distance; Vérillon & Rabardel 1995 / Rabardel instrumental genesis; Sweller cognitive load) was verified
 at concept/metadata level this session; primaries not read. For §8: Jonassen 1997 verified (venue/vol/
 pages + the well-vs-ill-structured distinction); Schön verified at concept level (books not read);
-the ITS-for-ill-defined chapter is scan-only. Nothing here has been read in full; before any of these becomes load-bearing in a
-presentation, fetch the primary text. This doc makes **no new empirical claim** — it synthesizes
-established findings to frame the intervention-timing decision.
+the ITS-for-ill-defined chapter is scan-only. For §9: **Razzaq & Heffernan 2010** verified
+(title/venue/finding, open PDF); Bunt/Conati/McGrenere, Sierksma 2025, and Aleven 2016 verified at
+metadata/abstract level (not read); the Karabenick origin paper is not pinned (concept only); the two
+arXiv items ("Avoiding Help Avoidance", "When Help Backfires") are scan-only. Nothing here has been read in
+full except GUIDE; before any of these becomes load-bearing in a presentation, fetch the primary text. This
+doc makes **no new empirical claim** — it synthesizes established findings to frame the intervention-timing
+decision.

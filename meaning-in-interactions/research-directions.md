@@ -282,6 +282,13 @@ signals), and **affect trajectory** (the slide from productive struggle into fru
 which can actually be **detected from CLUE document-event logs** with usable precision, and at what
 latency?
 
+**Scope note (initiative matters).** This trigger-detection question mostly bites for **proactive** or
+**invite** help. If help is **on-request** (our wildfire default), the primary target shifts to
+*understanding the situation to advise well when asked* (a possible separate direction), and the only
+trigger we still need is **"stuck and not asking"** to *invite* help — which is just the impasse case
+again ([when-to-intervene.md](when-to-intervene.md) §9). So this study is most valuable for the invite
+layer and the proactive slice.
+
 **Why it matters.** [when-to-intervene.md](when-to-intervene.md) argues affect-change is a legitimate
 but probably not primary trigger, and — its central claim — that **the best trigger depends on the
 material's structure**, which spans a spectrum: **gated/well-structured** activities (e.g. the

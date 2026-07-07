@@ -120,6 +120,15 @@ trigger. [when-to-intervene.md](when-to-intervene.md) surveys the alternatives (
 disengagement behaviors, the assistance dilemma, and the "Clippy effect" timing lesson from
 software-help systems) and why over-eager intervention is the central failure mode here.
 
+**But the initiative model reshapes what "meaning" we even look for.** If help is **on-request** (as in
+our wildfire simulation, which requires the student to ask — the evidence-backed default; see
+[when-to-intervene.md](when-to-intervene.md) §9), then for most interactions the target is *not* "detect
+the moment to intervene." It is **"read the situation well enough to give the best advice *when asked*"** —
+a situation-understanding problem, not a trigger-monitoring one. The "when to intervene" framing only
+governs the *proactive* slice. The one exception folds back on itself: to catch a **stuck student who
+won't ask** (help avoidance) and *invite* help, we'd need impasse/struggle detection again — so that slice
+inherits the same hard detection problem, and only where "stuck" is detectable (the gated materials).
+
 **Variant A — rule system + states (what we do now).** A rule engine maps the interaction stream
 onto a list of **states**, and feedback is chosen by the student's current state. This is, at
 bottom, the **detector approach of use case 1** — but with a much heavier detection burden. Instead
