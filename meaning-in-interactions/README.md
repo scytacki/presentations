@@ -90,8 +90,9 @@ serialization eval, doc 7 for querying the log instead of stuffing it into conte
   [Physics Playground affect detectors](papers/physics-playground-kai-2015.md) — the open-ended
   environment closest to CLUE), same
   faithful/caveated format as the grounding folder.
-- **[papers-to-obtain.md](papers-to-obtain.md)** — paywalled or not-fully-verified papers worth
-  getting, by priority. (DDCI's full text has since been obtained — it confirms the ~30s target.)
+- **[bibliography.md](bibliography.md)** — single source of truth for every reference in the series
+  (master list with anchors + `Used by:` back-links), plus a ranked "to obtain" worklist for the
+  paywalled/unverified subset and datasets. Each doc's References section links into it.
 - **[working-notes.md](working-notes.md)** — meta: decisions, conventions, what's verified vs.
   scan-only, and open work for the next session.
 

@@ -16,7 +16,7 @@ ones were abandoned.
 
 > **Honesty tiers.** *Solid* = foundational/replicated. *Sound-but-unproven* = one or few studies.
 > *Gap* = thin evidence. Accessibility is marked; paywalled-but-important works are in
-> [papers-to-obtain.md](papers-to-obtain.md).
+> [bibliography.md](bibliography.md).
 
 ---
 
@@ -179,32 +179,17 @@ detector is even trying to surface* — objective anomaly, subjective surprise, 
 
 ## References
 
-*Accessibility marked; paywalled-but-important items are collected in
-[papers-to-obtain.md](papers-to-obtain.md).*
+*Full details + accessibility in [the series bibliography](bibliography.md).*
 
-- **Chen, Q., et al. (2019).** Behavior Sequence Transformer for E-commerce Recommendation in
-  Alibaba (**BST**). *DLP-KDD 2019*. arXiv:1905.06874. **Open access (arXiv).**
-- **Deshpande, M., & Karypis, G. (2001).** Selective Markov Models for Predicting Web Page Accesses.
-  *SIAM SDM 2001*. **Open access (SIAM PDF).**
-- **Feild, H., Allan, J., & Jones, R. (2010).** Predicting Searcher Frustration. *SIGIR 2010*. DOI
-  10.1145/1835449.1835458. **Paywalled (ACM).**
-- **Geng, L., & Hamilton, H. J. (2006).** Interestingness Measures for Data Mining: A Survey. *ACM
-  Computing Surveys*, 38(3), Article 9. DOI 10.1145/1132960.1132963. **Paywalled (ACM).**
-- **Joseph, J. (2025).** Machine Learning to Predict Digital Frustration from Clickstream Data.
-  arXiv:2512.20438. **Open access (arXiv).** *Single-author preprint — treat metrics cautiously.*
-- **Kang, W.-C., & McAuley, J. (2018).** Self-Attentive Sequential Recommendation (**SASRec**).
-  *ICDM 2018*. arXiv:1808.09781. **Open access (arXiv).**
-- **Pei, J., Han, J., et al. (2001/2004).** PrefixSpan / Mining Sequential Patterns by
-  Pattern-Growth. *ICDE 2001 / IEEE TKDE 2004*. **Paywalled (IEEE).**
-- **Sakar, C. O., et al. (2018).** Real-time prediction of online shoppers' purchasing intention...
-  *Neural Computing & Applications*. DOI 10.1007/s00521-018-3523-0. **Paywalled (Springer);** dataset
-  open on UCI.
-- **Srikant, R., & Agrawal, R. (1996).** Mining Sequential Patterns: Generalizations and Performance
-  Improvements (**GSP**). *EDBT 1996*, LNCS 1057. DOI 10.1007/BFb0014140. **Paywalled (Springer).**
-- **Srivastava, J., Cooley, R., Deshpande, M., & Tan, P.-N. (2000).** Web Usage Mining: Discovery and
-  Applications of Usage Patterns from Web Data. *ACM SIGKDD Explorations*, 1(2), 12–23. **Open access
-  (author PDF).**
-- **van der Aalst, W., Weijters, T., & Maruster, L. (2004).** Workflow Mining: Discovering Process
-  Models from Event Logs (**α-algorithm**). *IEEE TKDE*, 16(9), 1128–1142. **Paywalled (IEEE).**
-- **Yoon, S., et al. (2024).** Forecasting Live Chat Intent from Browsing History. *CIKM 2024*.
-  arXiv:2408.04668. **Open access (arXiv).**
+- [Chen et al. (2019) — BST](bibliography.md#chen-2019) 🟢
+- [Deshpande & Karypis (2001) — Selective Markov Models](bibliography.md#deshpande-2001) 🟢
+- [Feild, Allan & Jones (2010) — Predicting Searcher Frustration](bibliography.md#feild-2010) 🔒
+- [Geng & Hamilton (2006) — Interestingness Measures survey](bibliography.md#geng-2006) 🔒
+- [Joseph (2025) — Digital Frustration from Clickstream](bibliography.md#joseph-2025) 🟢
+- [Kang & McAuley (2018) — SASRec](bibliography.md#kang-2018) 🟢
+- [Pei, Han et al. (2001/2004) — PrefixSpan](bibliography.md#pei-2001) 🔒
+- [Sakar et al. (2018) — purchasing intention + LSTM](bibliography.md#sakar-2018) 🔒
+- [Srikant & Agrawal (1996) — GSP](bibliography.md#srikant-1996) 🔒
+- [Srivastava et al. (2000) — Web Usage Mining](bibliography.md#srivastava-2000) 🟢
+- [van der Aalst et al. (2004) — Workflow Mining / α-algorithm](bibliography.md#vanderaalst-2004) 🔒
+- [Yoon et al. (2024) — Forecasting Live Chat Intent](bibliography.md#yoon-2024) 🟢

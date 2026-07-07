@@ -199,3 +199,10 @@ for how we should build.** In particular:
 
 Where the evidence is thin, or applies only *by analogy* to K-12 classroom software, these
 documents say so plainly. That honesty matters more than a tidy story.
+
+---
+
+## References
+
+*Built from discussion + the prior PR, not from literature — this doc makes no external citations.
+The literature that grounds the series is collected in [the series bibliography](bibliography.md).*

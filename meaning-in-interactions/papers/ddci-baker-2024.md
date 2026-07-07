@@ -109,7 +109,7 @@ full — building on the open **differential sequence mining** method of Kinnebr
 Munshi et al. (2018) carried this tradition into real-time *detectors* of behavioral sequences (e.g.
 deleting large sections of correct map entries after being told the map is wrong), examined against
 affect (e.g. `Hint → Read` orderings under boredom vs. delight) and classified as
-productive/unproductive. *(Munshi 2018 itself not read — see [../papers-to-obtain.md](../papers-to-obtain.md);
+productive/unproductive. *(Munshi 2018 itself not read — see [../bibliography.md](../bibliography.md);
 the mechanism above is from the open Kinnebrew et al. 2013 method paper plus DDCI's description.)*
 
 **The delivery mechanism.** Interviewers carry a handheld field-research app, **Quick Red Fox

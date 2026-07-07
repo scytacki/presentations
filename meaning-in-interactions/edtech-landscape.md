@@ -19,7 +19,7 @@ knowledge-tracing evidence shows transformers do *not* automatically win (see
 > strong evidence. *Sound-but-unproven* = a reasonable claim from one or few studies. *Gap* =
 > something the literature has barely touched, especially for K-12 classroom software like ours.
 > Citations are at the end; papers I could not access in full are marked and listed in
-> [papers-to-obtain.md](papers-to-obtain.md).
+> [bibliography.md](bibliography.md).
 
 ---
 
@@ -86,7 +86,7 @@ There is a neural exception even here: at least one line of work has applied **d
 transfer learning** to build early detectors of stopout (attrition) and wheel-spinning. So it is
 not true that *nothing* in struggle-detection is neural — but it is the exception, and recent, not
 the tradition. *(Sound-but-unproven — I did not fully verify this paper; see
-[papers-to-obtain.md](papers-to-obtain.md).)*
+[bibliography.md](bibliography.md).)*
 
 **Bottom line for the hypothesis:** for the constructs we actually want ("interesting moments"),
 the field's built systems are overwhelmingly *feature-engineering + classical ML*, which
@@ -249,87 +249,28 @@ which is the opening the hypothesis points at.
 
 ## References
 
-*Accessibility marked; paywalled items that matter are collected in
-[papers-to-obtain.md](papers-to-obtain.md). Per-paper deep-dives for the closest studies are in
-[papers/](papers/).*
+*Full details + accessibility in [the series bibliography](bibliography.md). Per-paper deep-dives
+for the closest studies are in [papers/](papers/).*
 
-- **Baker, R. S., Hutt, S., Bosch, N., Ocumpaugh, J., Biswas, G., Paquette, L., Andres, J. M. A. L.,
-  Nasiar, N., & Munshi, A. (2024).** Detector-Driven Classroom Interviewing: Focusing Qualitative
-  Researcher Time by Selecting Cases In Situ. *Educational Technology Research and Development*,
-  72(5), 2841–2863. DOI 10.1007/s11423-023-10324-y. **Full text read** (local copy). See
-  [papers/ddci-baker-2024.md](papers/ddci-baker-2024.md).
-- **Baker, R. S. J. d., Corbett, A. T., & Wagner, A. Z. (2006).** Human Classification of
-  Low-Fidelity Replays of Student Actions. *EDM Workshop at ITS 2006*, 29–36. **Open access; read.**
-  The text-replay method; see [papers/text-replays-and-llm-coding.md](papers/text-replays-and-llm-coding.md).
-- **Baker, R. S. J. d., & de Carvalho, A. (2008).** Labeling Student Behavior Faster and More
-  Precisely with Text Replays. *EDM 2008*. **Open access.** Text-replay *tagging* (multiple tags per
-  clip).
-- **Beck, J. E., & Gong, Y. (2013).** Wheel-Spinning: Students Who Fail to Master a Skill. *AIED
-  2013*. DOI 10.1007/978-3-642-39112-5_44. **Paywalled** (Springer LNCS).
-- **Choi, Y., et al. (2020).** Towards an Appropriate Query, Key, and Value Computation for
-  Knowledge Tracing (**SAINT**). *L@S 2020*. arXiv:2002.07033. **Open access (arXiv).**
-- **D'Mello, S., & Graesser, A. (2012).** Dynamics of affective states during complex learning.
-  *Learning and Instruction*, 22(2), 145–157. DOI 10.1016/j.learninstruc.2011.10.001. **Paywalled**
-  (Elsevier).
-- **Ghosh, A., Heffernan, N., & Lan, A. S. (2020).** Context-Aware Attentive Knowledge Tracing
-  (**AKT**). *KDD 2020*. Author copy open (umass.edu). Reports up to ~6% AUC gain over prior KT.
-- **Jiang, Y., Bosch, N., Baker, R. S., Paquette, L., Ocumpaugh, J., Andres, J. M. A. L., Moore, A.
-  L., & Biswas, G. (2018).** Expert Feature-Engineering vs. Deep Neural Networks: Which Is Better for
-  Sensor-Free Affect Detection? *AIED 2018*. Open PDF (upenn.edu). The construction paper behind
-  DDCI's Betty's-Brain affect detectors (BROMP labels; 249 engineered features; feature-engineering
-  vs. DNN tradeoff). **Full text read.**
-- **Kai, S., Almeda, M. V., Baker, R. S., Heffernan, C., & Heffernan, N. (2018).** Decision Tree
-  Modeling of Wheel-Spinning and Productive Persistence in Skill Builders. *JEDM*, 10(1), 36–71.
-  **Open access (JEDM); full text read.** ASSISTments; decision tree over bottom-out-hint and
-  inter-problem-delay features. Restates the Beck & Gong (2013) wheel-spinning definition.
-- **Kai, S., Paquette, L., Baker, R. S., Bosch, N., D'Mello, S., Ocumpaugh, J., Shute, V., &
-  Ventura, M. (2015).** A Comparison of Video-based and Interaction-based Affect Detectors in
-  Physics Playground. *EDM 2015*, 306–313. **Open access (UPenn / ERIC ED560544); full text read.**
-  Video vs. interaction affect detectors on the same BROMP ground truth in an open-ended physics
-  game; interaction A′ ≈ 0.63 avg (vs. video 0.70). The closest environment in this literature to
-  CLUE, and primary study **P4** of the de Morais et al. (2023) sensor-free review. See
-  [papers/physics-playground-kai-2015.md](papers/physics-playground-kai-2015.md).
-- **Kinnebrew, J. S., Loretz, K. M., & Biswas, G. (2013).** A Contextualized, Differential Sequence
-  Mining Method to Derive Students' Learning Behavior Patterns. *JEDM*, 5(1), 190–219. **Open access
-  (JEDM / ERIC EJ1115377); method sections read.** The differential-sequence-mining technique behind
-  DDCI's behavioral detectors; see [papers/differential-sequence-mining-kinnebrew-2013.md](papers/differential-sequence-mining-kinnebrew-2013.md).
-- **Maier, C., & Baker, R. S. (2025).** Can GPT Detect Gaming the System in Text Replays? *ICCE
-  2025*. **Open access; read.** GPT-3.5/4 on text replays — above chance (κ ≈ 0.17) but beaten by a
-  classical model (κ ≈ 0.26).
-- **de Morais, F., Goldoni, D., Kautzmann, T., da Silva, R., & Jaques, P. A. (2023). Automatic
-  Sensor-free Affect Detection: A Systematic Literature Review.** arXiv:2310.13711.
-  **Open access; full text read.** Finds affect-detector features are hand-crafted/system-specific,
-  cross-system transfer "barely addressed," no documented successful cross-system transfer, and
-  models not yet production-ready. Physics Playground (Kai et al. 2015) is its primary study **P4**.
-  *(Author names verified from the arXiv listing.)*
-- **Liu, Z., Liu, Q., Chen, J., Huang, S., Tang, J., & Luo, W. (2022).** pyKT: A Python Library to
-  Benchmark Deep Learning based Knowledge Tracing Models. *NeurIPS 2022 Datasets & Benchmarks*.
-  arXiv:2206.11460. **Open access (arXiv).**
-- **Owen, V. E., Roy, M.-H., Thai, K. P., Burnett, V., Jacobs, D., Keylor, E., & Baker, R. S.
-  (2019).** Detecting Wheel-spinning and Productive Persistence in Educational Games. *EDM 2019*,
-  378–383. ERIC ED599202. **Open access (ERIC).**
-- **Pandey, S., & Karypis, G. (2019).** A Self-Attentive model for Knowledge Tracing (**SAKT**).
-  *EDM 2019*. arXiv:1907.06837. Reports +4.43% AUC average over prior KT. **Open access (arXiv).**
-- **Paquette, L., Rowe, J., Baker, R. S., Mott, B., Lester, J., DeFalco, J., Brawner, K., Sottilare,
-  R., & Georgoulas, V. (2015).** Sensor-Free or Sensor-Full: A Comparison of Data Modalities in
-  Multi-Channel Affect Detection. *EDM 2015*, 93–100. **Open access (ERIC ED560545); p.1 read.**
-  Companion to the Physics Playground study on a different serious game (GIFT / tactical-combat
-  casualty care): compares **interaction-log** vs. **Kinect posture** detectors and finds interaction
-  detectors outperform posture (but vary more across contexts). Another *automated*-modality
-  comparison — not a human-remote-vs-live-observation one.
-- **Piech, C., Bassen, J., Huang, J., Ganguli, S., Sahami, M., Guibas, L., & Sohl-Dickstein, J.
-  (2015).** Deep Knowledge Tracing (**DKT**). *NeurIPS 2015*. arXiv:1506.05908. **Open access
-  (arXiv).**
-- **Radmehr, B., Shved, E., Güreş, F. B., Singla, A., & Käser, T. (2025).** ClickSight: Interpreting
-  Student Clickstreams to Reveal Insights on Learning Strategies via LLMs. *AIED 2025*.
-  arXiv:2505.15410. **Open access (arXiv).**
-- **Rodrigo, M. M. T., & Baker, R. S. (2011).** Comparing the incidence and persistence of learning
-  behaviors... across intelligent tutors and educational games. *Research and Practice in
-  Technology Enhanced Learning* (author copy open, upenn.edu).
-- **Zambrano, A. F., Nasiar, N., Ocumpaugh, J., Goslen, A., Zhang, J., Rowe, J., Esiason, J.,
-  Vandenberg, J., & Hutt, S. (2024).** Says Who? How Different Ground Truth Measures of Emotion Impact
-  Student Affective Modeling. *EDM 2024* (Atlanta). **Open access (ERIC ED675677 / EDM proceedings);
-  abstract + proceedings page verified, full text not read.** Builds separate affect detectors from
-  **self-report** vs. **BROMP classroom-observation** labels on a microbiology game (Crystal Island
-  lineage) and finds the two ground-truth sources capture *different* signal — evidence that the
-  *labeling method itself* shapes what a detector learns. Relevant to research-directions item 2.1.
+- [Baker et al. (2024) — DDCI](bibliography.md#baker-2024) ✅
+- [Baker, Corbett & Wagner (2006) — text replays](bibliography.md#baker-2006) ✅
+- [Baker & de Carvalho (2008) — text-replay tagging](bibliography.md#baker-2008) 🟢
+- [Beck & Gong (2013) — Wheel-Spinning](bibliography.md#beck-2013) 🔒
+- [BROMP 2.0 manual — Ocumpaugh, Baker & Rodrigo (2015)](bibliography.md#bromp-manual) ✅
+- [Choi et al. (2020) — SAINT](bibliography.md#choi-2020) 🟢
+- [D'Mello & Graesser (2012) — affective-state dynamics](bibliography.md#dmello-2012) 🔒
+- [Ghosh, Heffernan & Lan (2020) — AKT](bibliography.md#ghosh-2020) 🟢
+- [Jiang et al. (2018) — Expert Feature-Engineering vs. DNN](bibliography.md#jiang-2018) ✅
+- [Kai et al. (2018) — Decision-Tree Wheel-Spinning](bibliography.md#kai-2018) ✅
+- [Kai et al. (2015) — Physics Playground affect detectors](bibliography.md#kai-2015) ✅
+- [Kinnebrew, Loretz & Biswas (2013) — differential sequence mining](bibliography.md#kinnebrew-2013) ✅
+- [Maier & Baker (2025) — GPT gaming detection](bibliography.md#maier-2025) ✅
+- [de Morais et al. (2023) — sensor-free affect review](bibliography.md#demorais-2023) ✅
+- [Liu et al. (2022) — pyKT](bibliography.md#liu-2022) 🟢
+- [Owen et al. (2019) — wheel-spinning in games](bibliography.md#owen-2019) 🟢
+- [Pandey & Karypis (2019) — SAKT](bibliography.md#pandey-2019) 🟢
+- [Paquette et al. (2015) — Sensor-Free or Sensor-Full](bibliography.md#paquette-2015) 🟢
+- [Piech et al. (2015) — DKT](bibliography.md#piech-2015) 🟢
+- [Radmehr et al. (2025) — ClickSight](bibliography.md#radmehr-2025) ✅
+- [Rodrigo & Baker (2011) — incidence/persistence](bibliography.md#rodrigo-2011) 🟢⚠️
+- [Zambrano et al. (2024) — Says Who? ground-truth emotion](bibliography.md#zambrano-2024) 🟢⚠️

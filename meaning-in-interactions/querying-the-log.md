@@ -323,3 +323,16 @@ Kinnebrew 2013 — fetched). Everything in a **`⏳ RESEARCH TO RUN`** block is 
 searched**. When folding in findings, follow the series conventions: fetch primary sources, mark
 open/paywalled, assign honesty tiers, flag domain mismatch, and honor the absence-claim guard (search
 before writing "no one has done X"). Update this note with the confidence tiers of what you add.
+
+---
+
+## References
+
+*Full details + accessibility in [the series bibliography](bibliography.md). Anchors reused here (not
+re-verified in this doc); see the in-doc research-to-run notes for confidence tiers.*
+
+- [Guan et al. (2024) — LogLLM](bibliography.md#guan-2024) 🟢
+- [Ensemble + RAG for log anomaly detection](bibliography.md#ensemble-rag-2024) 🟢⚠️
+- [Srikant & Agrawal (1996) — GSP](bibliography.md#srikant-1996) 🔒
+- [Pei, Han et al. (2001/2004) — PrefixSpan](bibliography.md#pei-2001) 🔒
+- [Kinnebrew, Loretz & Biswas (2013) — differential sequence mining](bibliography.md#kinnebrew-2013) ✅

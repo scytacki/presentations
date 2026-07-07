@@ -402,3 +402,35 @@ use, treating the clustering result as a prior, not a verdict.
   serialization-ranking use both produced **no verified prior work** — treated as a novelty
   opportunity in §6, not a proven absence. A targeted EDM/LAK search should precede any published
   novelty claim (cf. the [[verify-absence-claims]] rule).
+
+---
+
+## References
+
+*Full details + accessibility in [the series bibliography](bibliography.md). Verification tiers for
+these are in the [Verification note](#verification-note) above.*
+
+- [AMI — Vinh, Epps & Bailey (2010)](bibliography.md#ami-2010) 🟢
+- [ARI — Hubert & Arabie (1985)](bibliography.md#ari-1985) 🔒
+- [ClusterLLM — Zhang et al. (2023)](bibliography.md#clusterllm-2023) 🟢
+- [Deep Transfer Clustering — Han et al. (2019)](bibliography.md#deep-transfer-clustering-2019) 🟢⚠️
+- [Enevoldsen et al. (2025) — MMTEB](bibliography.md#mmteb-2025) 🟢
+- [Fatemi et al. (2024) — Test of Time](bibliography.md#fatemi-2024) 🟢
+- [German MTEB replication (2024)](bibliography.md#german-mteb-2024) 🟢
+- [Goal-Driven Explainable Clustering (2023)](bibliography.md#goal-driven-clustering-2023) 🟢⚠️
+- [Han et al. (2020) — NCD / RankStats](bibliography.md#han-2020) 🟢
+- [Hegselmann et al. (2023) — TabLLM](bibliography.md#tabllm-2023) 🟢
+- [Hewitt & Liang (2019) — decodable ≠ used](bibliography.md#hewitt-2019) 🟢
+- [Kong et al. (2025) — Language-TPP](bibliography.md#kong-2025) 🟢
+- [Language Models Struggle to Use In-Context Representations (2026)](bibliography.md#lm-struggle-2026) 🟢⚠️
+- [Li, Wang & McAuley (2020) — TiSASRec](bibliography.md#tisasrec-2020) 🟢⚠️
+- [Muennighoff et al. (2023) — MTEB](bibliography.md#mteb-2023) 🟢
+- [Myntti et al. (2026) — Structure Retention](bibliography.md#myntti-2026) 🟢⚠️
+- [NMI — Strehl & Ghosh (2002)](bibliography.md#nmi-2002) 🟢
+- [Petukhova et al. (2025) — text clustering with LLM embeddings](bibliography.md#petukhova-2025) 🟢
+- [PL-MTEB (2024)](bibliography.md#pl-mteb-2024) 🟢⚠️
+- [Radmehr et al. (2025) — ClickSight](bibliography.md#radmehr-2025) ✅
+- [Rosenberg & Hirschberg (2007) — V-measure](bibliography.md#vmeasure-2007) 🟢
+- [Schnabel et al. (2015) — intrinsic ≠ extrinsic](bibliography.md#schnabel-2015) 🟢⚠️
+- [Sclar et al. (2024) — prompt-format sensitivity](bibliography.md#sclar-2024) 🟢
+- [Vaze et al. (2022) — GCD](bibliography.md#vaze-2022) 🟢

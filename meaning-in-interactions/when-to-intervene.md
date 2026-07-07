@@ -195,7 +195,7 @@ setting. The signals and (especially) the timing lessons transfer even though th
   detection — heuristic, real-time, log-only. *(Industry/gray-literature, not peer-reviewed; useful as a
   catalogue of cheap log signals, not as evidence they improve learning.)* Overlaps the UX material in
   [techniques.md](techniques.md), and the clickstream-frustration preprint (Joseph 2025) and searcher-
-  frustration work (Feild et al.) already in [edtech-landscape.md](edtech-landscape.md) / papers-to-obtain.
+  frustration work (Feild et al.) already in [edtech-landscape.md](edtech-landscape.md) / bibliography.
 - **Cutting edge — useful mostly as a *dataset*, less as a method.** *GUIDE* (Yang et al., CVPR 2026;
   arXiv:2603.25864) benchmarks models on **open-ended GUI tasks** (10 desktop apps; 67.5 h; ~1K labeled
   instances) across Behavior-State Detection, Intent Prediction, and **Help Prediction**. The **big caveat
@@ -399,98 +399,39 @@ detectable.
 
 ## References
 
-*Verify-before-cite; accessibility and verification level noted. Most were verified this session at
-abstract/metadata level via web search — full texts not read unless stated.*
+*Full details + accessibility in [the series bibliography](bibliography.md). The doc-specific
+verification status of each is summarized in the [Verification note](#verification-note) below.*
 
-- **VanLehn, K., Siler, S., Murray, C., Yamauchi, T., & Baggett, W. B. (2003).** Why Do Only Some Events
-  Cause Learning During Human Tutoring? *Cognition and Instruction*, 21(3). **Paywalled (Taylor & Francis;
-  ERIC EJ675271).** Impasse-driven learning from ~125 h of expert physics tutoring. *(Venue/issue + first
-  two authors search-verified; remaining author list from memory.)*
-- **Wood, D., Bruner, J. S., & Ross, G. (1976).** The Role of Tutoring in Problem Solving. *Journal of
-  Child Psychology and Psychiatry*, 17(2), 89–100. **Paywalled (Wiley); PDFs circulate.** Origin of
-  "scaffolding"; six tutoring functions incl. frustration control. Task = **3–5-year-olds** assembling a
-  fixed six-layer interlocking-block **pyramid** (a *well-structured* task, single correct assembly).
-  *(Metadata + functions + age range + task verified.)*
-- **Koedinger, K. R., & Aleven, V. (2007).** Exploring the Assistance Dilemma in Experiments with Cognitive
-  Tutors. *Educational Psychology Review*, 19, 239–264. **Paywalled (Springer); ERIC EJ785065.** *(Verified.)*
-- **Lepper, M. R., Drake, M. F., & O'Donnell-Johnson, T. (1997).** Scaffolding Techniques of Expert Human
-  Tutors. In K. Hogan & M. Pressley (Eds.), *Scaffolding Student Learning: Instructional Approaches and
-  Issues* (pp. 108–144). Brookline Books. **Book chapter (not online).** *(Full citation verified.)*
-- **D'Mello, S., Lehman, B., Pekrun, R., & Graesser, A. (2014).** Confusion Can Be Beneficial for Learning.
-  *Learning and Instruction*, 29, 153–170. **Paywalled (Elsevier).** Productive confusion — beneficial if
-  induced/regulated/resolved. *(Verified at abstract level.)*
-- **Aleven, V., Stahl, E., Schworm, S., Fischer, F., & Wallace, R. (2003).** Help Seeking and Help Design
-  in Interactive Learning Environments. *Review of Educational Research*, 73(3), 277–320. **Paywalled
-  (SAGE); ERIC EJ782605.** *(Verified.)*
-- **Aleven, V., McLaren, B., Roll, I., & Koedinger, K. (2006).** Toward Meta-cognitive Tutoring: A Model of
-  Help Seeking with a Cognitive Tutor. *International Journal of Artificial Intelligence in Education*,
-  16(2), 101–128. **Open PDF (cs.cmu.edu).** Help-avoidance / hint-abuse as intervention signals. *(Verified.)*
-- **Forbes-Riley, K., & Litman, D. (2008).** Responding to Student Uncertainty During Computer Tutoring.
-  *ITS 2008* (Springer LNCS). **Paywalled.** *(Scan-only — title/venue from search, not read.)*
-- **Horvitz, E., Breese, J., Heckerman, D., Hovel, D., & Rommelse, K. (1998).** The Lumière Project:
-  Bayesian User Modeling for Inferring the Goals and Needs of Software Users. *UAI 1998*, 256–265.
-  **Open (arXiv:1301.7385).** Basis for the Office '97 Office Assistant ("Clippy"). *(Title/venue/arXiv +
-  Office-Assistant lineage verified; author list from memory.)*
-- **Yang, S., Yu, J., Peng, Y.-H., Lin, K. Q., Cho, J. W., Song, Y., & Kim, J. (2026).** GUIDE: A
-  Benchmark for Understanding and Assisting Users in Open-Ended GUI Tasks. *CVPR 2026*. arXiv:2603.25864.
-  **Open (arXiv); dataset CC BY 4.0 at guide-bench.github.io.** Dataset = 67.5 h screen recordings +
-  keyboard/mouse events + think-aloud, 54 novice users, 10 desktop apps, ~1K labeled instances; tasks =
-  behavior-state / intent / help prediction. **Model input = only 32 sampled video frames (vision-only,
-  zero-shot); the interaction events + narration were labeling-only, never fed to the model.** Models:
-  Gemini-2.5-Pro/Flash, GPT-4o/-mini, Claude-4.5-Sonnet, + open-weight Qwen3-VL-8B / InternVL3-8B /
-  InternVideo2.5-8B. Zero-shot struggle detection weak (behavior-state acc ~45%, struggle read as
-  progress); injecting **ground-truth** behavior+intent as text lifts help prediction up to ~50 pp (an
-  oracle upper bound). **No interaction-log-representation was ever tested** (that's our opening; see
-  research-directions 3.1). *(Full text read this session.)*
-- *Industry / gray-literature (not peer-reviewed), cited as a signal catalogue only:* product-analytics
-  frustration signals — rage / dead / error clicks, thrashed cursor (FullStory, Glassbox, Datadog,
-  Amplitude, Heap); digital adoption platforms (Pendo, WalkMe, Whatfix, Appcues).
+- [VanLehn et al. (2003) — impasse-driven learning](bibliography.md#vanlehn-2003) 🔒
+- [Wood, Bruner & Ross (1976) — scaffolding](bibliography.md#wood-1976) 🔒
+- [Koedinger & Aleven (2007) — assistance dilemma](bibliography.md#koedinger-2007) 🔒
+- [Lepper, Drake & O'Donnell-Johnson (1997) — expert-tutor scaffolding](bibliography.md#lepper-1997) 🔒
+- [D'Mello et al. (2014) — productive confusion](bibliography.md#dmello-2014) 🔒
+- [Aleven et al. (2003) — help seeking & help design](bibliography.md#aleven-2003) 🔒
+- [Aleven et al. (2006) — meta-cognitive tutoring / help seeking](bibliography.md#aleven-2006) 🟢
+- [Forbes-Riley & Litman (2008) — responding to uncertainty](bibliography.md#forbes-riley-2008) 🔒⚠️
+- [Horvitz et al. (1998) — Lumière](bibliography.md#horvitz-1998) 🟢
+- [Yang et al. (2026) — GUIDE](bibliography.md#yang-2026) ✅
+- [Product-analytics & digital-adoption gray literature](bibliography.md#product-analytics-graylit) ⚠️ — cited as a signal catalogue only.
 
 *§8's design / ill-structured tutoring tradition:*
-- **Jonassen, D. H. (1997).** Instructional Design Models for Well-Structured and Ill-Structured
-  Problem-Solving Learning Outcomes. *Educational Technology Research & Development*, 45(1), 65–94.
-  **Paywalled (Springer); open PDFs circulate; ERIC EJ541455.** The well- vs. ill-structured distinction;
-  design problems as the most ill-structured. *(Metadata + core distinction verified.)*
-- **Schön, D. A. (1983 / 1987).** *The Reflective Practitioner* / *Educating the Reflective Practitioner.*
-  Basic Books / Jossey-Bass. **Books.** Reflection-in-action; the design studio and "crit" as the model of
-  open-ended design tutoring. *(Foundational; concepts verified this session, primaries not read.)*
-- **Fournier-Viger, P., Nkambou, R., et al.** Building Intelligent Tutoring Systems for Ill-Defined Domains.
-  In *Advances in Intelligent Tutoring Systems* (Nkambou et al., eds.). **Open chapter PDF
-  (philippe-fournier-viger.com).** *(Scan-only — located, not read.)*
+- [Jonassen (1997) — well- vs. ill-structured problem-solving](bibliography.md#jonassen-1997) 🔒
+- [Schön (1983 / 1987) — the reflective practitioner](bibliography.md#schon-1983) 🔒
+- [Fournier-Viger, Nkambou et al. — ITS for ill-defined domains](bibliography.md#fournier-viger) 🟢⚠️
 
-*§7's UI-affordance ↔ learning-goal continuum (vocabulary, all verified this session):*
-- **Hutchins, E. L., Hollan, J. D., & Norman, D. A. (1985).** Direct Manipulation Interfaces.
-  *Human-Computer Interaction*, 1(4), 311–338. **Open PDFs circulate.** Gulfs of execution/evaluation;
-  **semantic** vs. **articulatory** distance. *(Metadata + concepts verified.)*
-- **Vérillon, P., & Rabardel, P. (1995).** Cognition and Artifacts: A Contribution to the Study of Thought
-  in Relation to Instrumented Activity. *European Journal of Psychology of Education*, 10(1), 77–101; and
-  Rabardel's **instrumental genesis** (instrumentation / instrumentalization), widely used in
-  mathematics/science ed-tech. **Paywalled (Springer); secondary summaries open.** *(Framework + terms
-  verified; primary not read.)*
-- **Sweller, J. (and colleagues).** Cognitive Load Theory — **intrinsic vs. extraneous (vs. germane)** load.
-  Foundational, many sources. *(Concept verified; specific paper not pinned here.)*
+*§7's UI-affordance ↔ learning-goal continuum:*
+- [Hutchins, Hollan & Norman (1985) — semantic vs. articulatory distance](bibliography.md#hutchins-1985) 🟢
+- [Vérillon & Rabardel (1995) — instrumental genesis](bibliography.md#verillon-1995) 🔒
+- [Sweller — cognitive load theory](bibliography.md#sweller) ⚠️
+
 *§9's help-initiative (give / ask / invite) studies:*
-- **Razzaq, L., & Heffernan, N. T. (2010).** Hints: Is It Better to Give or Wait to Be Asked? *ITS 2010*,
-  LNCS 6094, 349–358. **Open PDF (wpi.edu).** Randomized ASSISTments study: students learned reliably more
-  with hints-on-demand than proactive hints. *(Title/venue/finding verified.)*
-- **Aleven, V., et al. (2016).** Help Helps, But Only So Much: Research on Help Seeking with Intelligent
-  Tutoring Systems. *IJAIED*, 26(1). **Springer.** Review of help avoidance/abuse. *(Metadata verified;
-  full text not read.)* Anchors the **Karabenick** "those who need help most ask least" phenomenon (origin
-  paper not pinned here — concept verified, cite Karabenick with care).
-- **Bunt, A., Conati, C., & McGrenere, J. (2007).** Supporting Interface Customization Using a
-  Mixed-Initiative Approach. *IUI 2007.* **ACM.** Mixed-initiative as the middle ground between adaptable
-  (user-controlled) and adaptive (system-controlled). *(Metadata verified; not read.)*
-- **Sierksma, J., et al. (2025).** "Here, Let Me Do It for You": Psychological Consequences of Receiving
-  Direct and Indirect Help in Childhood. *Child Development.* **Wiley.** Unsolicited help can undermine
-  perceived competence/autonomy and motivation. *(Metadata + finding verified via abstract; not read.)*
-  Grounded in **Self-Determination Theory** (Ryan & Deci) and attribution theory.
-- *Scan-only (arXiv, abstract seen — verify before leaning on):* "Avoiding Help Avoidance" (2009.13371,
-  interface changes to promote unsolicited hint usage); "Proactive AI Adoption can be Threatening: When
-  Help Backfires" (2509.09309).
+- [Razzaq & Heffernan (2010) — give or wait to be asked?](bibliography.md#razzaq-2010) 🟢
+- [Aleven et al. (2016) — help helps, but only so much](bibliography.md#aleven-2016) 🔒⚠️ — anchors the [Karabenick](bibliography.md#karabenick) "those who need help most ask least" phenomenon.
+- [Bunt, Conati & McGrenere (2007) — mixed-initiative customization](bibliography.md#bunt-2007) 🔒⚠️
+- [Sierksma et al. (2025) — consequences of receiving help](bibliography.md#sierksma-2025) 🔒⚠️ — grounded in [Self-Determination Theory (Ryan & Deci)](bibliography.md#ryan-deci).
+- Scan-only arXiv: [Avoiding Help Avoidance](bibliography.md#avoiding-help-avoidance-2020) 🟢⚠️ · [When Help Backfires](bibliography.md#help-backfires-2025) 🟢⚠️
 
-- *Mentioned from memory, NOT re-verified this session (verify before leaning on):* Lepper & Woolverton
-  (2002), "The wisdom of practice"; Graesser, Person & Magliano (1995), naturalistic tutoring dialogue
-  patterns; Kapur (2008), "Productive Failure."
+*Mentioned from memory, not re-verified (verify before leaning on):* [Lepper & Woolverton (2002)](bibliography.md#lepper-2002) · [Graesser, Person & Magliano (1995)](bibliography.md#graesser-1995) · [Kapur (2008)](bibliography.md#kapur-2008).
 
 ## Verification note
 

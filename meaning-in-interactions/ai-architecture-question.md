@@ -22,7 +22,7 @@ front:
 
 > **Honesty tiers.** *Solid* = replicated/landmark. *Sound-but-unproven* = one/few studies. *Gap* =
 > thin. A few citations here come from the research scan and were **not** independently re-verified
-> by me; those are flagged and listed in [papers-to-obtain.md](papers-to-obtain.md) and
+> by me; those are flagged and listed in [bibliography.md](bibliography.md) and
 > [working-notes.md](working-notes.md).
 
 ---
@@ -184,39 +184,24 @@ by training" is well-supported.
   levers named above — **the prompt and the log representation** — plus a hard **data** constraint:
   testing cross-app transfer needs **raw-log** affect-labeled data from *two* applications, but most
   released affect datasets are **engineered feature vectors + labels**, not raw logs/text replays
-  (see [papers-to-obtain.md](papers-to-obtain.md)). *(Gap / opportunity — likely our highest-value
+  (see [bibliography.md](bibliography.md)). *(Gap / opportunity — likely our highest-value
   experiment.)*
 
 ---
 
 ## References
 
-*Accessibility marked. Items I did not independently re-verify are noted and collected in
-[papers-to-obtain.md](papers-to-obtain.md).*
+*Full details + accessibility in [the series bibliography](bibliography.md).*
 
-- **Chen, Q., et al. (2019).** Behavior Sequence Transformer (**BST**). *DLP-KDD 2019*.
-  arXiv:1905.06874. **Open access.** *(Verified.)*
-- **Ghosh, A., Heffernan, N., & Lan, A. S. (2020).** Context-Aware Attentive Knowledge Tracing
-  (**AKT**). *KDD 2020*. Author copy open (umass.edu). *(Verified.)*
-- **Gruver, N., Finzi, M., Qiu, S., & Wilson, A. G. (2023).** Large Language Models Are Zero-Shot
-  Time Series Forecasters. *NeurIPS 2023*. arXiv:2310.07820. **Open access.** *(Not re-verified.)*
-- **Guan, W., Cao, J., Qian, S., Gao, J., & Ouyang, C. (2024).** LogLLM: Log-based Anomaly Detection
-  Using Large Language Models. arXiv:2411.08561. **Open access.** *(Verified.)*
-- **Jiang, Y., Bosch, N., Baker, R. S., Paquette, L., Ocumpaugh, J., Andres, J. M. A. L., Moore, A.
-  L., & Biswas, G. (2018).** Expert Feature-Engineering vs. Deep Neural Networks: Which Is Better for
-  Sensor-Free Affect Detection? *AIED 2018*. Open PDF (upenn.edu). *(Verified from primary text;
-  feature-engineering beat DNNs on the single-threshold intervention decision.)*
-- **Kang, W.-C., & McAuley, J. (2018).** Self-Attentive Sequential Recommendation (**SASRec**).
-  *ICDM 2018*. arXiv:1808.09781. **Open access.** *(Verified.)*
-- **Liu, Z., et al. (2022).** pyKT: Benchmarking Deep Learning Knowledge Tracing. *NeurIPS 2022
-  D&B*. arXiv:2206.11460. **Open access.** *(Verified from abstract.)*
-- **Pandey, S., & Karypis, G. (2019).** Self-Attentive Knowledge Tracing (**SAKT**). *EDM 2019*.
-  arXiv:1907.06837. **Open access.** *(Verified.)*
-- **Piech, C., et al. (2015).** Deep Knowledge Tracing (**DKT**). *NeurIPS 2015*. arXiv:1506.05908.
-  **Open access.** *(Verified.)*
-- **Radmehr, B., Shved, E., Güreş, F. B., Singla, A., & Käser, T. (2025).** ClickSight: Interpreting
-  Student Clickstreams via LLMs. *AIED 2025*. arXiv:2505.15410. **Open access.** *(Verified.)*
-- **(2024).** Fine-tuned small models vs. zero-shot LLMs for text classification. arXiv:2406.08660.
-  **Open access.** *(Not re-verified — title/authors to confirm.)*
-- **(2024).** Ensemble + RAG hybrid with a pretrained LLM for log anomaly detection.
-  arXiv:2406.07467. **Open access.** *(Not re-verified — title/authors to confirm.)*
+- [Chen et al. (2019) — BST](bibliography.md#chen-2019) 🟢
+- [Ghosh, Heffernan & Lan (2020) — AKT](bibliography.md#ghosh-2020) 🟢
+- [Gruver et al. (2023) — LLMs Zero-Shot Time Series](bibliography.md#gruver-2023) 🟢⚠️
+- [Guan et al. (2024) — LogLLM](bibliography.md#guan-2024) 🟢
+- [Jiang et al. (2018) — Expert Feature-Engineering vs. DNN](bibliography.md#jiang-2018) ✅
+- [Kang & McAuley (2018) — SASRec](bibliography.md#kang-2018) 🟢
+- [Liu et al. (2022) — pyKT](bibliography.md#liu-2022) 🟢
+- [Pandey & Karypis (2019) — SAKT](bibliography.md#pandey-2019) 🟢
+- [Piech et al. (2015) — DKT](bibliography.md#piech-2015) 🟢
+- [Radmehr et al. (2025) — ClickSight](bibliography.md#radmehr-2025) ✅
+- [Fine-tuned small models vs. zero-shot LLMs](bibliography.md#small-vs-zeroshot-2024) 🟢⚠️
+- [Ensemble + RAG for log anomaly detection](bibliography.md#ensemble-rag-2024) 🟢⚠️

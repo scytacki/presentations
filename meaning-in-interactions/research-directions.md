@@ -68,7 +68,7 @@ over the classical one.
   this data would be a strong negative signal. Confirm the *raw event stream* (not just feature
   vectors) is available; see [papers/physics-playground-kai-2015.md](papers/physics-playground-kai-2015.md).
 - **Raw logs, not just feature vectors.** The catch (see
-  [papers-to-obtain.md](papers-to-obtain.md) → Datasets): affect datasets are often released as
+  [bibliography.md](bibliography.md) → Datasets): affect datasets are often released as
   engineered features + labels; a GenAI-reads-the-log approach needs the raw event stream (or a
   text-replay rendering). Confirm raw-log availability early.
 - A **serialization** per app (depends on 3.1), a **prompt**, and a way to **verify** — human
@@ -94,7 +94,7 @@ published number to measure against cheaply.
 [ai-architecture-question.md](ai-architecture-question.md) (open questions) ·
 [papers/physics-playground-kai-2015.md](papers/physics-playground-kai-2015.md) (the A′ ceiling + a
 data case) · [papers/text-replays-and-llm-coding.md](papers/text-replays-and-llm-coding.md) ·
-[papers-to-obtain.md](papers-to-obtain.md) (Datasets).
+[bibliography.md](bibliography.md) (Datasets).
 
 ---
 
@@ -163,7 +163,7 @@ EDM 2024); BROMP's live-observation rationale (BROMP manual). None is the exact 
 A′ comparison; see the *Unknown* bullet.
 
 **Links.** [papers/physics-playground-kai-2015.md](papers/physics-playground-kai-2015.md) ·
-[papers-to-obtain.md](papers-to-obtain.md) (Datasets) · [edtech-landscape.md](edtech-landscape.md)
+[bibliography.md](bibliography.md) (Datasets) · [edtech-landscape.md](edtech-landscape.md)
 §2c and its references (Says Who? · Sensor-Free-or-Sensor-Full).
 
 ---
@@ -394,3 +394,14 @@ support). Kept here as pointers until someone wants to promote one.
 ## Rejected ideas
 
 *(None yet.)* Format when we add them: **the idea · why it was rejected · what would change our mind.**
+
+---
+
+## References
+
+*Full details + accessibility in [the series bibliography](bibliography.md).*
+
+- [de Morais et al. (2023) — sensor-free affect review](bibliography.md#demorais-2023) ✅
+- [Radmehr et al. (2025) — ClickSight](bibliography.md#radmehr-2025) ✅
+- [Yang et al. (2026) — GUIDE](bibliography.md#yang-2026) ✅
+- [Zambrano et al. (2024) — Says Who? ground-truth emotion](bibliography.md#zambrano-2024) 🟢⚠️

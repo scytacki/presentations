@@ -73,7 +73,7 @@ were not read for this summary; treat specific empirical findings as not-yet-ver
 **Limitations.**
 - **Offline research method, not a real-time detector.** It compares *groups* post-hoc; it does not
   emit live alerts. Munshi et al. (2018) did the adaptation into detectors (paywalled; see
-  [../papers-to-obtain.md](../papers-to-obtain.md)).
+  [../bibliography.md](../bibliography.md)).
 - **Heavily researcher-parameterized:** the action alphabet, the `-REL/-IRR` window size, the
   `-MULT` repeat threshold, and the group/phase definitions are all human choices — powerful but not
   turnkey.

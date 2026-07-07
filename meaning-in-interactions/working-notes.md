@@ -60,7 +60,14 @@ research group (same audience as [../grounding-llm-help/](../grounding-llm-help/
   proposals; Rejected placeholder). The canonical "what next."
 - **[papers/](papers/)** — deep-dives: DDCI, ClickSight, pyKT, differential sequence mining, text
   replays + LLM coding, Physics Playground affect detectors (Kai 2015).
-- **[papers-to-obtain.md](papers-to-obtain.md)** — retrieval list + a Datasets section.
+- **[bibliography.md](bibliography.md)** — **single source of truth for every reference in the
+  series** (renamed from the old `papers-to-obtain.md`). A **Master list** (alphabetical; each entry
+  has a stable `<a id="firstauthor-year">` anchor + a `Used by:` back-link list) followed by a
+  **To obtain — ranked** acquisition worklist (paywalled/unverified-but-wanted subset + Datasets),
+  which links into the master rather than repeating citations. Every doc's `## References` section is
+  now a compact list of `[label](bibliography.md#<key>)` pointers into this file — details live here,
+  not in the docs. When adding a reference: add the anchored master entry (with `Used by:`) first,
+  then the pointer in each citing doc.
 
 **Committed to branch `meaning-in-interactions`** (not pushed). Earlier convention was
 uncommitted-until-asked; the user has since been committing incrementally on this branch.
@@ -184,7 +191,7 @@ To compensate, I **directly fetched and verified** the load-bearing citations. C
   EDM 2024, added to edtech refs), and BROMP is live *by design* to avoid video's context loss. The
   claim was softened to "did not find that specific remote-vs-live *human* A′ comparison." Lesson:
   don't ship "nobody has done X" without a search.
-- **Scan-only, NOT independently re-verified (flagged in-doc and in papers-to-obtain):** AKT (KDD
+- **Scan-only, NOT independently re-verified (flagged in-doc and in bibliography):** AKT (KDD
   2020) quotes, BST (1905.06874), Gruver time-series (2310.07820), the classification comparison
   (2406.08660), the ensemble+RAG log paper (2406.07467). Verify before leaning on these hard.
 - **Paywalled, abstract-level only:** DDCI, Beck & Gong 2013, D'Mello & Graesser 2012, GSP,
