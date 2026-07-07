@@ -136,6 +136,45 @@ the dominant lever for our specific case.
   in verification (1–2) as overreach — the metric enumeration and the 3-of-5 result stand; the causal
   "better representation" claim does not.*
 
+**A concrete lever worth testing: make the inter-event *time gaps* explicit.** A hypothesis (the
+user's) with strong indirect support: a raw serialization lists each event with its **absolute
+timestamp**, forcing the model to *subtract* consecutive timestamps to recover the pause between
+actions — so replacing (or augmenting) the timestamps with a pre-computed **"paused 8 s"** token
+between events should help both the embedding clustering and a prompted LLM's reasoning. Has the exact
+form been tried? Not that I found — but every ingredient is established:
+
+- **Modeling the *intervals* between events (not just their order or absolute time) is a proven win in
+  sequence models.** *TiSASRec* — Li, Wang & McAuley, *"Time Interval Aware Self-Attention for
+  Sequential Recommendation," WSDM 2020* ([cseweb.ucsd.edu/~jmcauley/pdfs/wsdm20b.pdf](https://cseweb.ucsd.edu/~jmcauley/pdfs/wsdm20b.pdf) —
+  verified) makes self-attention *time-interval aware*, on the premise that most models "regard
+  interaction histories as ordered sequences, without regard for the time intervals between each
+  interaction." Explicitly representing the gaps improved recommendation.
+- **When feeding event streams to LLMs, people already encode *inter-event intervals*, not absolute
+  times.** *Language-TPP* — Kong et al., *"Byte-token Enhanced Language Models for Temporal Point
+  Processes Analysis,"* 2025 ([arXiv:2502.07139](https://arxiv.org/abs/2502.07139) — verified)
+  "converts continuous **time intervals** into specialized byte-tokens" for a standard LLM; the TPP
+  literature notes timestamps "can be equivalently expressed as inter-event times." So the *gap* is
+  the field's preferred temporal primitive — though these use byte-tokens/embeddings, **not** a
+  natural-language "paused 8 s" phrasing, and target next-event prediction, not clustering or
+  serialization-choice.
+- **The motivation — LLMs are bad at exactly the arithmetic this removes — is measured.** *Test of
+  Time* — Fatemi et al., *June 2024* ([arXiv:2406.09170](https://arxiv.org/abs/2406.09170), ICLR 2025 —
+  verified) finds **duration questions are the single hardest** temporal type: on ToT-Arithmetic,
+  computing the time between two dates scored **~13–16% for GPT-4, Claude-3-Sonnet, and Gemini-1.5-Pro**,
+  with errors from mis-counting days. Pre-computing the gap deletes precisely the operation the model
+  fails at.
+- **The *signal* is known to matter in our domain.** Idle/pause time is a **standard engineered
+  disengagement feature** in edtech (e.g. "idle" coded when a student has no interaction for ~2 min;
+  off-task flagged at ~120 s of inactivity — [edtech-landscape.md](edtech-landscape.md)). What's
+  untested is surfacing that gap as an *in-serialization natural-language token* rather than a derived
+  feature.
+
+**So the honest status:** representing gaps explicitly is well-founded (TiSASRec, TPP-LLMs) and the
+LLM-arithmetic weakness it dodges is documented (Test of Time), but the specific move — a
+natural-language **"paused N s"** token inserted to lift *embedding-clustering quality* and prompted-LLM
+reasoning — is unstudied, and thus a clean, cheap thing to include as a candidate serialization in the
+§9 experiment (a raw-timestamp variant vs. an explicit-gap variant, scored the same way).
+
 ---
 
 ## 4. LLM-in-the-loop clustering exists (but isn't what we'd run first)
@@ -285,7 +324,9 @@ serializations the same way a prompted LLM's task performance does?
    behavior / "interesting moment," via text-replay coding — [3.3](research-directions.md)) and
    **DDCI/detector groups** for the same sessions.
 3. For each candidate **serialization** (raw log lines, document-history diff, natural-language
-   rendering, text-replay format, hybrid — the [3.1](research-directions.md) menu): embed every
+   rendering, text-replay format, hybrid — the [3.1](research-directions.md) menu; **include a
+   raw-timestamp vs. explicit-gap "paused N s" pair** to test the §3 temporal-saliency lever): embed
+   every
    session → mini-batch k-means at k = number of known groups → score with **AMI/ARI (and V-measure)**
    against each ground-truth.
 4. **Rank** serializations by recovery of the human labels (primary) and detector groups (secondary).
@@ -339,7 +380,12 @@ use, treating the clustering result as a prior, not a verdict.
   Schnabel et al. (EMNLP 2015, D15-1036 — identity confirmed; the intrinsic≠extrinsic finding is its
   known contribution, taken at abstract/secondary level, full PDF not read); Structure Retention
   (Myntti et al., 2026, arXiv:2605.22202 — title, authors, 25-model scope, ~0.97 correlation finding
-  confirmed via abstract).
+  confirmed via abstract); TiSASRec (Li, Wang & McAuley, WSDM 2020 — title, authors, venue, time-
+  interval-aware premise confirmed via repo README; primary PDF was unreadable binary); Language-TPP
+  (Kong et al., arXiv:2502.07139, "Byte-token Enhanced Language Models for TPP Analysis" — the
+  interval→byte-token encoding confirmed via abstract); Test of Time (Fatemi et al., arXiv:2406.09170 —
+  duration = hardest temporal type, ~13–16% frontier-model accuracy on ToT-Arithmetic, confirmed from
+  HTML full text).
 - **Verified 3–0 by the deep-research workflow's adversarial pass:** V-measure (D07-1043), ARI
   (BF01908075), NMI (strehl02a), AMI (vinh10a), MTEB (2210.07316 / eacl-main.148), MMTEB (2502.13595),
   German MTEB replication (2401.02709), TabLLM (2210.10723), Sclar prompt-format (2310.11324),

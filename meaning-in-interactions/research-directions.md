@@ -355,7 +355,10 @@ cluster-vs-label. That gap is the novelty (search EDM/LAK before claiming it in 
 
 **What it needs.** A fixed embedder (ideally close to the deploy LLM family); a labeled session slice
 with **two** ground-truths — human labels (from [3.3](research-directions.md)) and detector/DDCI
-groups; the candidate serializations from [3.1](research-directions.md); mini-batch k-means at
+groups; the candidate serializations from [3.1](research-directions.md) — **including a raw-timestamp
+vs. explicit-gap ("paused N s") pair**, a cheap, well-motivated lever (pre-computing the inter-event
+gap dodges the timestamp-subtraction LLMs are measurably bad at; see
+[clustering-representation-eval.md](clustering-representation-eval.md) §3); mini-batch k-means at
 k = #groups; **AMI/ARI** (chance-corrected — session counts are small) plus V-measure.
 
 **Feasibility.** Cheap and low-risk — it's the MTEB recipe on our data; the main cost is the labels
