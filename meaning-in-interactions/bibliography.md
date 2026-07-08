@@ -1,6 +1,6 @@
 # Bibliography — Meaning in Interactions
 
-Single source of truth for every reference cited across the series. Full citation details
+Single source of truth for every reference cited across this compendium. Full citation details
 and accessibility live here; the individual docs link in with compact pointers. Each entry
 carries a stable anchor (`#firstauthor-year`) and a **Used by:** list of the docs that cite it.
 
@@ -27,6 +27,26 @@ carry two glyphs (e.g. 🟢⚠️).
 - **van der Aalst, W., Weijters, T., & Maruster, L. (2004).** Workflow Mining: Discovering
   Process Models from Event Logs (**α-algorithm**). *IEEE TKDE*, 16(9), 1128–1142. 🔒
   *Used by:* [techniques](techniques.md#references)
+
+<a id="aiops-survey-2025"></a>
+- **A Survey of AIOps in the Era of Large Language Models (2025).** arXiv:2507.12472; *ACM Computing
+  Surveys*, DOI 10.1145/3746635. 🟢 Analyzed **183 papers** (Jan 2020–Dec 2024) across the AIOps
+  spectrum; calls log parsing "the most actively studied task." **Domain: IT-operations / system
+  logs.** *Used by:* [querying-the-log](querying-the-log.md#references)
+
+<a id="akhtar-2025"></a>
+- **Akhtar, N., Khan, S., & Parkinson, S. (2025).** LLM-based event log analysis techniques: A
+  survey. arXiv:2502.00677 (open access, CC BY 4.0). 🟢⚠️ *(arXiv preprint, not peer-reviewed;
+  abstract-level.)* Organizes LLM-for-log techniques into **fine-tuning, RAG, and in-context
+  learning** — RAG is named but thinly instantiated. **Domain: security / system event logs.**
+  *Used by:* [querying-the-log](querying-the-log.md#references)
+
+<a id="algomox-graylit"></a>
+- **Algomox — natural-language queries over observability data (industry blog).** LLM translates NL
+  questions into platform query languages (PromQL, LogQL) executed against the store rather than
+  ingesting raw logs into the prompt. ⚠️ *Gray literature — engineering practice, not peer-reviewed;
+  cited only as evidence the NL-query-over-logs pattern is shipping.* *Used by:*
+  [querying-the-log](querying-the-log.md#references)
 
 <a id="aleven-2003"></a>
 - **Aleven, V., Stahl, E., Schworm, S., Fischer, F., & Wallace, R. (2003).** Help Seeking and
@@ -87,6 +107,14 @@ carry two glyphs (e.g. 🟢⚠️).
   (`-REL`/`-IRR`). 🔒⚠️ *(cited via [Kinnebrew 2013](#kinnebrew-2013); not independently
   located)* *Used by:* acquisition target — see [To obtain](#to-obtain--ranked)
 
+<a id="brinton-2015"></a>
+- **Brinton, C. G., Buccapatnam, S., Chiang, M., & Poor, H. V. (2015).** Mining MOOC Clickstreams: On
+  the Relationship Between Learner Behavior and Performance. arXiv:1503.06489 (later *IEEE Trans.
+  Signal Processing* 2016). 🟢 Extracts recurring subsequences ("reflecting," "revising") from
+  video-watching clickstreams and links them to quiz performance. **Domain: education /
+  user-interaction logs** — a real instance of pattern mining over interaction streams. *Used by:*
+  [querying-the-log](querying-the-log.md#references)
+
 <a id="bromp-manual"></a>
 - **Ocumpaugh, J., Baker, R. S., & Rodrigo, M. M. T. (2015).** Baker–Rodrigo–Ocumpaugh
   Monitoring Protocol (**BROMP 2.0**) Manual. Open PDF
@@ -104,6 +132,14 @@ carry two glyphs (e.g. 🟢⚠️).
   Alibaba (**BST**). *DLP-KDD 2019*. arXiv:1905.06874. 🟢 *Used by:*
   [techniques](techniques.md#references) · [ai-architecture](ai-architecture-question.md#references)
 
+<a id="cheng-2025"></a>
+- **Cheng, J., Yang, Z.-Q., Cao, J., Yang, Y., & Zheng, X. (2025).** Predicting Student Dropout Risk
+  With A Dual-Modal Abrupt Behavioral Changes Approach (**DMSW**). arXiv:2505.11119. 🟢⚠️ *(2025
+  preprint; treat metrics cautiously.)* A **Dual-Modal Multiscale Sliding Window** — time windows of
+  varying sizes over student behavioral + academic data to catch abrupt change. **Domain: education**
+  — a fresh instance of multi-resolution windowing on an interaction/education stream. *Used by:*
+  [querying-the-log](querying-the-log.md#references)
+
 <a id="choi-2020"></a>
 - **Choi, Y., et al. (2020).** Towards an Appropriate Query, Key, and Value Computation for
   Knowledge Tracing (**SAINT**). *L@S 2020*. arXiv:2002.07033. 🟢 *Used by:*
@@ -113,6 +149,15 @@ carry two glyphs (e.g. 🟢⚠️).
 - **Zhang, Y., Wang, Z., Shang, J., McAuley, J., & Xu, W. (2023).** ClusterLLM: Large Language
   Models as a Guide for Text Clustering. *EMNLP 2023*. arXiv:2305.14871. 🟢 *Used by:*
   [clustering](clustering-representation-eval.md#references)
+
+<a id="cohn-2025"></a>
+- **Cohn, C., Rayala, S., et al. (2025).** Personalizing Student-Agent Interactions Using
+  Log-Contextualized Retrieval-Augmented Generation (**LC-RAG**). arXiv:2505.17238 (Vanderbilt OELE;
+  the C2STEM collaborative computational-modeling environment). 🟢 Uses environment/interaction logs
+  to **contextualize** student discourse so RAG can retrieve curated *domain* knowledge — i.e. logs
+  as retrieval *context*, not the object being queried. **Domain: education** — the closest
+  interaction-log + RAG adjacency, but inverted from the query-the-log idea. *Used by:*
+  [querying-the-log](querying-the-log.md#references)
 
 <a id="deep-transfer-clustering-2019"></a>
 - **Han, K., Vedaldi, A., & Zisserman, A. (2019).** Learning to Discover Novel Visual
@@ -139,9 +184,16 @@ carry two glyphs (e.g. 🟢⚠️).
   for Learning. *Learning and Instruction*, 29, 153–170. 🔒 (Elsevier). Productive confusion.
   *Used by:* [when-to-intervene](when-to-intervene.md#references)
 
-<a id="ensemble-rag-2024"></a>
-- **Ensemble + RAG hybrid with a pretrained LLM for log anomaly detection (2024).**
-  arXiv:2406.07467. 🟢⚠️ *(title/authors to confirm)* *Used by:*
+<a id="flex-log-2024"></a>
+- **Hadadi, F., Xu, Q., Bianculli, D., & Briand, L. (2024/2025).** LLM meets ML: Data-efficient
+  Anomaly Detection on Unstable Logs (**FlexLog**). arXiv:2406.07467; *ACM TOSEM* 2025, DOI
+  10.1145/3771283. 🟢 Combines an ML ensemble (decision tree, kNN, feed-forward net) with a Mistral
+  LLM via ensemble learning, plus a **cache + RAG** for efficiency. **RAG detail (full text
+  confirmed):** the RAG retrieves *descriptive metadata about log templates / system calls* (e.g. what
+  `setxattr` or `semtimedop` mean) to enrich the prompt's "Relevant Information" field — **not**
+  retrieval of similar historical log windows or incidents; the cache is a separate exact-match store
+  of predictions for identical sequences. So FlexLog is a *glossary-enrichment* RAG, a weaker instance
+  of "query the log" than the name implies. **Domain: system/software logs.** *Used by:*
   [ai-architecture](ai-architecture-question.md#references) ·
   [querying-the-log](querying-the-log.md#references)
 
@@ -164,6 +216,15 @@ carry two glyphs (e.g. 🟢⚠️).
   Ill-Defined Domains. In *Advances in Intelligent Tutoring Systems* (Nkambou et al., eds.).
   Open chapter PDF (philippe-fournier-viger.com). 🟢⚠️ *(scan-only — located, not read)*
   *Used by:* [when-to-intervene](when-to-intervene.md#references)
+
+<a id="fu-2023"></a>
+- **Fu, et al. (2023).** Robust User Behavioral Sequence Representation via Multi-scale Stochastic
+  Distribution Prediction (**MSDP**). *CIKM 2023*, DOI 10.1145/3583780.3614714. 🔒⚠️ *(search-snippet
+  / abstract-level; full text not read.)* Self-supervised pretraining that predicts the *distribution*
+  of behaviors over a future window (multi-scale) to learn robust representations. **Domain:
+  user-behavior / clickstream (industrial recommender), NOT education** — the closest answer to the
+  "multi-scale embedding over user-behavior streams" sub-question. *Used by:*
+  [querying-the-log](querying-the-log.md#references)
 
 <a id="geng-2006"></a>
 - **Geng, L., & Hamilton, H. J. (2006).** Interestingness Measures for Data Mining: A Survey.
@@ -292,6 +353,14 @@ carry two glyphs (e.g. 🟢⚠️).
   Point Processes Analysis. arXiv:2502.07139. 🟢 Encodes inter-event intervals as byte-tokens.
   *Used by:* [clustering](clustering-representation-eval.md#references)
 
+<a id="lenguyen-2019"></a>
+- **Le Nguyen, T., Gsponer, S., Ilie, I., O'Reilly, M., & Ifrim, G. (2019).** Interpretable Time
+  Series Classification using Linear Models and Multi-resolution Multi-domain Symbolic
+  Representations (**MrSEQL**). *Data Mining and Knowledge Discovery* 33, DOI
+  10.1007/s10618-019-00633-3; arXiv:2006.01667. 🟢⚠️ *(scan-only.)* Symbolic (SAX-style)
+  representations at multiple resolutions + sequence mining + linear models. **Domain: sensor / data
+  series.** *Used by:* [querying-the-log](querying-the-log.md#references)
+
 <a id="lepper-1997"></a>
 - **Lepper, M. R., Drake, M. F., & O'Donnell-Johnson, T. (1997).** Scaffolding Techniques of
   Expert Human Tutors. In K. Hogan & M. Pressley (Eds.), *Scaffolding Student Learning*
@@ -303,10 +372,30 @@ carry two glyphs (e.g. 🟢⚠️).
   Study of Highly Effective Tutors. In *Improving Academic Achievement*. ⚠️ *(memory-only —
   not re-verified)* *Used by:* [when-to-intervene](when-to-intervene.md#references)
 
+<a id="llm-data-analyst-2025"></a>
+- **LLM/Agent-as-Data-Analyst: A Survey (2025).** arXiv:2509.23988. 🟢⚠️ *(arXiv preprint.)* Lists
+  **tool-augmented workflows** among four core design goals for data-analysis agents. **Domain:
+  data-analysis agents generally** (not logs/education specifically). *Used by:*
+  [querying-the-log](querying-the-log.md#references)
+
 <a id="lm-struggle-2026"></a>
 - **"Language Models Struggle to Use Representations Learned In-Context" (2026).**
   arXiv:2602.04212. 🟢⚠️ *(scan-only, not verified; 2026 arXiv ID — very recent)* *Used by:*
   [clustering](clustering-representation-eval.md#references)
+
+<a id="linardi-2018"></a>
+- **Linardi, M., Zhu, Y., Palpanas, T., & Keogh, E. (2018).** Matrix Profile X: VALMOD — Scalable
+  Discovery of Variable-Length Motifs in Data Series (**VALMOD**). *SIGMOD 2018*, DOI
+  10.1145/3183713.3183744. 🟢 Finds all motifs "in a given range of lengths" — no single preset
+  window. **Domain: sensor / data series.** *Used by:*
+  [querying-the-log](querying-the-log.md#references)
+
+<a id="linardi-2020"></a>
+- **Linardi, M., Zhu, Y., Palpanas, T., & Keogh, E. (2020).** Matrix Profile goes MAD:
+  Variable-Length Motif AND Discord Discovery in Data Series. *Data Mining and Knowledge Discovery*
+  34(4), 1022–1071, DOI 10.1007/s10618-020-00685-w; arXiv:2008.13447. 🟢 Journal extension of VALMOD;
+  motifs *and* discords over a range of lengths. **Domain: sensor / data series.** *Used by:*
+  [querying-the-log](querying-the-log.md#references)
 
 <a id="liu-2022"></a>
 - **Liu, Z., Liu, Q., Chen, J., Huang, S., Tang, J., & Luo, W. (2022).** pyKT: A Python Library
@@ -355,6 +444,14 @@ carry two glyphs (e.g. 🟢⚠️).
 - **Strehl, A., & Ghosh, J. (2002).** Cluster Ensembles — A Knowledge Reuse Framework for
   Combining Multiple Partitions (**Normalized Mutual Information / NMI**). *JMLR*, 3, 583–617
   (strehl02a). 🟢 *Used by:* [clustering](clustering-representation-eval.md#references)
+
+<a id="ober-2025"></a>
+- **Ober, T. M., Zhang, J., Zapata-Rivera, D., Schroeder, N. L., & Botelho, A. F. (2025).** Using
+  LLMs to Identify Indicators of Persistence from Students' Dialogues with a Pedagogical Agent.
+  *JEDM* (article 1007). 🟢 ChatGPT-4o codes persistence by feeding **dialogue directly into the
+  prompt** — no indexing, retrieval, or tools. **Domain: education** — cited as the clean
+  *anti-example* to agentic query-tools over logs. *Used by:*
+  [querying-the-log](querying-the-log.md#references)
 
 <a id="owen-2019"></a>
 - **Owen, V. E., Roy, M.-H., Thai, K. P., Burnett, V., Jacobs, D., Keylor, E., & Baker, R. S.
@@ -417,6 +514,13 @@ carry two glyphs (e.g. 🟢⚠️).
   in Technology Enhanced Learning*. Author copy open (upenn.edu). 🟢⚠️ *(not independently
   re-fetched)* *Used by:* [edtech-landscape](edtech-landscape.md#references)
 
+<a id="roy-2024"></a>
+- **Roy, D., et al. (2024).** Exploring LLM-based Agents for Root Cause Analysis. *FSE 2024 Companion*,
+  DOI 10.1145/3663529.3663841; arXiv:2403.04123. 🟢 Equips a **ReAct agent with retrieval tools** so
+  it can dynamically collect logs/metrics/DBs, vs. prior LLM-RCA that "put a fixed set of information
+  in context." **Domain: cloud/system incident diagnosis.** *Used by:*
+  [querying-the-log](querying-the-log.md#references)
+
 <a id="ryan-deci"></a>
 - **Ryan, R. M., & Deci, E. L. (various).** Self-Determination Theory — autonomy, competence,
   relatedness. ⚠️ *(foundational; cited as the grounding for [Sierksma 2025](#sierksma-2025))*
@@ -427,6 +531,14 @@ carry two glyphs (e.g. 🟢⚠️).
   intention using multilayer perceptron and LSTM. *Neural Computing & Applications*. DOI
   10.1007/s00521-018-3523-0. 🔒 (Springer); dataset open on UCI. *Used by:*
   [techniques](techniques.md#references)
+
+<a id="sarthi-2024"></a>
+- **Sarthi, P., Abdullah, S., Tuli, A., Khanna, S., Goldie, A., & Manning, C. D. (2024).** RAPTOR:
+  Recursive Abstractive Processing for Tree-Organized Retrieval. *ICLR 2024*. arXiv:2401.18059.
+  🟢⚠️ *(identity high-confidence; full text not re-read this pass.)* Recursively embeds → clusters →
+  summarizes chunks into a tree, so a query matches fine leaves or coarse internal nodes. **Domain:
+  general text RAG** — no verified log/time-series analogue. *Used by:*
+  [querying-the-log](querying-the-log.md#references)
 
 <a id="schnabel-2015"></a>
 - **Schnabel, T., Labutov, I., Mimno, D., & Joachims, T. (2015).** Evaluation methods for
@@ -502,6 +614,14 @@ carry two glyphs (e.g. 🟢⚠️).
   clustering is scored with. *Used by:*
   [clustering](clustering-representation-eval.md#references)
 
+<a id="wang-2024"></a>
+- **Wang, Z., et al. (Alibaba) (2024).** RCAgent: Cloud Root Cause Analysis by Autonomous Agents with
+  Tool-Augmented Large Language Models. *CIKM 2024*, DOI 10.1145/3627673.3680016; arXiv:2310.16340.
+  🟢 "Data querying functions as information-gathering tools"; an **Observation Key-Value Store**
+  lets the agent "reference lengthy data without expanding prompt context" — the cleanest instance of
+  query-the-log rather than stuff-the-log. **Domain: cloud/system logs.** *Used by:*
+  [querying-the-log](querying-the-log.md#references)
+
 <a id="wood-1976"></a>
 - **Wood, D., Bruner, J. S., & Ross, G. (1976).** The Role of Tutoring in Problem Solving.
   *Journal of Child Psychology and Psychiatry*, 17(2), 89–100. 🔒 (Wiley; PDFs circulate).
@@ -515,6 +635,13 @@ carry two glyphs (e.g. 🟢⚠️).
   zero-shot struggle detection weak; interaction logs never fed to the model (our opening).
   *Used by:* [when-to-intervene](when-to-intervene.md#references) ·
   [research-directions](research-directions.md#references)
+
+<a id="yeh-2016"></a>
+- **Yeh, C.-C. M., Zhu, Y., Ulanova, L., Begum, N., Ding, Y., Dau, H. A., Silva, D. F., Mueen, A., &
+  Keogh, E. (2016).** Matrix Profile I: All Pairs Similarity Joins for Time Series — A Unifying View
+  That Includes Motifs, Discords and Shapelets. *IEEE ICDM 2016*, 1317–1322 (extended *DMKD* 32(1),
+  2018). 🟢 The unifying primitive underneath VALMOD/MAD. **Domain: sensor / data series.** *Used
+  by:* [querying-the-log](querying-the-log.md#references)
 
 <a id="yoon-2024"></a>
 - **Yoon, S., et al. (2024).** Forecasting Live Chat Intent from Browsing History. *CIKM 2024*.
@@ -549,7 +676,7 @@ carry two glyphs (e.g. 🟢⚠️).
 ## To obtain — ranked
 
 The paywalled / unverified-but-wanted subset, ranked by how much obtaining it would strengthen
-the series. Full citation details for each are in the [Master list](#master-list) above — these
+this compendium. Full citation details for each are in the [Master list](#master-list) above — these
 entries carry only the acquisition-specific rationale.
 
 ### Priority 2 — strengthen the EdTech-landscape claims
@@ -592,7 +719,6 @@ title/authors/claims before leaning hard:
 
 - [Gruver et al. (2023), LLMs Are Zero-Shot Time Series Forecasters](#gruver-2023) 🟢⚠️
 - [Fine-tuned small models vs. zero-shot LLMs](#small-vs-zeroshot-2024) 🟢⚠️
-- [Ensemble + RAG for log anomaly detection](#ensemble-rag-2024) 🟢⚠️
 - [Myntti et al. (2026), Structure Retention](#myntti-2026) 🟢⚠️ · [LMs Struggle to Use
   In-Context Representations](#lm-struggle-2026) 🟢⚠️ · [PL-MTEB](#pl-mteb-2024) 🟢⚠️ · [Deep
   Transfer Clustering](#deep-transfer-clustering-2019) 🟢⚠️ · [Goal-Driven Explainable

@@ -249,7 +249,7 @@ which is the opening the hypothesis points at.
 
 ## References
 
-*Full details + accessibility in [the series bibliography](bibliography.md). Per-paper deep-dives
+*Full details + accessibility in [the shared bibliography](bibliography.md). Per-paper deep-dives
 for the closest studies are in [papers/](papers/).*
 
 - [Baker et al. (2024) — DDCI](bibliography.md#baker-2024) ✅

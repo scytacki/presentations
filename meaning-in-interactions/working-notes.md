@@ -1,6 +1,6 @@
 # Working Notes — Context, Decisions, and Open Work
 
-*This file is **meta** — not part of the document series. It captures context for anyone (human or a
+*This file is **meta** — not part of this compendium. It captures context for anyone (human or a
 new AI session) picking this work up: the decisions behind the docs, the conventions they follow,
 what is verified vs. scan-only, and what's still open. The actual content is in the four companion
 docs and `papers/`.*
@@ -50,18 +50,30 @@ research group (same audience as [../grounding-llm-help/](../grounding-llm-help/
   numeric-reasoning offload) and **pre-organizing the stream** into a **multi-scale index** (the
   user's cross-window / different-time-scale problem). Synthesis: A's tools query B's index — a
   coarse-to-fine agentic loop = the concrete compact-and-query machinery §3.4 needs. **STATUS:
-  research-plan scaffold** — design reasoning written now; literature left as `⏳ RESEARCH TO RUN`
-  blocks (exact searches + candidate papers + verification checklist) to run in a later token window.
-  Anchors reused (not re-verified here): LogLLM, ensemble+RAG 2406.07467 (scan-only), GSP/PrefixSpan
-  (paywalled), differential sequence mining (fetched). Added July 7 2026 at the user's request; user
-  chose to defer the actual research to conserve tokens.
+  researched July 7 2026** (deep-research workflow: 6 angles → 26 sources → 25 claims 3-vote-verified,
+  23 confirmed; plus direct fetches for the education papers). **Headline = a domain asymmetry:**
+  Family A (agentic tool-use / RAG over logs) is real and active but almost all **system/AIOps/security
+  logs** (RCAgent CIKM 2024 — its Observation KV-Store is the cleanest "reference lengthy data without
+  expanding prompt context"; Microsoft ReAct RCA FSE 2024; FlexLog; 3 surveys). Family B multi-scale
+  motif (Matrix Profile / VALMOD / MAD) is all **sensor time series**. The **K-12 interaction-log**
+  composition is a **"did not find," NOT a proven void** (the adversarial pass refuted 0–3 a stronger
+  "education gap confirmed" claim). Education/user-interaction adjacencies that DO exist: Brinton 2015
+  (MOOC clickstream SPM), DMSW 2505.11119 (multiscale windows), MSDP CIKM 2023 (multi-scale
+  user-behavior embedding — answers the Q6 sub-question), LC-RAG 2505.17238 (logs as retrieval
+  context). **Two corrections made:** (1) arXiv:2406.07467 is **FlexLog / "LLM meets ML…"**, not an
+  "ensemble+RAG" title — bibliography entry corrected and its anchor renamed to `flex-log-2024`
+  (all citing docs updated); (2) LogLLM says "impractical … large window size" but does NOT
+  verbatim give the "whole sequence must go in the prompt" reason — softened here **and in
+  [ai-architecture-question.md](ai-architecture-question.md) §2** (its "ensemble + RAG hybrid"
+  phrasing for 2406.07467 was already accurate — now links the corrected FlexLog entry). 16 new
+  bibliography entries added (all `Used by: querying-the-log`).
 - **[research-directions.md](research-directions.md)** — actionable directions (Group 1
   curated/feasible/**high value**; Group 2 curated/feasible/**questionable value**; Group 3
   proposals; Rejected placeholder). The canonical "what next."
 - **[papers/](papers/)** — deep-dives: DDCI, ClickSight, pyKT, differential sequence mining, text
   replays + LLM coding, Physics Playground affect detectors (Kai 2015).
-- **[bibliography.md](bibliography.md)** — **single source of truth for every reference in the
-  series** (renamed from the old `papers-to-obtain.md`). A **Master list** (alphabetical; each entry
+- **[bibliography.md](bibliography.md)** — **single source of truth for every reference in this
+  compendium** (renamed from the old `papers-to-obtain.md`). A **Master list** (alphabetical; each entry
   has a stable `<a id="firstauthor-year">` anchor + a `Used by:` back-link list) followed by a
   **To obtain — ranked** acquisition worklist (paywalled/unverified-but-wanted subset + Datasets),
   which links into the master rather than repeating citations. Every doc's `## References` section is
@@ -87,7 +99,7 @@ uncommitted-until-asked; the user has since been committing incrementally on thi
    uncurated staging area — was set by the user; earlier the doc had only two groups.)*
 2. **`scotts-notes.md` is the user's personal notes — NEVER edit it.** You may **read** it for
    context and **refer to it in conversation**, but: (a) never modify it, and (b) **no other document
-   in this folder may link to or reference it** (it is not part of the doc series). This
+   in this folder may link to or reference it** (it is not part of this compendium). This
    working-notes mention exists only to record the rule.
 
 ---

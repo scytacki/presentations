@@ -407,7 +407,7 @@ use, treating the clustering result as a prior, not a verdict.
 
 ## References
 
-*Full details + accessibility in [the series bibliography](bibliography.md). Verification tiers for
+*Full details + accessibility in [the shared bibliography](bibliography.md). Verification tiers for
 these are in the [Verification note](#verification-note) above.*
 
 - [AMI — Vinh, Epps & Bailey (2010)](bibliography.md#ami-2010) 🟢

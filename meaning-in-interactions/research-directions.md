@@ -399,7 +399,7 @@ support). Kept here as pointers until someone wants to promote one.
 
 ## References
 
-*Full details + accessibility in [the series bibliography](bibliography.md).*
+*Full details + accessibility in [the shared bibliography](bibliography.md).*
 
 - [de Morais et al. (2023) — sensor-free affect review](bibliography.md#demorais-2023) ✅
 - [Radmehr et al. (2025) — ClickSight](bibliography.md#radmehr-2025) ✅

@@ -179,7 +179,7 @@ detector is even trying to surface* — objective anomaly, subjective surprise, 
 
 ## References
 
-*Full details + accessibility in [the series bibliography](bibliography.md).*
+*Full details + accessibility in [the shared bibliography](bibliography.md).*
 
 - [Chen et al. (2019) — BST](bibliography.md#chen-2019) 🟢
 - [Deshpande & Karypis (2001) — Selective Markov Models](bibliography.md#deshpande-2001) 🟢

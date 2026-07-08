@@ -113,10 +113,10 @@ examples, this is the only approach that even starts.
   re-verified — flagged.)*
 - **On log/event data specifically, the strong results are fine-tuned, not prompted.** **LogLLM**
   (Guan et al., 2024, arXiv:2411.08561) reaches top log-anomaly performance by **fine-tuning** a
-  BERT+Llama stack (QLoRA), and explicitly notes that **zero-shot prompting of an off-the-shelf LLM
-  becomes impractical for large window sizes** because the whole log sequence must go in the prompt.
-  A separate approach (arXiv:2406.07467) needed an **ensemble + RAG** hybrid rather than a standalone
-  LLM. *(Sound; LogLLM verified, others flagged.)*
+  BERT+Llama stack (QLoRA), and notes that **zero-shot prompting of an off-the-shelf LLM becomes
+  impractical at large window sizes.** A separate approach ([FlexLog](bibliography.md#flex-log-2024),
+  arXiv:2406.07467) needed an **ensemble + RAG** hybrid rather than a standalone LLM. *(Sound; LogLLM
+  and FlexLog verified — see [querying-the-log.md](querying-the-log.md).)*
 - **The most on-point education result: GPT lost to a classical model on student log replays.**
   Maier & Baker (2025) prompted GPT-3.5/GPT-4 to code *gaming the system* from the **text replays**
   human coders use — and got **above-chance but weak** results (best κ ≈ 0.17), **beaten by a
@@ -191,7 +191,7 @@ by training" is well-supported.
 
 ## References
 
-*Full details + accessibility in [the series bibliography](bibliography.md).*
+*Full details + accessibility in [the shared bibliography](bibliography.md).*
 
 - [Chen et al. (2019) — BST](bibliography.md#chen-2019) 🟢
 - [Ghosh, Heffernan & Lan (2020) — AKT](bibliography.md#ghosh-2020) 🟢
@@ -204,4 +204,4 @@ by training" is well-supported.
 - [Piech et al. (2015) — DKT](bibliography.md#piech-2015) 🟢
 - [Radmehr et al. (2025) — ClickSight](bibliography.md#radmehr-2025) ✅
 - [Fine-tuned small models vs. zero-shot LLMs](bibliography.md#small-vs-zeroshot-2024) 🟢⚠️
-- [Ensemble + RAG for log anomaly detection](bibliography.md#ensemble-rag-2024) 🟢⚠️
+- [FlexLog — Hadadi et al. (2024/2025)](bibliography.md#flex-log-2024) 🟢

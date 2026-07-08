@@ -399,7 +399,7 @@ detectable.
 
 ## References
 
-*Full details + accessibility in [the series bibliography](bibliography.md). The doc-specific
+*Full details + accessibility in [the shared bibliography](bibliography.md). The doc-specific
 verification status of each is summarized in the [Verification note](#verification-note) below.*
 
 - [VanLehn et al. (2003) — impasse-driven learning](bibliography.md#vanlehn-2003) 🔒

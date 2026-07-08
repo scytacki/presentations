@@ -205,4 +205,4 @@ documents say so plainly. That honesty matters more than a tidy story.
 ## References
 
 *Built from discussion + the prior PR, not from literature — this doc makes no external citations.
-The literature that grounds the series is collected in [the series bibliography](bibliography.md).*
+The literature that grounds this compendium is collected in [the shared bibliography](bibliography.md).*
