@@ -9,9 +9,10 @@
 > general problem** — not the detector specifically — the center of gravity. Remaining candidate
 > use cases are still listed, unfleshed, near the end.
 
-This is the first of four companion documents. This one states *what problem we are trying to
-solve* — what we mean by "meaning in an interaction," and why it is hard. The others survey what is
-already known:
+This is the problem-statement document of the compendium (see [README.md](README.md) for the full set
+of core docs). This one states *what problem we are trying to solve* — what we mean by "meaning in an
+interaction," and why it is hard. The core analytical companions surveying what is already known
+include:
 
 - **[techniques.md](techniques.md)** — the domain-agnostic techniques for extracting meaning from
   interaction streams, drawing on the older and richer web-analytics, marketing, and UX/HCI

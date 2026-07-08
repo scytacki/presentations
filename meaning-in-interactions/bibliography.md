@@ -107,6 +107,14 @@ carry two glyphs (e.g. 🟢⚠️).
   (`-REL`/`-IRR`). 🔒⚠️ *(cited via [Kinnebrew 2013](#kinnebrew-2013); not independently
   located)* *Used by:* acquisition target — see [To obtain](#to-obtain--ranked)
 
+<a id="biswas-2017"></a>
+- **Biswas, G., Baker, R. S., & Paquette, L. (2017).** Data Mining Methods for Assessing Self-Regulated
+  Learning. In D. H. Schunk & J. A. Greene (Eds.), *Handbook of Self-Regulation of Learning and
+  Performance* (2nd ed., pp. 388–403). Routledge. DOI 10.4324/9781315697048-25. 🔒 *(metadata verified;
+  full text not read)* The "task model" cited in [DDCI / Baker et al. 2024](papers/ddci-baker-2024.md)
+  to interpret Betty's Brain behavioral-sequence detectors. *Used by:*
+  [papers/ddci-baker-2024.md](papers/ddci-baker-2024.md)
+
 <a id="brinton-2015"></a>
 - **Brinton, C. G., Buccapatnam, S., Chiang, M., & Poor, H. V. (2015).** Mining MOOC Clickstreams: On
   the Relationship Between Learner Behavior and Performance. arXiv:1503.06489 (later *IEEE Trans.

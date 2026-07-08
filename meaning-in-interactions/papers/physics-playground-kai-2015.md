@@ -83,7 +83,8 @@ cost, and scale — so the two are **complementary**, arguing for late/decision-
 - **Open-endedness measurably *hurts* the log-only detector — the authors say so.** Their Discussion
   argues interaction affect detectors do worse here than in Cognitive Tutors because an exploratory
   environment gives "coarser-grained indicators of success per unit of time": success/failure isn't
-  apparent until minutes of building elapse. Interaction-based affect A′ topped out ~0.63–0.68. This
+  apparent until minutes of building elapse. Interaction-based affect A′ ran ~0.56–0.68 across states
+  (avg 0.63). This
   is a direct, sobering read for **CLUE**, whose open-endedness is similar or greater.
 - **Labeling cost = live BROMP observation** — the expensive path we've flagged as infeasible to
   retro-apply, motivating text-replay / GenAI coding as the cheaper alternative

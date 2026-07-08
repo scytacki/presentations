@@ -32,6 +32,11 @@ feasibility · links.*
 against human affect labels on one application — be applied to a **different** application and still
 work, *better than* feature+regression detectors (which provably don't transfer)?
 
+*Terminology:* across these directions "**GenAI**" and "**LLM**" name the same technology — a prompted
+frontier model. The "GenAI affect detector" here and the "[LLM 'interesting-moment'
+detector](#32-llm-interesting-moment-detector-for-clue-ddci-style)" in 3.2 are the same class of thing,
+differing only in construct.
+
 **Why it matters.** We build many activities and simulations. A detector that only works in the one
 app it was trained on doesn't scale to our situation. Cross-**application** transfer is the
 recognized, largely-unsolved prize; if a GenAI approach closes it, it changes how we do
@@ -55,7 +60,8 @@ over the classical one.
   transfer question. Beating feature+regression may still leave us short of a usable detector.
 - *Unknown:* whether a GenAI reading a *semantic* representation generalizes across applications for
   affect — **and** whether *any* log-only method (classical or GenAI) can push meaningfully past that
-  within-app ceiling. **No such study exists** — this would be novel.
+  within-app ceiling. **We did not find such a study** — this appears novel, though the search was not
+  exhaustive (search EDM/LAK before claiming it in print).
 
 **What it needs.**
 - **Raw-log affect-labeled data from two applications.** The user reports existing relationships with
@@ -185,8 +191,8 @@ resembles text replays"* (Maier & Baker, 2025). Human-readable ≠ LLM-legible.
 **What's known / unknown.** *Known:* serialization matters a lot (Maier & Baker; LLM-time-series
 work; LogLLM's long-context limits, [ai-architecture-question.md](ai-architecture-question.md)); and
 **GUIDE** (Yang et al., CVPR 2026) shows that injecting a *structured* representation of user state
-(the **ground-truth** behavior + intent, as text) lifts help prediction by up to ~50 pp over raw frames —
-an oracle upper bound, but direct evidence the representation is the lever
+(the **ground-truth** behavior + intent, as text) lifts help prediction by up to ~50 pp over raw frames
+(help-content prediction 23.7% → 73.9%) — an oracle upper bound, but direct evidence the representation is the lever
 ([when-to-intervene.md](when-to-intervene.md) §7). *Unknown:* the right rendering for open-ended document
 work like CLUE.
 

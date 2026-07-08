@@ -221,7 +221,7 @@ first" result.
 
 ---
 
-## 6. The gap — nobody (verified) has done this on interaction logs, or to rank serializations
+## 6. The gap — we did not find prior work doing this on interaction logs, or to rank serializations
 
 This is where the novelty is, stated honestly. *Gap.*
 

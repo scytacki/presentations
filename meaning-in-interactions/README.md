@@ -82,8 +82,8 @@ Start with doc 1 for the problem, doc 2 for the method space, doc 3 for what edu
 serialization eval, doc 7 for querying the log instead of stuffing it into context.
 
 - **[research-directions.md](research-directions.md)** — *the actionable companion.* What we could
-  build or test, in two curated groups (well-defined-and-feasible vs. proposals to explore), each
-  linking back to the analytical docs. The canonical home for "so what do we do next."
+  build or test, in three groups — two curated by *value* (high vs. questionable, both feasible) plus
+  an uncurated staging area for proposals — each linking back to the analytical docs. The canonical home for "so what do we do next."
 
 - **[papers/](papers/)** — per-paper deep-dives of the studies closest to our work
   ([DDCI](papers/ddci-baker-2024.md), [ClickSight](papers/clicksight-radmehr-2025.md),

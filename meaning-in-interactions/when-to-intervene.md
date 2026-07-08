@@ -207,7 +207,7 @@ setting. The signals and (especially) the timing lessons transfer even though th
   actually do. If anything it's mild evidence that *screenshots are the wrong representation*, indirectly
   supporting a log-first approach. Two things still transfer: **(a)** injecting a structured state
   representation — the *ground-truth* behavior + intent as text — lifted help prediction up to ~50 pp
-  (help-content 55% → 83%); an **oracle upper bound**, but evidence the bottleneck is the representation,
+  (help-content prediction 23.7% → 73.9%); an **oracle upper bound**, but evidence the bottleneck is the representation,
   not raw model ability ([ai-architecture-question.md](ai-architecture-question.md)). **(b)** The
   **labeled dataset itself is reusable** — it ships the keyboard/mouse event streams + struggle/help
   labels we'd want, so we could test *log* representations on it directly (research-directions 3.1) —

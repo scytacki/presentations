@@ -2,7 +2,7 @@
 
 *This file is **meta** — not part of this compendium. It captures context for anyone (human or a
 new AI session) picking this work up: the decisions behind the docs, the conventions they follow,
-what is verified vs. scan-only, and what's still open. The actual content is in the four companion
+what is verified vs. scan-only, and what's still open. The actual content is in the core companion
 docs and `papers/`.*
 
 ---
