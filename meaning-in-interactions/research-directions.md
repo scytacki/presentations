@@ -220,7 +220,7 @@ interpretation ≠ reliable detection.
 **What it needs.** CLUE logs, a concrete "interesting" construct, and labels (3.3). Depends on 3.1.
 **Feasibility:** medium; directly extends existing engineering.
 
-### 3.3 Text-replay labeling of CLUE data (human + GenAI-assisted)
+### 3.3 Replay labeling of CLUE data (human + GenAI-assisted)
 
 **The question.** Can we get ground-truth labels for **past** CLUE data by replaying document
 changes and coding them — and can a GenAI coder match human coders on that same replay?
@@ -233,8 +233,21 @@ us label *existing* data without re-running activities (validated method, ~5× f
 Baker, 2025). Affect is the hard case for replay coding. *Unknown:* how well either works on
 CLUE's open-ended document changes.
 
-**What it needs.** A replay renderer for CLUE documents, a construct, and human coders.
-**Feasibility:** medium; **enables 1.1, 3.2, and any trained detector**, so high strategic value.
+**Method — reuse CLUE's existing replay, don't build a renderer.** CLUE already has a **visual replay**
+for teachers/researchers that plays back each document change (almost a screencast, but with no audio
+and no mouse position/clicks recorded). The build is mostly *extension*: (a) show the recorded **log
+events** beside the replay, synced to it, with a playhead line marking where in the event list the
+replay currently sits; and (b) extend the existing **comment/authorable-label system** — today anchored
+to a point in document history — so a label can also anchor to a **specific log event**, including
+events that carry *no* document change (which may be exactly the moment a researcher cares about). The
+payoff is **information parity**: the researcher codes from the same signal an LLM coder would get, so
+the human-vs-GenAI comparison is fair rather than confounded by the human having richer input.
+
+**What it needs.** Extend the existing visual replay + comment/label system (synced log-event timeline;
+labels anchorable to a log event), a construct, and human coders. **What to label is its own open
+question — see [3.9](#39-what-should-we-label-on-a-clue-replay-label-schema-study).**
+**Feasibility:** medium; **enables 1.1,
+3.2, and any trained detector**, so high strategic value.
 
 ### 3.4 GenAI feedback agent + compact-and-query infrastructure
 
@@ -380,6 +393,68 @@ See [clustering-representation-eval.md](clustering-representation-eval.md) §10.
 **Links.** [clustering-representation-eval.md](clustering-representation-eval.md) (full evidence) ·
 [3.1](research-directions.md) (supervised sibling) · [3.3](research-directions.md) (the labels) ·
 [papers/clicksight-radmehr-2025.md](papers/clicksight-radmehr-2025.md) (nearest ed-tech neighbor).
+
+### 3.9 What should we label on a CLUE replay? (label-schema study)
+
+**The question.** Given the replay + synced-log labeling UI of [3.3](#33-replay-labeling-of-clue-data-human--genai-assisted),
+*what should a researcher actually code?* Which **label types** are worth collecting, which are even
+**recoverable from this channel**, and which are well-enough defined to code reliably? This is the
+sibling of [3.6](#36-which-intervention-trigger-is-most-detectable-in-clue-logs) one level up: 3.6 asks
+which *trigger* is detectable; this asks which *labels* are worth detecting at all.
+
+**Why it matters.** Every labeling item (1.1, 3.2, 3.3, 3.6) quietly assumes "a construct." The
+construct is the actual bottleneck, not the tooling — and the candidate label types differ wildly in
+maturity, so picking the wrong one wastes scarce coder time. Answering this first tells the other items
+*what* to put in front of coders.
+
+**Candidate label types (the raw material — not yet vetted).**
+
+| Label type | Example values | Definedness | Known hardness / channel risk |
+|---|---|---|---|
+| **Affect** | BROMP categories (bored, frustrated, engaged concentration, …) | well-defined (BROMP) | the **hard case** for log/replay coding (Baker et al., 2006) |
+| **Behavior** | (to be defined by the researcher) | **ill-defined** — likely researcher-driven | needs a starting taxonomy; the few we've discussed are only a seed |
+| **Student state** | productive struggle · at impasse | semi-defined | overlaps affect + behavior |
+| **Intervention-worthy moment** | should-a-tutor-step-in (+ why) | tied to 3.6's triggers | inherits 3.6's per-material-type difficulty |
+| **"Something else is going on / why"** | free note | meta | *motivated by* the lossy channel — see below |
+| **Demonstrated understanding** | "student demonstrated understanding of X" (rubric on the final document) | **proven at document level** (existing rubric coding); pinning *when* on the timeline is not | depends entirely on what X is; document-level coding can't locate *when* understanding was gained — see below |
+
+**Demonstrated understanding is partly proven — but only for the final document.** We have already had
+researchers code final CLUE documents against **rubrics they designed** — done for at least **two
+rubrics across two curricula**. That is exactly the "student understands X" label, and it proves the
+construct is codable. Two caveats scope the remaining work: (a) it is **document-level, not
+history-level** — a rubric on the final artifact shows the student *demonstrated* an understanding but
+not *when* they gained it (they may have arrived already understanding it), so it doesn't locate a
+moment on the replay timeline; hence "**demonstrated** understanding of X" is the more precise phrasing.
+(b) It **depends entirely on what X is** — X must be a concept the curriculum is actively exploring or
+probing; there is no general "does the student understand things" label. What 3.9 adds beyond the
+existing rubric work is whether the replay + synced-log view lets a coder push this from document-level
+toward **history-level** — pinpointing where on the timeline the understanding is first demonstrated —
+which final-document rubric coding cannot do.
+
+**The lossy channel bounds all of it.** The replay has **no audio, no mouse position/clicks, and no
+physical presence**. That loss both *motivates* the "something else is going on" meta-label (a student
+may have turned to a peer, learned something, and come back — invisible in the document stream) and
+*caps* every other label's recoverability. This is the same data-loss argument that
+[2.1](#21-human-upper-bound-for-remote-affect-labeling-re-code-the-physics-playground-video) makes for
+remote affect labeling; that item's human-ceiling result would directly inform how much to trust affect
+labels coded here.
+
+**What it needs / first probe.** Cheap gate before committing: have a researcher attempt **affect**
+labeling (the best-defined type) on a few students from replay alone and report whether it feels
+possible at all. If affect — the most mature construct — doesn't survive the channel, the less-defined
+types are unlikely to. In parallel, treat **behavior** as an open elicitation: let researchers name the
+behaviors *they* want to find rather than imposing our seed list.
+
+**Status — deliberately staged, not worked.** These label types open further research questions we have
+not explored (how to define behavior; whether *demonstrated* understanding can be pushed from
+document-level to a *when* on the timeline — the document-level version is already proven; how much the
+missing channels matter per material type). Captured here as raw material for promotion, in the house
+style of "not found / not worked" rather than "solved."
+
+**Links.** [3.3](#33-replay-labeling-of-clue-data-human--genai-assisted) (the labeling UI) ·
+[3.6](#36-which-intervention-trigger-is-most-detectable-in-clue-logs) (trigger sibling) ·
+[2.1](#21-human-upper-bound-for-remote-affect-labeling-re-code-the-physics-playground-video)
+(channel data-loss ceiling) · [1.1](#11-cross-application-genai-affect-detector) (consumes the labels).
 
 ### 3.7 Also latent — the other use cases
 
