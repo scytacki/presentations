@@ -18,6 +18,11 @@ relies on hand-built features or RNN-style sequence models; a modern pretrained 
 interaction patterns better — but it's an open question whether prompting a frontier model is enough
 or we'd need to train our own.* The research both **supports and complicates** this (see the AI doc).
 
+> **Read first: [Status & Limitations](status-and-limitations.md).** This is a fast first pass, not a
+> finished report — parts are under-explained, the research directions need curation, the problem doc
+> is stale, there's no single woven story yet, and some paywalled papers went unread. That note lays
+> out what's provisional and what to do next.
+
 1. **[finding-meaning-problem.md](finding-meaning-problem.md)** — *the problem, as a **straw man**.*
    What "meaning in an interaction" is and why it's hard. Two use cases now specified — real-time
    detection for researcher interviews, and real-time feedback to students (rule-based today, GenAI
