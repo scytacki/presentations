@@ -17,7 +17,16 @@ research group (same audience as [../grounding-llm-help/](../grounding-llm-help/
   man** (built from discussion + the prior PR, not from literature). Has explicit **[OTHER USE
   CASE]** placeholders.
 - **[techniques.md](techniques.md)** — domain-agnostic methods (web analytics / marketing / UX).
-- **[edtech-landscape.md](edtech-landscape.md)** — what education actually built.
+- **[edtech-landscape.md](edtech-landscape.md)** — what education actually built. **Extended Aug 2026**
+  with two new sections on a literature the first pass missed entirely: **§2d strategy detectors**
+  (Gobert/Sao Pedro's CVS + hypothesis-testing detectors from logs, text-replay-labelled, run-time
+  deployable, and reportedly generalizing to a structurally different simulation) and **§2e
+  programming-process analytics** (Blikstein snapshots, Berland's EXTIRE, Ross et al.'s 3.8M program
+  traces, Rich et al. on decomposition being measured only on artifacts). Also a new construct bullet
+  in §1 and two new bullets in §6. **The organizing idea these sections add:** the compendium's
+  pessimism is about constructs that are **latent states the log hints at** (affect); **strategy**
+  constructs are **behaviors the log contains**, and they detect, deploy and transfer better. See
+  [research-directions](research-directions.md) 3.10.
 - **[ai-architecture-question.md](ai-architecture-question.md)** — transformers-vs-RNN and
   pretrained-vs-trained.
 - **[when-to-intervene.md](when-to-intervene.md)** — the intervention-timing literature upstream of
@@ -69,7 +78,10 @@ research group (same audience as [../grounding-llm-help/](../grounding-llm-help/
   bibliography entries added (all `Used by: querying-the-log`).
 - **[research-directions.md](research-directions.md)** — actionable directions (Group 1
   curated/feasible/**high value**; Group 2 curated/feasible/**questionable value**; Group 3
-  proposals; Rejected placeholder). The canonical "what next."
+  proposals; Rejected placeholder). The canonical "what next." **New Aug 2026: 3.10 — detecting
+  programming-process strategies** (trial-and-error / systematicity / decomposition / reuse) in the
+  block-programming environment, added to **Group 3 only**, per hard rule 1. It also fills in
+  **3.9's Behavior label row**, which had been an explicit blank awaiting researcher elicitation.
 - **[papers/](papers/)** — deep-dives: DDCI, ClickSight, pyKT, differential sequence mining, text
   replays + LLM coding, Physics Playground affect detectors (Kai 2015).
 - **[bibliography.md](bibliography.md)** — **single source of truth for every reference in this
@@ -203,6 +215,33 @@ To compensate, I **directly fetched and verified** the load-bearing citations. C
   EDM 2024, added to edtech refs), and BROMP is live *by design* to avoid video's context loss. The
   claim was softened to "did not find that specific remote-vs-live *human* A′ comparison." Lesson:
   don't ship "nobody has done X" without a search.
+- **Aug 2026 additions — verified directly by me (high confidence):**
+  [Rich, Egan & Ellsworth 2019](bibliography.md#rich-2019) *(ITiCSE, pp. 1–2 read — the "decomposition
+  is usually not measured at all / modularization masks the process" quotes are verbatim from the
+  primary text)*; [Kwon & Cheon 2019](bibliography.md#kwon-2019) *(IJCSES, pp. 1–3 read — 7 students /
+  11 Scratch programs, artifact-level coding, and the "without direct communication…" quote all from
+  the primary text)*; [Ross et al. 2025](bibliography.md#ross-2025) *(arXiv 2510.05056 — abstract plus
+  the real-vs-synthetic-trace comparison read from the arXiv HTML; the "only … 'small addition' types
+  of edits" quote is verbatim)*; [Dasgupta et al. 2016](bibliography.md#dasgupta-2016) *(abstract
+  read)*; [Berland et al. 2013](bibliography.md#berland-2013) and
+  [Blikstein 2011](bibliography.md#blikstein-2011) *(abstracts read via ERIC / Semantic Scholar —
+  **their sample sizes and environments are NOT verified; do not state them**)*.
+- **Aug 2026 additions — the one claim to be careful with.**
+  [Sao Pedro, Gobert & Betts 2014](bibliography.md#saopedro-2014) is the compendium's only instance of
+  a **behavioral/strategy detector generalizing across structurally different environments** — the
+  thing [1.1](research-directions.md#11-cross-application-genai-affect-detector) treats as unsolved
+  for affect. **We have only a search-result summary of it**; Springer elides the abstract. It is flagged ⚠️ in-doc, in the bibliography entry,
+  and is **Priority 1** in "To obtain." Do not put this claim in print unread, and specifically settle
+  whether the detector was applied *as is* or retrained.
+  [Gobert et al. 2012](bibliography.md#gobert-2012) is open access but so far **abstract-level only** —
+  no accuracy numbers are asserted anywhere from it.
+  [Blikstein et al. 2014](bibliography.md#blikstein-2014) is **metadata-only** (Crossref); cited
+  for existence, not for findings.
+- **Techapalokul & Tilevich 2017 — upgraded from metadata-only to read (Sep 2026).** pp. 1–5 read from
+  the authors' preprint. This **corrected an overclaim**: we had said clone detection over block
+  programs was "off-the-shelf" for cross-corpus reuse matching, but its duplicated-code detection is
+  **within a single sprite only**. It also turned out more useful than cited — its *Script Addition*
+  metric is a remix-vs-original structural diff, i.e. a worked "reused then modified" measure.
 - **Scan-only, NOT independently re-verified (flagged in-doc and in bibliography):** AKT (KDD
   2020) quotes, BST (1905.06874), Gruver time-series (2310.07820), the classification comparison
   (2406.08660), the ensemble+RAG log paper (2406.07467). Verify before leaning on these hard.
@@ -237,6 +276,15 @@ verification if you reopen a claim.
   confirmed, deep-dive updated.
 - **Re-verify the scan-only citations** (AKT, BST, 2310.07820, 2406.08660, 2406.07467) — quick arXiv
   fetches — and remove the "not re-verified" hedges.
+- **Top acquisition, added Aug 2026:** [Sao Pedro, Gobert & Betts (2014)](bibliography.md#saopedro-2014)
+  and the full text of [Gobert et al. (2012)](bibliography.md#gobert-2012). Together they decide how
+  strongly [edtech-landscape](edtech-landscape.md) §2d can be stated. Once obtained, this line
+  probably deserves a **`papers/` deep-dive** in the house format — it is now as close to our work as
+  DDCI is, and it is the only strategy-detector-that-transferred candidate we have.
+- **Cheap, concrete, and gating 3.10:** the **instrumentation audit** of the block-programming
+  environment (per-block edits? explicit run event? copy-source id? documentation-tile writes?). See
+  [research-directions](research-directions.md) 3.10 "What it needs." This is the one item here that
+  is engineering rather than research, and nothing else in 3.10 can be scoped until it is done.
 - **Possible deeper dives not yet done:** process mining for "unsupported things users try to do"
   (the UX use case); a foundation-model-on-unlabeled-logs angle (self-supervised pretraining) as the
   way around the labeling bottleneck; the "insight/aha detection" gap.
@@ -252,6 +300,9 @@ verification if you reopen a claim.
   in-person BROMP? decides whether an AI remote-labeler is worth building at all). **Group 3**
   (proposals) holds the serialization study, an LLM CLUE detector, text-replay labeling of CLUE data,
   the GenAI feedback agent, a foundation-model-on-logs idea, a **which-intervention-trigger-is-detectable**
-  scoping study (3.6), and the latent other-use-cases. A future
+  scoping study (3.6), the **programming-process strategy detection** item (3.10 — trial-and-error /
+  systematicity / decomposition / reuse, plus the verdict on AI-generated interaction data: fine for an
+  instrumentation audit and test fixtures, invalid for validating a detector), and the latent
+  other-use-cases. A future
   **Rejected ideas** section will record what we drop and why. Don't re-scatter actionable directions
   back into the analytical docs — add them there.

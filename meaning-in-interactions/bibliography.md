@@ -102,6 +102,18 @@ carry two glyphs (e.g. 🟢⚠️).
   *AIED 2013*. DOI 10.1007/978-3-642-39112-5_44. 🔒 (Springer LNCS). Origin of the
   wheel-spinning construct. *Used by:* [edtech-landscape](edtech-landscape.md#references)
 
+<a id="berland-2013"></a>
+- **Berland, M., Martin, T., Benton, T., Petrick Smith, C., & Davis, D. (2013).** Using Learning
+  Analytics to Understand the Learning Pathways of Novice Programmers. *Journal of the Learning
+  Sciences*, 22(4), 564–599. DOI 10.1080/10508406.2013.836655; ERIC EJ1024551. 🔒 *(abstract
+  verified via ERIC; full text not read — sample size and programming environment **not**
+  confirmed, do not state them.)* Names the **EXTIRE** pathway — novices progress from
+  **exploration → tinkering → refinement** — derived from program snapshots, contributing "empirical
+  support for previously theorized processes; identifying a role of tinkering in novices' learning."
+  The closest published precedent for a *tinkering vs. refinement* construct in novice programming.
+  *Used by:* [edtech-landscape](edtech-landscape.md#references) ·
+  [research-directions](research-directions.md#references)
+
 <a id="biswas-2010"></a>
 - **Biswas, G., et al. (2010).** Betty's Brain expert-model relevance summarization
   (`-REL`/`-IRR`). 🔒⚠️ *(cited via [Kinnebrew 2013](#kinnebrew-2013); not independently
@@ -114,6 +126,27 @@ carry two glyphs (e.g. 🟢⚠️).
   full text not read)* The "task model" cited in [DDCI / Baker et al. 2024](papers/ddci-baker-2024.md)
   to interpret Betty's Brain behavioral-sequence detectors. *Used by:*
   [papers/ddci-baker-2024.md](papers/ddci-baker-2024.md)
+
+<a id="blikstein-2011"></a>
+- **Blikstein, P. (2011).** Using learning analytics to assess students' behavior in open-ended
+  programming tasks. *LAK '11* (1st International Conference on Learning Analytics and Knowledge).
+  DOI 10.1145/2090116.2090132. 🔒 *(abstract verified via Semantic Scholar; full text not read.)*
+  Logs "hundreds of snapshots of students' code during a programming assignment" and applies
+  quantitative techniques to "extract students' behaviors and categorize them in terms of programming
+  experience," in a case study with undergraduate engineering students. The origin point of
+  **snapshot-based programming-process analytics** — assessment of *open-ended* programming work
+  where "students' work can evolve in ways that are too subtle or too complex to be detected by the
+  human eye." *Used by:* [edtech-landscape](edtech-landscape.md#references)
+
+<a id="blikstein-2014"></a>
+- **Blikstein, P., Worsley, M., Piech, C., Sahami, M., Cooper, S., & Koller, D. (2014).**
+  Programming Pluralism: Using Learning Analytics to Detect Patterns in the Learning of Computer
+  Programming. *Journal of the Learning Sciences*, 23(4), 561–599. DOI 10.1080/10508406.2014.954750.
+  🔒⚠️ *(citation metadata verified via Crossref; **abstract and full text not read** — do not cite
+  its sample sizes or findings without obtaining it.)* The scaled-up successor to
+  [Blikstein 2011](#blikstein-2011); listed because it is the standard citation for
+  code-snapshot process analytics at course scale. *Used by:*
+  [edtech-landscape](edtech-landscape.md#references)
 
 <a id="brinton-2015"></a>
 - **Brinton, C. G., Buccapatnam, S., Chiang, M., & Poor, H. V. (2015).** Mining MOOC Clickstreams: On
@@ -166,6 +199,18 @@ carry two glyphs (e.g. 🟢⚠️).
   as retrieval *context*, not the object being queried. **Domain: education** — the closest
   interaction-log + RAG adjacency, but inverted from the query-the-log idea. *Used by:*
   [querying-the-log](querying-the-log.md#references)
+
+<a id="dasgupta-2016"></a>
+- **Dasgupta, S., Hale, W., Monroy-Hernández, A., & Hill, B. M. (2016).** Remixing as a Pathway to
+  Computational Thinking. *CSCW '16*, 1438–1449. DOI 10.1145/2818048.2819984; arXiv:1605.08766. 🟢
+  *(abstract read.)* Tests the "appropriation as a pathway for learning" theory on **more than 2.4
+  million projects shared by more than 1 million users** in the Scratch online community: more
+  remixing predicts **broader command vocabularies** (controlling for number of projects and volume
+  of code), and exposure to a CT concept *through* remixing predicts later adoption of that concept.
+  Relevant to us less for the finding than for the **precondition** — this study is possible because
+  Scratch records **remix provenance explicitly**, which is exactly the instrumentation question a
+  reuse detector turns on. *Used by:* [edtech-landscape](edtech-landscape.md#references) ·
+  [research-directions](research-directions.md#references)
 
 <a id="deep-transfer-clustering-2019"></a>
 - **Han, K., Vedaldi, A., & Zisserman, A. (2019).** Learning to Discover Novel Visual
@@ -254,6 +299,21 @@ carry two glyphs (e.g. 🟢⚠️).
 - **"Goal-Driven Explainable Clustering via Language Descriptions" (2023).** *EMNLP 2023*.
   🟢⚠️ *(named but not verified — scan-only)* *Used by:*
   [clustering](clustering-representation-eval.md#references)
+
+<a id="gobert-2012"></a>
+- **Gobert, J. D., Sao Pedro, M. A., Baker, R. S., Toto, E., & Montalvo, O. (2012).** Leveraging
+  Educational Data Mining for Real-time Performance Assessment of Scientific Inquiry Skills within
+  Microworlds. *Journal of Educational Data Mining*, 4(1), 111–143. 🟢 *(open access; **abstract-level
+  only** — full text not read, so no accuracy numbers are asserted from it.)* Machine-learned
+  detectors of two **inquiry-strategy** constructs — whether students **designed controlled
+  experiments** (the control-of-variables strategy) and whether they **tested their articulated
+  hypotheses** — from log files in Science Assistments microworlds. Labels came from **text replay
+  tagging** ([Baker et al. 2006](#baker-2006) extended to log-file clips); detectors were validated
+  under **student-level cross-validation** and the paper states they "can be applied at run-time to
+  drive scaffolding intervention." **The open anchor for the systematic-inquiry detector line** — the
+  closest thing in the literature to a "systematicity" detector. *Used by:*
+  [edtech-landscape](edtech-landscape.md#references) ·
+  [research-directions](research-directions.md#references)
 
 <a id="graesser-1995"></a>
 - **Graesser, A. C., Person, N. K., & Magliano, J. P. (1995).** Collaborative Dialogue Patterns
@@ -360,6 +420,19 @@ carry two glyphs (e.g. 🟢⚠️).
 - **Kong, W., et al. (2025).** Language-TPP: Byte-token Enhanced Language Models for Temporal
   Point Processes Analysis. arXiv:2502.07139. 🟢 Encodes inter-event intervals as byte-tokens.
   *Used by:* [clustering](clustering-representation-eval.md#references)
+
+<a id="kwon-2019"></a>
+- **Kwon, K., & Cheon, J. (2019).** Exploring problem decomposition and program development through
+  block-based programs. *International Journal of Computer Science Education in Schools*, 3(1).
+  DOI 10.21585/ijcses.v3i1.54. 🟢 ✅ *(pp. 1–3 read directly.)* Analyzes **11 Scratch programs from 7
+  middle-school students** in an after-school coding club for problem decomposition and program
+  development — coded by hand **from the finished artifacts**, not from process logs. Carries the
+  cleanest statement of the limit that bounds every artifact-only decomposition measure: "Without
+  direct communication regarding the student's solution plan and conceptual understanding of the
+  code, it will be difficult to pinpoint the reasons for the errors by only examining the outcome of
+  the thinking process: successful or unsuccessful programs." *Used by:*
+  [edtech-landscape](edtech-landscape.md#references) ·
+  [research-directions](research-directions.md#references)
 
 <a id="lenguyen-2019"></a>
 - **Le Nguyen, T., Gsponer, S., Ilie, I., O'Reilly, M., & Ifrim, G. (2019).** Interpretable Time
@@ -516,11 +589,39 @@ carry two glyphs (e.g. 🟢⚠️).
   hints-on-demand than proactive hints. *Used by:*
   [when-to-intervene](when-to-intervene.md#references)
 
+<a id="rich-2019"></a>
+- **Rich, P. J., Egan, G., & Ellsworth, J. (2019).** A Framework for Decomposition in Computational
+  Thinking. *ITiCSE '19* (Innovation and Technology in Computer Science Education), Aberdeen, 6 pages.
+  DOI 10.1145/3304221.3319793. 🟢 ✅ *(pp. 1–2 read directly.)* Reviews **9 published CT measures** for
+  how each measures decomposition. The finding we lean on, verbatim: "Regarding decomposition, the
+  most common approach was to not measure it at all. When decomposition was measured, it was often
+  measured by counting the ways in which students 'modularized' their code… this narrow definition
+  reveals little about how an individual went about modularizing or decided how to modularize a block
+  of code, and **completely masks the decision-making process inherent in decomposition**." Also notes
+  existing measures are "vague and dependent on the 'you know it when you see it' notion that requires
+  expert analysis." Direct primary-source evidence that decomposition is assessed on **artifacts**,
+  not on **process**. *Used by:* [edtech-landscape](edtech-landscape.md#references) ·
+  [research-directions](research-directions.md#references)
+
 <a id="rodrigo-2011"></a>
 - **Rodrigo, M. M. T., & Baker, R. S. (2011).** Comparing the incidence and persistence of
   learning behaviors across intelligent tutors and educational games. *Research and Practice
   in Technology Enhanced Learning*. Author copy open (upenn.edu). 🟢⚠️ *(not independently
   re-fetched)* *Used by:* [edtech-landscape](edtech-landscape.md#references)
+
+<a id="ross-2025"></a>
+- **Ross, A., Srivastava, M., Blanchard, J., & Andreas, J. (2025).** Modeling Student Learning with
+  3.8 Million Program Traces. arXiv:2510.05056 [cs.LG]; accepted to **AIED 2026**. 🟢 *(abstract and
+  the real-vs-synthetic comparison read directly from the arXiv HTML; full paper skimmed only.)*
+  Trains language models on **3.8M edit-by-edit program traces** from **Pencil Code**. Two results
+  we lean on: (a) "many properties of code traces, such as **goal backtracking** or number of
+  comments, can be predicted from learned representations of the students who write them" — i.e.
+  process-level strategy constructs are recoverable from edit traces; (b) a model trained on
+  **synthetically generated traces** (reconstructed from each trace's final program) "only shows high
+  correlation for the 'small addition' types of edits, **which are the only kind it sees during
+  training**" — direct published evidence that synthetic traces under-represent the diversity of real
+  student editing. *Used by:* [edtech-landscape](edtech-landscape.md#references) ·
+  [research-directions](research-directions.md#references)
 
 <a id="roy-2024"></a>
 - **Roy, D., et al. (2024).** Exploring LLM-based Agents for Root Cause Analysis. *FSE 2024 Companion*,
@@ -539,6 +640,31 @@ carry two glyphs (e.g. 🟢⚠️).
   intention using multilayer perceptron and LSTM. *Neural Computing & Applications*. DOI
   10.1007/s00521-018-3523-0. 🔒 (Springer); dataset open on UCI. *Used by:*
   [techniques](techniques.md#references)
+
+<a id="saopedro-2011"></a>
+- **Sao Pedro, M. A., Baker, R. S. J. d., Gobert, J. D., Montalvo, O., & Nakama, A. (2011).**
+  Leveraging machine-learned detectors of systematic inquiry behavior to estimate and predict transfer
+  of inquiry skill. *User Modeling and User-Adapted Interaction*. DOI 10.1007/s11257-011-9101-0.
+  🔒 *(authors, title, venue, year and DOI verified via Semantic Scholar; **abstract elided by the
+  publisher and not read** — no claims about its method or numbers are asserted here.)* The journal
+  extension of the systematic-inquiry detector line anchored by the open
+  [Gobert et al. 2012](#gobert-2012). *Used by:*
+  [edtech-landscape](edtech-landscape.md#references)
+
+<a id="saopedro-2014"></a>
+- **Sao Pedro, M. A., Gobert, J. D., & Betts, C. G. (2014).** Towards Scalable Assessment of
+  Performance-Based Skills: Generalizing a Detector of Systematic Science Inquiry to a Simulation with
+  a Complex Structure. *Intelligent Tutoring Systems (ITS 2014)*, LNCS 8474. DOI
+  10.1007/978-3-319-07221-0_75. 🔒⚠️ *(authors, title, venue, year and DOI verified via Semantic
+  Scholar; **abstract elided by the publisher — the description below comes from a search-result
+  summary, not from the primary text.**)* Reported to show that a systematic-inquiry (CVS) detector
+  built on physical-science simulations with a **simple, linear causal structure** can identify the
+  same skill in a **life-science Ecosystems simulation with a complex causal structure**. ⚠️ **This is
+  the load-bearing cross-application-transfer-of-a-behavioral-detector claim in this compendium
+  ([edtech-landscape](edtech-landscape.md) §2d, [research-directions](research-directions.md) 3.10).
+  Obtain and read it before citing in print** — in particular, whether the detector was applied *as
+  is* or retrained. *Used by:* [edtech-landscape](edtech-landscape.md#references) ·
+  [research-directions](research-directions.md#references)
 
 <a id="sarthi-2024"></a>
 - **Sarthi, P., Abdullah, S., Tuli, A., Khanna, S., Goldie, A., & Manning, C. D. (2024).** RAPTOR:
@@ -593,6 +719,22 @@ carry two glyphs (e.g. 🟢⚠️).
   TabLLM: Few-shot Classification of Tabular Data with Large Language Models. *AISTATS 2023*.
   arXiv:2210.10723. 🟢 Compares serialization methods; text templates best in the low-data
   regime. *Used by:* [clustering](clustering-representation-eval.md#references)
+
+<a id="techapalokul-2017"></a>
+- **Techapalokul, P., & Tilevich, E. (2017).** Understanding recurring quality problems and their
+  impact on code sharing in block-based software. *IEEE VL/HCC 2017*, 43–51. DOI
+  10.1109/VLHCC.2017.8103449. 🟢 ✅ *(metadata verified via Crossref; pp. 1–5 read directly from the
+  authors' preprint at people.cs.vt.edu/tilevich/papers/vlhcc17.pdf.)* Catalogs **12 Scratch code
+  smells** and applies an automated AST-based analysis to **594,988 Scratch projects** (≥ 20 blocks,
+  from 1,066,308 collected Apr–Jul 2016) plus **519 popular projects** with ≥ 80 remixes. Two things
+  we use: **(a)** *Duplicated Code* is detected as AST subtree and fragment clones (minimum 8 AST
+  nodes, sequences up to 10 blocks), but only **within one sprite** — "*Duplicated Code* across
+  scriptable objects is not considered" — so it is a building block for cross-document reuse
+  matching, not a ready-made one; **(b)** its **Script Addition** metric structurally diffs each
+  remix's JSON against the original project and counts added/replaced scripts per block — a
+  worked instance of measuring "reused, then modified" when provenance is known. *Used by:*
+  [edtech-landscape](edtech-landscape.md#references) ·
+  [research-directions](research-directions.md#references)
 
 <a id="tisasrec-2020"></a>
 - **Li, J., Wang, Y., & McAuley, J. (2020).** Time Interval Aware Self-Attention for Sequential
@@ -686,6 +828,29 @@ carry two glyphs (e.g. 🟢⚠️).
 The paywalled / unverified-but-wanted subset, ranked by how much obtaining it would strengthen
 this compendium. Full citation details for each are in the [Master list](#master-list) above — these
 entries carry only the acquisition-specific rationale.
+
+### Priority 1 — the strategy/programming-process line (added Aug 2026)
+
+These back the newest and least-hedged claims in the compendium ([edtech-landscape](edtech-landscape.md)
+§2d–2e, [research-directions](research-directions.md) 3.10). Two of them are load-bearing and currently
+rest on abstracts or search summaries.
+
+- [Sao Pedro, Gobert & Betts (2014)](#saopedro-2014) 🔒⚠️ — **the single most important acquisition.**
+  It is our only claimed instance of a **behavioral/strategy detector generalizing to a structurally
+  different environment**, which is precisely the cross-application transfer that
+  [1.1](research-directions.md#11-cross-application-genai-affect-detector) treats as unsolved for
+  affect. We have **only a search-result summary** of it. Read it to settle whether the detector was applied *as is* or retrained, and with
+  what accuracy.
+- [Gobert et al. (2012)](#gobert-2012) 🟢 — open access, abstract-level only so far. Read for the
+  actual detector accuracies (A′/κ), the number of text-replay-tagged clips, inter-rater reliability,
+  and the feature families — this is the template a "systematicity" detector would copy.
+- [Sao Pedro et al. (2011)](#saopedro-2011) 🔒 — the journal extension; lower priority than the two
+  above.
+- [Berland et al. (2013)](#berland-2013) 🔒 — read for the sample, the programming environment, and
+  how EXTIRE phases were **operationalized from snapshots** (that operationalization is the reusable
+  part for a trial-and-error detector).
+- [Blikstein et al. (2014)](#blikstein-2014) 🔒⚠️ — metadata only; obtain before citing any of its
+  numbers.
 
 ### Priority 2 — strengthen the EdTech-landscape claims
 

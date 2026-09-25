@@ -418,7 +418,7 @@ maturity, so picking the wrong one wastes scarce coder time. Answering this firs
 | Label type | Example values | Definedness | Known hardness / channel risk |
 |---|---|---|---|
 | **Affect** | BROMP categories (bored, frustrated, engaged concentration, …) | well-defined (BROMP) | the **hard case** for log/replay coding (Baker et al., 2006) |
-| **Behavior** | (to be defined by the researcher) | **ill-defined** — likely researcher-driven | needs a starting taxonomy; the few we've discussed are only a seed |
+| **Behavior** | trial-and-error · systematicity · decomposition · reuse — see [3.10](#310-detecting-programming-process-strategies-in-a-block-programming-environment) | **researcher-named**, no longer a blank | strategy constructs the log largely *contains*; per-construct hardness in 3.10 |
 | **Student state** | productive struggle · at impasse | semi-defined | overlaps affect + behavior |
 | **Intervention-worthy moment** | should-a-tutor-step-in (+ why) | tied to 3.6's triggers | inherits 3.6's per-material-type difficulty |
 | **"Something else is going on / why"** | free note | meta | *motivated by* the lossy channel — see below |
@@ -449,7 +449,11 @@ labels coded here.
 labeling (the best-defined type) on a few students from replay alone and report whether it feels
 possible at all. If affect — the most mature construct — doesn't survive the channel, the less-defined
 types are unlikely to. In parallel, treat **behavior** as an open elicitation: let researchers name the
-behaviors *they* want to find rather than imposing our seed list.
+behaviors *they* want to find rather than imposing our seed list. **That elicitation has now happened
+once** — see [3.10](#310-detecting-programming-process-strategies-in-a-block-programming-environment),
+which takes four researcher-named strategy constructs from the block-programming work and assesses each
+for detectability. Treat 3.10 as the worked example of what this row should contain, not as the whole
+answer; other curricula will name different behaviors.
 
 **Status — deliberately staged, not worked.** These label types open further research questions we have
 not explored (how to define behavior; whether *demonstrated* understanding can be pushed from
@@ -461,6 +465,158 @@ style of "not found / not worked" rather than "solved."
 [3.6](#36-which-intervention-trigger-is-most-detectable-in-clue-logs) (trigger sibling) ·
 [2.1](#21-human-upper-bound-for-remote-affect-labeling-re-code-the-physics-playground-video)
 (channel data-loss ceiling) · [1.1](#11-cross-application-genai-affect-detector) (consumes the labels).
+
+### 3.10 Detecting programming-process strategies in a block-programming environment
+
+**The question.** Can we detect, from the interaction/edit stream of a visual block-programming
+environment (CLUE's Dataflow tile — blocks, sensors, thresholds), four researcher-named strategy
+constructs: **trial-and-error**, **systematicity**, **decomposition**, and **reuse**?
+
+The constructs as posed by the researcher who wants them:
+
+| # | Construct | As stated |
+|---|---|---|
+| A | **Trial and error** | rapidly adding/removing/changing blocks (a) without systematicity (one change at a time), (b) without pausing to document (write / draw / fill in tables), and/or (c) without arriving at a working program |
+| B | **Systematicity** | the contrast class — students who *do* write down their trials, add documentation, and run many tests varying only one thing |
+| C | **Decomposition** | building a program that does *just* one part first (get the sensor working, without the EMG reader) before adding the rest |
+| D | **Reuse** | pulling from prior work — their own or someone else's — and modifying it; flagged especially when it is *not* the curriculum's own starter material |
+
+**Why it matters.** Three reasons, in increasing order of importance.
+
+1. These are **strategy constructs — behaviors the log contains, not states it hints at**
+   ([edtech-landscape.md](edtech-landscape.md) §2d). Nearly all of this compendium's pessimism (the
+   A′ ≈ 0.63 affect ceiling in [1.1](#11-cross-application-genai-affect-detector), affect as the hard
+   case for replay coding, non-transferring detectors) attaches to the *other* kind of construct. The
+   evidence points the opposite way here — up to and including one reported case of a
+   systematic-inquiry detector generalizing to a structurally different simulation
+   ([Sao Pedro, Gobert & Betts 2014](bibliography.md#saopedro-2014)). *(⚠️ We have only a search-result
+   summary of that paper; it is what would make transfer part of this item's case, so read it before
+   leaning on it.)*
+2. The signal lives in an **artifact with formal structure**, not in a clickstream. A Dataflow program
+   is a graph; you can compute exact diffs, edit granularity, connected components, and run outcomes.
+   That is a far richer substrate than the mouse-click streams most cited work runs on, and it is what
+   [programming-process analytics](edtech-landscape.md) (§2e) exploits.
+3. **It answers [3.9](#39-what-should-we-label-on-a-clue-replay-label-schema-study)'s open question by
+   instance.** 3.9 flags the **Behavior** label type as ill-defined and says to "let researchers name
+   the behaviors *they* want to find rather than imposing our seed list." This *is* that elicitation
+   having happened — four named, researcher-motivated behaviors, all of which plausibly survive the
+   lossy replay channel that caps affect labeling.
+
+**What's known / unknown — per construct.** Ranked by expected effort-to-payoff, best first.
+
+- **D · Reuse — least a detection problem, most an instrumentation problem.** *Known:* the largest
+  study of student code reuse ([Dasgupta et al. 2016](bibliography.md#dasgupta-2016), 2.4M Scratch
+  projects) was only possible because **Scratch records remix provenance explicitly**. If our
+  environment logs "copied from document X" / "dragged in from the shared workspace" with a source
+  identifier, reuse is exact and nearly free, and "…and made changes" is a diff against that source
+  over time — [Techapalokul & Tilevich (2017)](bibliography.md#techapalokul-2017) compute a version
+  of this for Scratch remixes, structurally diffing each remix's JSON against its original to count
+  added and replaced scripts. If provenance is *not* logged, the fallback is structural matching
+  across the corpus. The building block exists — the same paper detects duplicated code in ~600K
+  Scratch projects via AST subtree/fragment clone detection — but only **within a single sprite**;
+  matching across documents or students would be our extension, not something off the shelf.
+  *Unknown / the one real subtlety:* the **curriculum baseline**. Every student starts from the same author-provided starter,
+  so identical subgraphs are the norm, not evidence. Define reuse as "matches a source that is neither
+  the curriculum starter nor this student's own current document" and most of the noise disappears —
+  which also directly satisfies the researcher's "especially if it's not part of the curriculum."
+- **A + B · Trial-and-error and systematicity — one construct, two poles. Do not build two
+  detectors.** *Known:* the closest precedent for the *outcome* framing is
+  [Berland et al.'s EXTIRE](bibliography.md#berland-2013) (exploration → tinkering → refinement, from
+  program snapshots), and for the *detector* framing it is
+  [Gobert et al. (2012)](bibliography.md#gobert-2012) — CVS ("designed a controlled experiment")
+  detected from logs, labeled by **text replay tagging**, validated under student-level
+  cross-validation, run-time deployable. "Change one thing, then test" in a program is CVS applied to
+  a program. Criterion (b), documentation, is nearly free: writes to text tiles, tables and drawings
+  are already discrete logged events. *Unknown / the two catches:* **(i)** criterion (c), "achieving a
+  working program," needs the correctness signal that [when-to-intervene.md](when-to-intervene.md)
+  identifies as what open-ended CLUE lacks. **Recommendation: keep it out of the detector and use it
+  as the *grouping variable* instead** — which is exactly what
+  [differential sequence mining](papers/differential-sequence-mining-kinnebrew-2013.md) needs;
+  working-vs-not is cheap, outcome-relevant, and needs no human coder. **(ii)** CVS detectors work partly because the environment supplies a well-defined
+  **trial** (set variables → run). If Dataflow logs an explicit run/execute/deploy event we inherit
+  that structure; if the graph simply runs continuously, the trial boundary has to be synthesised from
+  edit-pause structure first ([edtech-landscape.md](edtech-landscape.md) §2d, closing paragraph).
+- **C · Decomposition — the hardest, and the most novel.** *Known:*
+  [Rich, Egan & Ellsworth (2019)](bibliography.md#rich-2019) reviewed nine CT measures and found
+  decomposition is usually **not measured at all**, and when it is, it is counted as artifact-level
+  "modularization," which "completely masks the decision-making process inherent in decomposition."
+  [Kwon & Cheon (2019)](bibliography.md#kwon-2019) is the instance — decomposition coded by hand from
+  **finished Scratch programs**. So **process-level** decomposition detection is close to unrun; this
+  is the item with genuine research novelty. *What makes it tractable anyway:* it is a **graph-state
+  computation**, not sequence mining. At each edit, compute the connected components of the block
+  graph — which components exist, which are complete/runnable, which were actually executed. "Had a
+  sensor-only component that ran, and only later introduced the EMG branch" is a computable structural
+  signature over the program-state trajectory. *Unknown / the hard part:* **the log cannot give you
+  intent.** Deliberately building sensor-first is, in the event stream, identical to simply not having
+  reached the EMG part yet — the limit Kwon & Cheon state directly ("Without direct communication
+  regarding the student's solution plan…"). Two mitigations: **(1)** require the sub-program to have
+  been **run while isolated** — testing a component before integrating it is evidence of a plan,
+  whereas accretion produces no such run; **(2)** take the sub-goal set from the curriculum author,
+  which [when-to-intervene.md](when-to-intervene.md) and [3.6](#36-which-intervention-trigger-is-most-detectable-in-clue-logs)
+  already predict we will need ("authors formalizing goals").
+
+**What it needs.**
+
+- **Step 1, and it gates everything: an instrumentation audit.** Drive the interface deliberately
+  performing each of the four behaviors and check whether the resulting log actually distinguishes
+  them. Four make-or-break questions: *(a)* does the log carry **per-block edits**, or only whole-tile
+  state snapshots? *(b)* is there an explicit **run/execute** event (the trial boundary)? *(c)* does a
+  copy/drag-in carry a **source identifier** (the provenance)? *(d)* are **documentation-tile writes**
+  timestamped as separate events? Cheap — on the order of a day — and every downstream decision
+  depends on the answers.
+- **A grouping variable before any labels:** working-vs-non-working program, then Kinnebrew-style
+  differential mining. This produces a first result with **no human coding at all**.
+- **Then** labels, via [3.3](#33-replay-labeling-of-clue-data-human--genai-assisted)'s replay + synced
+  log-event UI, with these four as the concrete **Behavior** schema for [3.9](#39-what-should-we-label-on-a-clue-replay-label-schema-study).
+- **Data.** Note the scale at which comparable results were obtained: ~22 students
+  ([Kinnebrew](papers/differential-sequence-mining-kinnebrew-2013.md)), a few hundred
+  ([Gobert 2012](bibliography.md#gobert-2012)). These are not big-data constructs; a few dozen real
+  sessions would give a genuine feasibility read.
+
+**On generating the interaction data by having an AI drive the interface.** Worth separating two uses,
+because they have opposite verdicts.
+
+- **Legitimate, and recommended:** the **instrumentation audit** above is exactly this, and it is the
+  best use of the technique — a scripted actor performing each behavior on purpose is precisely what
+  you want for checking whether the log can tell them apart. Also fine as **unit-test fixtures** for
+  the diff/graph engine, and as deliberately **adversarial near-misses** to find where a detector
+  breaks.
+- **Not legitimate: using synthetic sessions to *validate* a detector or estimate precision/recall.**
+  It is circular — the actor is scripted from the same construct definition the detector encodes, so
+  you measure whether the detector recovers your script, not whether the construct is recoverable from
+  students. It also omits what makes real logs hard: ambiguous middle cases, off-task time, peer
+  interruptions invisible in the document stream (3.9's "something else is going on" label), misclicks
+  and abandonment. There is now **published evidence** for the general shape of this worry:
+  [Ross et al. (2025)](bibliography.md#ross-2025) trained a model on synthetic traces reconstructed
+  from final programs and found it "only shows high correlation for the 'small addition' types of
+  edits, which are the only kind it sees during training." *(Note the mismatch honestly: their
+  synthetic traces were **program-derived reconstructions**, not an LLM driving a UI, so this is
+  suggestive of the failure mode, not a direct test of it.)*
+- **And the binding constraint is not data volume — it is labels on real data**, which is this
+  compendium's own conclusion ([3.3](#33-replay-labeling-of-clue-data-human--genai-assisted),
+  [3.9](#39-what-should-we-label-on-a-clue-replay-label-schema-study)). Synthetic data cannot relieve
+  a label bottleneck; it manufactures labels that are true by construction and therefore worthless as
+  ground truth.
+
+**Feasibility.** Reuse and the trial-and-error/systematicity pair are **medium and near-term** — the
+features are computable from the artifact and the precedent detectors are classical. Decomposition is
+**higher-risk, higher-novelty**. The instrumentation audit is cheap enough that it should happen
+regardless of whether the rest is pursued.
+
+**One favourable asymmetry worth testing.** Every LLM-on-logs direction here inherits the serialization
+problem (Maier & Baker: GPT coded gaming from text replays poorly, blamed on the format being unlike
+anything in pretraining). But a **block-program diff serializes into something that reads like a code
+diff** — a format massively represented in pretraining, unlike a clickstream. That is a concrete reason
+to expect an LLM to do better here than the text-replay result predicts, and it makes this environment
+an unusually good testbed for [3.1](#31-serialization-study--how-to-render-an-interaction-stream-for-an-llm).
+
+**Links.** [edtech-landscape.md](edtech-landscape.md) §2d–2e (the two literatures this rests on) ·
+[3.9](#39-what-should-we-label-on-a-clue-replay-label-schema-study) (this is its **Behavior** label
+type, instantiated) · [3.3](#33-replay-labeling-of-clue-data-human--genai-assisted) (the labels) ·
+[3.1](#31-serialization-study--how-to-render-an-interaction-stream-for-an-llm) (serialization) ·
+[3.6](#36-which-intervention-trigger-is-most-detectable-in-clue-logs) (sibling: which *trigger* is
+detectable) · [papers/differential-sequence-mining-kinnebrew-2013.md](papers/differential-sequence-mining-kinnebrew-2013.md)
+(the grouping/differential method).
 
 ### 3.7 Also latent — the other use cases
 
@@ -482,7 +638,15 @@ support). Kept here as pointers until someone wants to promote one.
 
 *Full details + accessibility in [the shared bibliography](bibliography.md).*
 
+- [Berland et al. (2013) — EXTIRE / learning pathways of novice programmers](bibliography.md#berland-2013) 🔒
+- [Dasgupta et al. (2016) — Remixing as a Pathway to Computational Thinking](bibliography.md#dasgupta-2016) 🟢
+- [Gobert et al. (2012) — real-time inquiry-skill detectors (CVS / hypothesis testing)](bibliography.md#gobert-2012) 🟢
+- [Kwon & Cheon (2019) — decomposition from block-based programs](bibliography.md#kwon-2019) 🟢✅
 - [de Morais et al. (2023) — sensor-free affect review](bibliography.md#demorais-2023) ✅
 - [Radmehr et al. (2025) — ClickSight](bibliography.md#radmehr-2025) ✅
+- [Rich, Egan & Ellsworth (2019) — A Framework for Decomposition in CT](bibliography.md#rich-2019) 🟢✅
+- [Ross et al. (2025) — Modeling Student Learning with 3.8M Program Traces](bibliography.md#ross-2025) 🟢
+- [Sao Pedro, Gobert & Betts (2014) — generalizing a systematic-inquiry detector](bibliography.md#saopedro-2014) 🔒⚠️
+- [Techapalokul & Tilevich (2017) — recurring quality problems in block-based software](bibliography.md#techapalokul-2017) 🔒⚠️
 - [Yang et al. (2026) — GUIDE](bibliography.md#yang-2026) ✅
 - [Zambrano et al. (2024) — Says Who? ground-truth emotion](bibliography.md#zambrano-2024) 🟢⚠️

@@ -51,10 +51,20 @@ and 2010s, on a small vocabulary of learner states worth pulling out of interact
   first several attempts already contain the signal — which is exactly what makes early, in-session
   detection plausible. *(Solid research — replicated concept.)*
 
+- **Strategy / process constructs** — *how* a student is going about the work, independent of whether
+  they are stuck or bored: are they **experimenting systematically** (changing one variable at a
+  time), **tinkering**, **planning**, **testing a stated hypothesis**? This is a smaller but real
+  line, and unlike the three above it is **not** an internal state — it is a property of the action
+  sequence itself. It is developed in §2d–2e below, and it is the family our own
+  trial-and-error / systematicity / decomposition / reuse questions belong to. *(Solid research for
+  systematic experimentation; thinner for the rest.)*
+
 The through-line: the field's "meaning" is mostly **negative signals worth intervening on** —
 where a student is stuck, disengaged, or cheating the software. "Insight" / "aha-moments" as a
 *detected* construct is comparatively **underdeveloped** — more discussed theoretically (via
-confusion resolution) than built as a detector. *(Gap, and one relevant to our use cases.)*
+confusion resolution) than built as a detector. *(Gap, and one relevant to our use cases.)* The
+strategy constructs are the partial exception: they are neutral-to-positive descriptions of *how*
+someone works rather than alarms, and they are the ones that transfer best (§2d).
 
 ## 2. How the detectors were actually built (the architecture answer)
 
@@ -145,6 +155,100 @@ lessons — but that's behavior, not affect, and still took deliberate knowledge
 is the harder, largely-unsolved one. This is exactly the gap a **GenAI** affect detector reading a
 semantic log representation *might* close — an open opportunity examined in
 [ai-architecture-question.md](ai-architecture-question.md), not an established result.
+
+## 2d. Strategy detectors — the line where log-only detection worked *and* transferred
+
+§2c's pessimism is specifically about **affect**. There is a parallel line of work on **strategy**
+constructs where the same recipe (text-replay labels → hand-engineered features → classical ML)
+produced detectors that were both usable in real time *and*, apparently, portable — and this
+compendium had been missing it.
+
+The anchor is **Gobert, Sao Pedro, Baker, Toto & Montalvo (2012, JEDM, open access)**: machine-learned
+detectors of two **inquiry-strategy** constructs in Science Assistments microworlds — whether a
+student **designed a controlled experiment** (the control-of-variables strategy, CVS) and whether they
+**tested their articulated hypothesis**. Labels came from **text replay tagging** — the very method in
+§2b — the detectors were validated under **student-level cross-validation**, and the paper states they
+"can be applied at run-time to drive scaffolding intervention." *(Solid research; **abstract-level for
+us** — full text not read, so no accuracy numbers are asserted.)*
+
+The part that matters most, and that should be read with care: **Sao Pedro, Gobert & Betts (2014, ITS)**
+is reported to take a systematic-inquiry detector built on physical-science simulations with a
+*simple, linear causal structure* and identify the same skill in a **life-science Ecosystems simulation
+with a complex causal structure.** If that holds up, it is a **behavioral/strategy detector transferring
+across structurally different applications** — the exact thing §2c documents as *unachieved for affect*
+and that [research-directions.md](research-directions.md) §1.1 frames as the open prize. *(⚠️ **Honest
+status: we have only a search-result summary of this paper** — Springer elides the abstract. It is the
+top acquisition priority in [bibliography.md](bibliography.md#to-obtain--ranked). Do not cite it in
+print before reading it, and in particular find out whether the detector was applied *as is* or
+retrained on the new simulation — the two claims are very different in strength.)*
+
+**Why this asymmetry is not a surprise.** Affect is a *latent internal state* that the log reflects only
+indirectly — hence the A′ ≈ 0.63 ceiling in Physics Playground and the finding that text replays are
+weakest exactly for affect (§2b). A strategy construct like "changed one variable, then ran a trial" is
+not reflected in the log; it is **constituted by** the log. The same reasoning explains why *gaming*
+detectors ported across systems while affect detectors did not (§2c). **For any construct we want to
+detect, the first question should be: is this a state the log hints at, or a behavior the log
+contains?**
+
+**The catch, and it is a real one.** CVS detectors work partly because the environment supplies a
+well-defined **trial** — set the variables, run the simulation, observe. That boundary is what makes
+"varied one thing" a computable predicate. Any environment without an explicit run/test action has to
+manufacture that boundary before this method transfers.
+
+## 2e. Programming-process analytics — a second literature we had not covered
+
+Where §2d comes from science inquiry, there is a separate tradition that analyses **the program under
+construction** rather than clicks, and it is the closest match to block-programming work like CLUE's
+Dataflow tile.
+
+- **Blikstein (2011, LAK)** logs "hundreds of snapshots of students' code during a programming
+  assignment" and extracts behaviors quantitatively, categorizing them by programming experience —
+  motivated exactly as we would motivate it: in open-ended programming, "students' work can evolve in
+  ways that are too subtle or too complex to be detected by the human eye." **Blikstein et al. (2014,
+  JLS)** is the scaled-up successor. *(Abstract-level for 2011; **metadata-only for 2014** — do not
+  cite its numbers.)*
+- **Berland, Martin, Benton, Petrick Smith & Davis (2013, JLS)** derive the **EXTIRE** pathway from
+  program snapshots — novices move from **exploration → tinkering → refinement** — giving "empirical
+  support for previously theorized processes" and "identifying a role of tinkering in novices'
+  learning." This is the closest published precedent for a **tinkering-vs-refinement** construct, and
+  worth noting for its stance: tinkering is treated as *a valuable approach for novices*, not as a
+  deficit. *(Abstract-level; sample and environment not verified.)*
+- **Ross, Srivastava, Blanchard & Andreas (2025; AIED 2026)** train language models on **3.8M
+  edit-by-edit program traces** from Pencil Code and find that "many properties of code traces, such
+  as **goal backtracking** or number of comments, can be predicted from learned representations of the
+  students who write them." This is the modern-AI-on-process-data data point the
+  [AI doc](ai-architecture-question.md) wants — and note the serialization advantage over §2b's text
+  replays: a **program edit trace looks like a code diff**, a format massively represented in LLM
+  pretraining, whereas Maier & Baker blamed GPT's weak text-replay coding on the format being unlike
+  anything in training data.
+- **The same paper carries the best available evidence on synthetic traces.** Its model trained on
+  synthetically generated traces (reconstructed from each trace's final program) "only shows high
+  correlation for the 'small addition' types of edits, **which are the only kind it sees during
+  training**." *(Read directly.)*
+
+**Decomposition is the outlier — measured on artifacts, not on process.** **Rich, Egan & Ellsworth
+(2019, ITiCSE)** reviewed nine published CT measures and found, verbatim: "Regarding decomposition, the
+most common approach was to **not measure it at all**. When decomposition was measured, it was often
+measured by counting the ways in which students 'modularized' their code… this narrow definition
+reveals little about how an individual went about modularizing or decided how to modularize a block of
+code, and **completely masks the decision-making process inherent in decomposition**." **Kwon & Cheon
+(2019)** is a concrete instance — 11 Scratch programs from 7 middle-schoolers, coded by hand from the
+**finished artifacts** — and states the bounding limit plainly: "Without direct communication regarding
+the student's solution plan and conceptual understanding of the code, it will be difficult to pinpoint
+the reasons for the errors by only examining the outcome of the thinking process." *(Both read
+directly.)* **So: detecting decomposition *as it is happening*, from the build history, is a genuine
+gap** — see [research-directions.md](research-directions.md) 3.10.
+
+**Reuse is a provenance problem, not a detection problem.** The largest study of student code reuse —
+**Dasgupta, Hale, Monroy-Hernández & Hill (2016, CSCW)**, over **2.4M projects from >1M users** —
+found more remixing predicts broader command vocabularies and that exposure to a concept via remixing
+predicts adopting it. But the reason that study was possible is that **Scratch records remix provenance
+explicitly**: the platform knows which project a project came from. With provenance, "reused and then
+changed" is a structural diff — **Techapalokul & Tilevich (2017, VL/HCC)** diff each Scratch remix
+against its original to measure how much was added. Without it, the fallback is structural matching;
+the same paper's static analysis detects **duplicated code** as AST clones across ~600K Scratch
+projects, but only *within* a single sprite, so cross-document matching would still have to be built.
+*(Read directly, pp. 1–5.)*
 
 ## 3. Knowledge tracing — the one place sequence models won (a different task)
 
@@ -238,6 +342,16 @@ which is the opening the hypothesis points at.
 - **"Interesting" and "insight" are under-served constructs.** Most of the literature detects
   *negative* states (stuck, bored, gaming). If our use cases include surfacing *positive* or
   *novel* moments, we are closer to the research frontier than to settled practice. *(Gap.)*
+- **The construct you pick decides how hard the problem is.** The single most useful distinction to
+  come out of §2c–2e: is the target a **state the log hints at** (affect — indirect, modest ceiling,
+  doesn't transfer) or a **behavior the log contains** (strategy — detectable, real-time, and
+  apparently portable)? Almost all of this compendium's pessimism attaches to the first kind. Before
+  committing coder time to a construct, ask which kind it is.
+- **Programming-process analytics is the closest-matching literature we have** for block-programming
+  work like the Dataflow tile — it analyses the artifact-under-construction rather than clicks, which
+  is a far richer substrate than a clickstream, and it partly answers the domain-mismatch complaint
+  below. It is also the one corner where an LLM has a natural serialization advantage, because an edit
+  trace reads as a code diff (§2e).
 - **Most of this was built for intelligent tutors and skill-builders**, not K-12 open-ended software
   like CLUE — problems with well-defined answers and clean correctness signals. Our content
   (drawing / tiles / open response) is a **domain mismatch** with most of the cited work — flag it
@@ -256,14 +370,20 @@ for the closest studies are in [papers/](papers/).*
 - [Baker, Corbett & Wagner (2006) — text replays](bibliography.md#baker-2006) ✅
 - [Baker & de Carvalho (2008) — text-replay tagging](bibliography.md#baker-2008) 🟢
 - [Beck & Gong (2013) — Wheel-Spinning](bibliography.md#beck-2013) 🔒
+- [Berland et al. (2013) — EXTIRE / learning pathways of novice programmers](bibliography.md#berland-2013) 🔒
+- [Blikstein (2011) — learning analytics in open-ended programming](bibliography.md#blikstein-2011) 🔒
+- [Blikstein et al. (2014) — Programming Pluralism](bibliography.md#blikstein-2014) 🔒⚠️
 - [BROMP 2.0 manual — Ocumpaugh, Baker & Rodrigo (2015)](bibliography.md#bromp-manual) ✅
 - [Choi et al. (2020) — SAINT](bibliography.md#choi-2020) 🟢
+- [Dasgupta et al. (2016) — Remixing as a Pathway to Computational Thinking](bibliography.md#dasgupta-2016) 🟢
 - [D'Mello & Graesser (2012) — affective-state dynamics](bibliography.md#dmello-2012) 🔒
 - [Ghosh, Heffernan & Lan (2020) — AKT](bibliography.md#ghosh-2020) 🟢
+- [Gobert et al. (2012) — real-time inquiry-skill detectors (CVS / hypothesis testing)](bibliography.md#gobert-2012) 🟢
 - [Jiang et al. (2018) — Expert Feature-Engineering vs. DNN](bibliography.md#jiang-2018) ✅
 - [Kai et al. (2018) — Decision-Tree Wheel-Spinning](bibliography.md#kai-2018) ✅
 - [Kai et al. (2015) — Physics Playground affect detectors](bibliography.md#kai-2015) ✅
 - [Kinnebrew, Loretz & Biswas (2013) — differential sequence mining](bibliography.md#kinnebrew-2013) ✅
+- [Kwon & Cheon (2019) — decomposition from block-based programs](bibliography.md#kwon-2019) 🟢✅
 - [Maier & Baker (2025) — GPT gaming detection](bibliography.md#maier-2025) ✅
 - [de Morais et al. (2023) — sensor-free affect review](bibliography.md#demorais-2023) ✅
 - [Liu et al. (2022) — pyKT](bibliography.md#liu-2022) 🟢
@@ -272,5 +392,10 @@ for the closest studies are in [papers/](papers/).*
 - [Paquette et al. (2015) — Sensor-Free or Sensor-Full](bibliography.md#paquette-2015) 🟢
 - [Piech et al. (2015) — DKT](bibliography.md#piech-2015) 🟢
 - [Radmehr et al. (2025) — ClickSight](bibliography.md#radmehr-2025) ✅
+- [Rich, Egan & Ellsworth (2019) — A Framework for Decomposition in CT](bibliography.md#rich-2019) 🟢✅
 - [Rodrigo & Baker (2011) — incidence/persistence](bibliography.md#rodrigo-2011) 🟢⚠️
+- [Ross et al. (2025) — Modeling Student Learning with 3.8M Program Traces](bibliography.md#ross-2025) 🟢
+- [Sao Pedro et al. (2011) — machine-learned systematic-inquiry detectors](bibliography.md#saopedro-2011) 🔒
+- [Sao Pedro, Gobert & Betts (2014) — generalizing a systematic-inquiry detector](bibliography.md#saopedro-2014) 🔒⚠️
+- [Techapalokul & Tilevich (2017) — recurring quality problems in block-based software](bibliography.md#techapalokul-2017) 🟢✅
 - [Zambrano et al. (2024) — Says Who? ground-truth emotion](bibliography.md#zambrano-2024) 🟢⚠️

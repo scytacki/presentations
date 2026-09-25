@@ -38,7 +38,11 @@ or we'd need to train our own.* The research both **supports and complicates** t
    field detects (struggle, gaming, affect, wheel-spinning), the fact that its built detectors are
    mostly **feature-engineering + classical ML**, knowledge tracing as the one neural stronghold,
    the **DDCI** paper our spec builds on, and the leading-edge **ClickSight** (LLM on raw
-   clickstreams).
+   clickstreams). **§2d–2e (Aug 2026)** add the **strategy/process** literature the first pass missed —
+   log-based detectors of *systematic experimentation* that ran in real time and reportedly
+   transferred across simulations, and **programming-process analytics** over code/block snapshots —
+   with the distinction that organizes both: a **latent state the log hints at** (affect: modest
+   ceiling, no transfer) is a much harder target than a **behavior the log contains** (strategy).
 
 4. **[ai-architecture-question.md](ai-architecture-question.md)** — *the forward-looking argument.*
    Transformers vs RNNs (they win on big data, barely on education-scale data), and pretrained-LLM
